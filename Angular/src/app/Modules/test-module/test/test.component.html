@@ -1,0 +1,27 @@
+<p>test works!</p>
+<button-flat-material [widthPara]="'50%'"></button-flat-material>
+<app-test-layout></app-test-layout>
+<button class="btn btn-primary" id="btn">button</button>
+<div *ngFor="let book of books">
+    <h2>{{book.Name}}</h2>
+    <p>
+      {{book.Id}}
+    </p>
+    <p>
+      {{book.Author}}
+    </p>
+  </div>
+  
+  <div *ngIf="book!=undefined">
+    <h2>{{book.Name}}</h2>
+  
+    <p>
+      {{book.Author}}
+    </p>
+  </div>
+  <p>{{[name]}}</p>
+  <input type="text"  [value]="name" onchange=""/>
+
+  <h5>Customized</h5>
+  <p-toggleButton (click)="changeValue()"  onLabel="I confirm" offLabel="I reject" onIcon="pi pi-check" offIcon="pi pi-times" [style]="{'width': '10em'}"></p-toggleButton>
+  <img src="">
