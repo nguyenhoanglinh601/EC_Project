@@ -1,0 +1,14 @@
+.icon-navigation{
+    font-size: 20px;
+}
+.title-navigation{
+    font-size: 12px;
+}
+
+.link-navigation{
+    color: #9b9b9b;
+}
+
+.link-navigation:hover{
+    color: #1435c3;
+}

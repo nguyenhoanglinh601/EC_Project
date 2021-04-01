@@ -1,0 +1,19 @@
+.link-footer{
+    color: #333333;
+}
+.link-footer:hover{
+    color: #1435c3;
+}
+.icon-payment{
+    font-size: 35px;
+}
+.title-payment{
+    font-size: 12px;
+    line-height: 1;
+}
+.div-payment{
+    cursor: pointer;
+}
+.div-payment:hover{
+    color: #1435c3;
+}

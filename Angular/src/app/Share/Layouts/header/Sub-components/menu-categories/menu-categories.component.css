@@ -1,0 +1,12 @@
+.icon-menu-categories{
+    font-size: 15px;
+}
+.title-menu-categories{
+    font-size: 15px;
+}
+
+@media screen and (max-width: 576px){
+    .icon-menu-categories{
+        font-size: 25px;
+    }
+}
