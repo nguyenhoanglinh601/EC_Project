@@ -20,10 +20,12 @@ namespace ec_project.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Product>> Get() =>
-            _productService.Get();
+        public ActionResult<List<Product>> Get(int index=0)
+        {
+            return _productService.Get(index);
+        }
 
-        [HttpGet("{id:length(24)}", Name = "GetBook")]
+        [HttpGet("{id:length(24)}", Name = "GetProduct")]
         public ActionResult<Product> Get(string id)
         {
             var product = _productService.Get(id);
@@ -41,7 +43,7 @@ namespace ec_project.Controllers
         {
             _productService.Create(product);
 
-            return CreatedAtRoute("GetBook", new { id = product._id.ToString() }, product);
+            return CreatedAtRoute("GetProduct", new { id = product._id.ToString() }, product);
         }
 
         [HttpPut("{id:length(24)}")]

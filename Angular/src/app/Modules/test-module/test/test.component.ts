@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { BookAPIService } from '../../../Data/Services/book-api.service';
-import { Book } from '../../../Data/Types/test';
+// import { BookAPIService } from '../../../Data/Services/book-api.service';
+// import { Book } from '../../../Data/Types/test';
 
 @Component({
   selector: 'app-test',
@@ -8,58 +8,58 @@ import { Book } from '../../../Data/Types/test';
   styleUrls: ['./test.component.css']
 })
 export class TestComponent implements OnInit {
-  books = new Array<Book>();
-  book: Book | undefined;
+  // books = new Array<Book>();
+  // book: Book | undefined;
 
-  name: string = "Linh";
+  // name: string = "Linh";
 
-  body: object = {
-    "Id": "6055f240c74fe4e6ef21b8ea",
-    "Name": "Web API with ASP .Net core 1",
-    "Price": 40,
-    "Category": "Computers",
-    "Author": "Obama"
-  };
+  // body: object = {
+  //   "Id": "6055f240c74fe4e6ef21b8ea",
+  //   "Name": "Web API with ASP .Net core 1",
+  //   "Price": 40,
+  //   "Category": "Computers",
+  //   "Author": "Obama"
+  // };
 
-  checked: boolean = true;
+  // checked: boolean = true;
 
-  constructor(private BookAPIService: BookAPIService) {
-  }
+  // constructor(private BookAPIService: BookAPIService) {
+  // }
 
   ngOnInit(): void {
-    this.getBooks();
+    // this.getBooks();
   }
 
-  public getBooks() {
-    this.BookAPIService.getBooks().subscribe(data => {
-      this.books = data.map(item => {
-        return new Book(item.Id, item.Name, item.Author, item.Price, item.Category);
-      })
-    });
-  }
+  // public getBooks() {
+  //   this.BookAPIService.getBooks().subscribe(data => {
+  //     this.books = data.map(item => {
+  //       return new Book(item.Id, item.Name, item.Author, item.Price, item.Category);
+  //     })
+  //   });
+  // }
 
-  public getBook() {
-    this.BookAPIService.getBook('6052b57c7de55528b8fb06f6').subscribe(data => {
-      this.book = data;
-    });
-  }
+  // public getBook() {
+  //   this.BookAPIService.getBook('6052b57c7de55528b8fb06f6').subscribe(data => {
+  //     this.book = data;
+  //   });
+  // }
 
-  public postBook() {
-    this.BookAPIService.postBook(this.body).subscribe(data => {
-      this.books.push(data);
-    })
-  }
+  // public postBook() {
+  //   this.BookAPIService.postBook(this.body).subscribe(data => {
+  //     this.books.push(data);
+  //   })
+  // }
 
-  public deleteBook(data: string) {
-    this.BookAPIService.deleleBook(data).subscribe(data => {
-      const index = this.books.findIndex(Id => Id == data);
-      this.books.splice(index, 1);
-    })
-  }
+  // public deleteBook(data: string) {
+  //   this.BookAPIService.deleleBook(data).subscribe(data => {
+  //     const index = this.books.findIndex(Id => Id == data);
+  //     this.books.splice(index, 1);
+  //   })
+  // }
 
-  changeValue(){
-    console.log("before: "+this.checked);
-    this.checked=!this.checked;
-    console.log("after: "+this.checked);
-  }
+  // changeValue(){
+  //   console.log("before: "+this.checked);
+  //   this.checked=!this.checked;
+  //   console.log("after: "+this.checked);
+  // }
 }

@@ -18,9 +18,11 @@ namespace ec_project.Services
             _products = database.GetCollection<Product>(settings.ProductsCollectionName);
         }
 
-        public List<Product> Get() =>
-            _products.Find(product => true).ToList();
-
+        public List<Product> Get(int indexSkip)
+        {
+            return _products.Find(product => true).Skip(indexSkip*4).Limit(4).ToList();
+        }
+            
         public Product Get(string id) =>
             _products.Find<Product>(product => product._id == id).FirstOrDefault();
 

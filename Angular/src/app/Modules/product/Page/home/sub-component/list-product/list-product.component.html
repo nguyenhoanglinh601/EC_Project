@@ -1,0 +1,32 @@
+<div class="container-fluid my-2">
+    <div class="container common my-2 py-3">
+        <h2 class="mb-0 mt-2">
+            <b>Dành cho bạn</b>
+        </h2>
+        <div class="row">
+            <div class="col-lg-3 col-md-6" *ngFor="let product of products">
+                <a>
+                    <mat-card class="card my-2">
+                        <img mat-card-image src="assets/Images/Products/{{product.thumbnail}}.png/"
+                            alt="{{product.name}}">
+                        <mat-card-content>
+                            <h1>
+                                {{product.name}}
+                            </h1>
+                            <p class="product-description">{{product.truncateText(product.description,250)}}</p>
+                            <h2 class="d-inline-flex">
+                                {{product.convertPrice(product.price)}}đ
+                                <div class="div-services mx-2">
+                                    <img class="img-fluid" src="assets/Icons/shipping.png" />
+                                </div>
+                            </h2>
+                        </mat-card-content>
+                    </mat-card>
+                </a>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center">
+            <button pButton class="btn-load-more mt-4" label="Xem thêm" (click)="loadMoreProduct()"></button>
+        </div>
+    </div>
+</div>

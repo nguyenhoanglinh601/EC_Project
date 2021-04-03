@@ -1,0 +1,21 @@
+.brand-item .brand-item-content {
+    margin: 0.3rem;
+    text-align: center;
+}
+.brand-item .brand-image {
+    width: 50%;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.thumbnail-brand{
+    height: 150px;
+    transition: transform .2s;
+}
+.thumbnail-brand:hover{
+    -ms-transform: scale(1.05); /* IE 9 */
+    -webkit-transform: scale(1.05); /* Safari 3-8 */
+    transform: scale(1.05); 
+}
+.common{
+    background-color: white;
+    border-radius: 10px;
+}

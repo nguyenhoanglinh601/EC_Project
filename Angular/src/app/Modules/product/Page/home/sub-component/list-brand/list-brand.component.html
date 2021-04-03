@@ -1,0 +1,26 @@
+<div class="container common my-3">
+    <p-carousel [value]="brands" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
+        [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+        <ng-template pTemplate="header">
+            <h2 class="mt-2 mb-4">
+                <b>Thương hiệu nổi bật</b>
+            </h2>
+        </ng-template>
+        <ng-template let-brand pTemplate="item">
+            <div class="brand-item">
+                <a href="">
+                    <div class="brand-item-content">
+                        <img class="w-100 img-fluid rounded thumbnail-brand"
+                            src="assets/Images/Brands/{{brand.thumbnail}}.png" [alt]="brand.name" />
+                        <div>
+                            <h2 class="mb-0 mt-2">
+                                <b>{{brand.name}}</b>
+                            </h2>
+                            <h4 class="m-0">{{brand.slogan}}</h4>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </ng-template>
+    </p-carousel>
+</div>

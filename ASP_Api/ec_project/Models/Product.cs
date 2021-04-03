@@ -23,9 +23,9 @@ namespace ec_project.Models
         public string power_source { get; set; }
         public string connect_type { get; set; }
         public string dimension { get; set; }
-        public string quanlity { get; set; }
+        public string quality { get; set; }
         public decimal price { get; set; }
-        public string quantity { get; set; }
+        public int quantity { get; set; }
         public string[] images { get; set; }
         public string description { get; set; }
         public string deliver { get; set; }

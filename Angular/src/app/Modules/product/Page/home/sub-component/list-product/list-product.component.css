@@ -1,0 +1,48 @@
+.card {
+    max-width: 400px;
+    background-color: #444e5c;
+    color: #e0e4ea;
+}
+.card:hover{
+  background-color: #126f53;
+}
+.common{
+  background-color: white;
+  border-radius: 10px;
+}
+.div-services{
+  width: 10%;
+}
+.product-description{
+  height: 150px;
+}
+
+.btn-load-more{
+  width: 15%;
+  background-color: #444e5c;
+  border: none;
+  font-weight: 600;
+}
+.btn-load-more:hover{
+  background-color: #126f53;
+}
+
+@media screen and (max-width: 800px){
+  .product-description{
+    height: 130px;
+  }
+  .btn-load-more{
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 400px){
+  .product-description{
+    height: 110px;
+  }
+  .btn-load-more{
+    width: 60%;
+  }
+}
+
+

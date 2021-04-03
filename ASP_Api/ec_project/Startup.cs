@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Net.Http.Headers;
 
 namespace ec_project
 {
@@ -29,6 +30,16 @@ namespace ec_project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(
+                options => options.AddPolicy("MyAllowHeadersPolicy",
+                builder =>
+                {
+                    // requires using Microsoft.Net.Http.Headers;
+                    builder.WithOrigins("http://localhost:4200")
+                           .WithHeaders(HeaderNames.ContentType, "x-custom-header");
+                })
+            );
+
             // requires using Microsoft.Extensions.Options
             services.Configure<ECProjectDatabaseSettings>(
                 Configuration.GetSection(nameof(ECProjectDatabaseSettings)));
@@ -38,6 +49,8 @@ namespace ec_project
 
             services.AddSingleton<AdminService>();
             services.AddSingleton<ProductService>();
+            services.AddSingleton<BrandService>();
+
 
             services.AddControllers()
                 .AddNewtonsoftJson(options => options.UseMemberCasing());
@@ -56,6 +69,13 @@ namespace ec_project
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ec_project v1"));
             }
+
+            app.UseCors(
+                options => options.WithOrigins("http://localhost:4200")
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials()
+            );
 
             app.UseHttpsRedirection();
 

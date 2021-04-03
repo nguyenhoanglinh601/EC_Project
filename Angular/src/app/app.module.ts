@@ -25,6 +25,16 @@ import { MenuCategoriesComponent } from './Share/Layouts/header/Sub-components/m
 import { MenuButtonComponent } from './Share/Materials/menu-button/menu-button/menu-button.component';
 import { SearchBarComponent } from './Share/Layouts/header/Sub-components/search-bar/search-bar/search-bar.component';
 import { FooterComponent } from './Share/Layouts/footer/footer.component';
+import { ListBrandComponent } from './Modules/product/Page/home/sub-component/list-brand/list-brand.component';
+import { ListBestSaleComponent } from './Modules/product/Page/home/sub-component/list-best-sale/list-best-sale.component';
+import { ListProductComponent } from './Modules/product/Page/home/sub-component/list-product/list-product.component';
+import { AdvertisementComponent } from './Modules/product/Page/home/sub-component/advertisement/advertisement.component';
+
+import {CarouselModule} from 'primeng/carousel';
+import {ButtonModule} from 'primeng/button';
+
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -38,6 +48,10 @@ import { FooterComponent } from './Share/Layouts/footer/footer.component';
     MenuButtonComponent,
     SearchBarComponent,
     FooterComponent,
+    ListBrandComponent,
+    ListBestSaleComponent,
+    ListProductComponent,
+    AdvertisementComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +64,9 @@ import { FooterComponent } from './Share/Layouts/footer/footer.component';
     FontAwesomeModule,
     MatButtonModule,
     MatMenuModule,
+    CarouselModule,
+    ButtonModule,
+    MatCardModule,
 
     AppRoutingModule,
   ],
