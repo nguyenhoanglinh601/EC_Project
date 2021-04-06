@@ -50,6 +50,7 @@ namespace ec_project
             services.AddSingleton<AdminService>();
             services.AddSingleton<ProductService>();
             services.AddSingleton<BrandService>();
+            services.AddSingleton<CategoryService>();
 
 
             services.AddControllers()
@@ -87,6 +88,8 @@ namespace ec_project
             {
                 endpoints.MapControllers();
             });
+
+           
         }
     }
 }

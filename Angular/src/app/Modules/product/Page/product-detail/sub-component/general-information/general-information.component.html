@@ -1,0 +1,17 @@
+<div class="container-fluid p-0 border">
+    <div class="row ">
+        <div class="col-5 m-0 border">
+            <div class="border">
+                <img class="img-fluid border" src="assets/Images/Products/{{img}}.png" alt="{{product.name}}">
+            </div>
+            <div class="float-left d-flex border">
+                <div class="m-md-2 m-1 border" *ngFor="let img of product.images">
+                    <img class="img-fluid small-image" src="assets/Images/Products/{{img}}.png" alt="{{product.name}}" (mouseenter)="changeImage(img)">
+                </div>
+            </div>
+        </div>
+        <div class="col-7 border">
+            thong tin
+        </div>
+    </div>
+</div>

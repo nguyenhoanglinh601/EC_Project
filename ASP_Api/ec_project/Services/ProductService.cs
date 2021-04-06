@@ -20,7 +20,14 @@ namespace ec_project.Services
 
         public List<Product> Get(int indexSkip)
         {
-            return _products.Find(product => true).Skip(indexSkip*4).Limit(4).ToList();
+            return _products.Find(product => true)
+                        .Skip(indexSkip*4)
+                        .Limit(4)
+                        .ToList();
+        }
+
+        public List<Product> GetProductsBestSell(){
+            return _products.Find(product => true).SortByDescending(p => p.quantity_sale).Limit(6).ToList();
         }
             
         public Product Get(string id) =>

@@ -7,19 +7,29 @@
     </b>
   </button>
   <mat-menu #categories="matMenu">
-    <a href="" mat-menu-item [matMenuTriggerFor]="category_1">category_1</a>
-    <a href="" mat-menu-item [matMenuTriggerFor]="category_2">category_2</a>
+    <div *ngFor="let category of listCategories; let i = index">
+      <div *ngIf="i<3; else content">
+        <button href="" mat-menu-item [matMenuTriggerFor]="listbrands">{{category.name}}</button>
+      </div>
+      <ng-template #content>
+        <a href="" mat-menu-item>{{category.name}}</a>
+      </ng-template>
+    </div>
   </mat-menu>
 
-  <mat-menu #category_1="matMenu">
+  <mat-menu #listbrands="matMenu">
+    <a href="" mat-menu-item *ngFor="let brand of brands">{{brand.name}}</a>
+  </mat-menu>
+
+   <!-- <mat-menu #{{category.name}}="matMenu">
     <a mat-menu-item [matMenuTriggerFor]="type_1_1">type_1_1</a>
     <a href="" mat-menu-item [matMenuTriggerFor]="type_1_2">type_1_2</a>
     <a href="" mat-menu-item [matMenuTriggerFor]="type_1_3">type_1_3</a>
     <a href="" mat-menu-item>type_1_4</a>
     <a href="" mat-menu-item>type_1_5</a>
-  </mat-menu>
+  </mat-menu> -->
 
-  <mat-menu #category_2="matMenu">
+  <!-- <mat-menu #category_2="matMenu">
     <a href="" mat-menu-item>type_2_1</a>
     <a href="" mat-menu-item>type_2_2</a>
     <a href="" mat-menu-item>type_2_3</a>
@@ -50,6 +60,6 @@
     <a href="" mat-menu-item>type_1_3_3</a>
     <a href="" mat-menu-item>type_1_3_4</a>
     <a href="" mat-menu-item disabled>type_1_3_5</a>
-  </mat-menu>
+  </mat-menu> -->
 
 </div>

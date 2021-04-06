@@ -1,0 +1,26 @@
+.small-image{
+    width: 60px;
+    height: 60px;
+}
+.small-image:hover{
+    border: 2px solid #1435c3;
+    border-radius: 10px;
+}
+
+@media screen and (max-width: 780px){
+    .small-image{
+        width: 40px;
+        height: 40px;
+    }
+    .small-image:hover{
+        border: 1px solid #1435c3;
+        border-radius: 7px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .small-image{
+        width: 20px;
+        height: 20px;
+    }
+}

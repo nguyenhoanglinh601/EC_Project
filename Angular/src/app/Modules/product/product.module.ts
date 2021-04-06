@@ -16,6 +16,12 @@ import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 
 import { MatCardModule } from '@angular/material/card';
+import { ProductDetailComponent } from './Page/product-detail/product-detail.component';
+import { GeneralInformationComponent } from './Page/product-detail/sub-component/general-information/general-information.component';
+import { PolicyServiceComponent } from './Page/product-detail/sub-component/policy-service/policy-service.component';
+import { SimilarProductComponent } from './Page/product-detail/sub-component/similar-product/similar-product.component';
+import { DetailProductComponent } from './Page/product-detail/sub-component/detail-product/detail-product.component';
+import { SameBrandComponent } from './Page/product-detail/sub-component/same-brand/same-brand.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,13 @@ import { MatCardModule } from '@angular/material/card';
     ListBrandComponent,
     ListBestSaleComponent,
     ListProductComponent,
-    AdvertisementComponent
+    AdvertisementComponent,
+    ProductDetailComponent,
+    GeneralInformationComponent,
+    PolicyServiceComponent,
+    SimilarProductComponent,
+    DetailProductComponent,
+    SameBrandComponent
   ],
   imports: [
     CommonModule,

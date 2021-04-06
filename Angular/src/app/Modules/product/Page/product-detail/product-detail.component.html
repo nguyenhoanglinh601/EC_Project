@@ -1,0 +1,33 @@
+<!-- <p>product-detail works!</p>
+<p>{{product.name}}</p>
+<p>
+    <a class='btn btn-default' (click)="onBack()">Back </a>
+</p> -->
+<app-header></app-header>
+<div class="container-fluid border">
+    <div class="container border">
+        <div class="row border">
+            <div class="col-md-9 col-sm-12 border">
+                <app-general-information [product]="product"></app-general-information>
+            </div>
+            <div class="col-md-3 col-sm-12 border">
+                <app-policy-service></app-policy-service>
+            </div>
+        </div>
+        <div class="row d-flex border">
+            <div class="border order-md-1 order-2">
+                <app-similar-product></app-similar-product>
+            </div>
+            <div class="border order-md-2 order-1">
+                <app-detail-product></app-detail-product>
+            </div>
+        </div>
+        <div class="row border">
+            <div class="col-12 border">
+                <app-same-brand></app-same-brand>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+ 

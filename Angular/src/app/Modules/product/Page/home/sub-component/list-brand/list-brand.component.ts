@@ -40,7 +40,7 @@ export class ListBrandComponent implements OnInit {
   public getBrands() {
     this.BrandApiService.getBrands().subscribe(data => {
       this.brands = data.map(item => {
-        return new Brand(item.id, item.name, item.thumbnail, item.slogan);
+        return new Brand(item._id, item.name, item.thumbnail, item.slogan);
       })
     });
   }

@@ -25,6 +25,13 @@ namespace ec_project.Controllers
             return _productService.Get(index);
         }
 
+        [HttpGet]
+        [Route("GetProductsBestSell")]
+        public ActionResult<List<Product>> GetProductsBestSell()
+        {
+            return _productService.GetProductsBestSell();
+        }
+
         [HttpGet("{id:length(24)}", Name = "GetProduct")]
         public ActionResult<Product> Get(string id)
         {

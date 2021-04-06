@@ -13,6 +13,7 @@ import { Product } from '../../../../../../Data/Types/Product';
 export class ListBestSaleComponent implements OnInit {
   products = new Array<Product>();
   product: Product | undefined;
+  id: any;
 
   responsiveOptions: any;
 
@@ -34,19 +35,20 @@ export class ListBestSaleComponent implements OnInit {
         numScroll: 1
       }
     ];
+
   }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getProductsBestSell();
   }
 
-  public getProducts() {
-    this.ProductApiService.getProducts().subscribe(data => {
+  public getProductsBestSell() {
+    this.ProductApiService.getProductsBestSell().subscribe(data => {
       this.products = data.map(item => {
-        let brand = new Brand(item.brand.id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
-        let resolution = new Resolution(item.resolution.id, item.resolution.name);
-        let category = new Category(item.category.id, item.category.name);
-        return new Product(item.id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status);
+        let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
+        let resolution = new Resolution(item.resolution._id, item.resolution.name);
+        let category = new Category(item.category._id, item.category.name);
+        return new Product(item._id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status, item.quantity_sale);
       })
     });
   }
@@ -69,4 +71,5 @@ export class ListBestSaleComponent implements OnInit {
       this.products.splice(index, 1);
     })
   }
+
 }

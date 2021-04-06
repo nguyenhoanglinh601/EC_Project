@@ -32,5 +32,6 @@ namespace ec_project.Models
         public string thumbnail { get; set; }
         public Category category { get; set; }
         public string status { get; set; }
+        public int quantity_sale { get; set; }
     }
 }

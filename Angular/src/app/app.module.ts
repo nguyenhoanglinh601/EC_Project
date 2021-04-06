@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { TestComponent } from './Modules/test-module/test/test.component';
 import { TestModuleRoutingModule } from './Modules/test-module/test-module-routing.module';
 import { HomeComponent } from './Modules/product/Page/home/home.component';
+import { ProductDetailComponent } from './Modules/product/Page/product-detail/product-detail.component';
 import { ProductRoutingModule } from './Modules/product/product-routing.module';
 
 import { TestLayoutComponent } from './Share/Layouts/test-layout/test-layout.component';
@@ -29,6 +30,11 @@ import { ListBrandComponent } from './Modules/product/Page/home/sub-component/li
 import { ListBestSaleComponent } from './Modules/product/Page/home/sub-component/list-best-sale/list-best-sale.component';
 import { ListProductComponent } from './Modules/product/Page/home/sub-component/list-product/list-product.component';
 import { AdvertisementComponent } from './Modules/product/Page/home/sub-component/advertisement/advertisement.component';
+import { GeneralInformationComponent } from './Modules/product/Page/product-detail/sub-component/general-information/general-information.component';
+import { PolicyServiceComponent } from './Modules/product/Page/product-detail/sub-component/policy-service/policy-service.component';
+import { SimilarProductComponent } from './Modules/product/Page/product-detail/sub-component/similar-product/similar-product.component';
+import { DetailProductComponent } from './Modules/product/Page/product-detail/sub-component/detail-product/detail-product.component';
+import { SameBrandComponent } from './Modules/product/Page/product-detail/sub-component/same-brand/same-brand.component';
 
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
@@ -44,6 +50,7 @@ import { MatCardModule } from '@angular/material/card';
     TestLayoutComponent,
     HeaderComponent,
     HomeComponent,
+    ProductDetailComponent,
     MenuCategoriesComponent,
     MenuButtonComponent,
     SearchBarComponent,
@@ -51,7 +58,12 @@ import { MatCardModule } from '@angular/material/card';
     ListBrandComponent,
     ListBestSaleComponent,
     ListProductComponent,
-    AdvertisementComponent
+    AdvertisementComponent,
+    GeneralInformationComponent,
+    PolicyServiceComponent,
+    SimilarProductComponent,
+    DetailProductComponent,
+    SameBrandComponent
   ],
   imports: [
     BrowserModule,

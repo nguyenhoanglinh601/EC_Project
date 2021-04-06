@@ -3,7 +3,7 @@ import { Category } from "./Category";
 import { Resolution } from "./Resolution";
 
 export class Product {
-    public id: string;
+    public _id: string;
     public name: string;
     public brand: Brand;
     public warranty: string;
@@ -24,9 +24,10 @@ export class Product {
     public thumbnail: string;
     public category: Category;
     public status: string;
+    public quantity_sale: number;
 
     constructor(
-        id: string,
+        _id: string,
         name: string,
         brand: Brand,
         warranty: string,
@@ -46,9 +47,10 @@ export class Product {
         deliver: string,
         thumbnail: string,
         category: Category,
-        status: string
+        status: string,
+        quantity_sale: number
     ) {
-        this.id = id;
+        this._id = _id;
         this.name = name;
         this.brand = brand;
         this.warranty = warranty;
@@ -69,6 +71,7 @@ export class Product {
         this.thumbnail = thumbnail;
         this.category = category;
         this.status = status;
+        this.quantity_sale=quantity_sale;
     }
 
     public truncateText(content: string, maxLength: number) {

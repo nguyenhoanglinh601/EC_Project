@@ -8,7 +8,7 @@
         </ng-template>
         <ng-template let-product pTemplate="item">
             <div class="product-item mx-2">
-                <a href="">
+                <a [routerLink]="['/product',product._id]">
                     <div class="product-item-content">
                         <img class="w-100 img-fluid rounded thumbnail-product"
                             src="assets/Images/Products/{{product.thumbnail}}.png" [alt]="product.name" />
