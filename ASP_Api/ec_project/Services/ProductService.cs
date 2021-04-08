@@ -33,6 +33,10 @@ namespace ec_project.Services
         public Product Get(string id) =>
             _products.Find<Product>(product => product._id == id).FirstOrDefault();
 
+        public List<Product> Search(string keyWord)
+        {
+            return _products.Find(p => p.name.Contains(keyWord)).ToList();
+        }
         public Product Create(Product product)
         {
             _products.InsertOne(product);

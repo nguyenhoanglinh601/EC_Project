@@ -35,9 +35,13 @@ import { PolicyServiceComponent } from './Modules/product/Page/product-detail/su
 import { SimilarProductComponent } from './Modules/product/Page/product-detail/sub-component/similar-product/similar-product.component';
 import { DetailProductComponent } from './Modules/product/Page/product-detail/sub-component/detail-product/detail-product.component';
 import { SameBrandComponent } from './Modules/product/Page/product-detail/sub-component/same-brand/same-brand.component';
+import { SpecificationTableComponent } from 'src/app/Modules/product/Page/product-detail/sub-component/detail-product/sub-component/specification-table/specification-table.component';
+import { SpecificationTableModalComponent } from './Modules/product/Page/product-detail/sub-component/detail-product/sub-component/specification-table-modal/specification-table-modal.component';
+import { FilterComponent } from 'src/app/Modules/product/Page/filter/filter.component';
 
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
+import {RippleModule} from 'primeng/ripple';
 
 import { MatCardModule } from '@angular/material/card';
 
@@ -63,7 +67,10 @@ import { MatCardModule } from '@angular/material/card';
     PolicyServiceComponent,
     SimilarProductComponent,
     DetailProductComponent,
-    SameBrandComponent
+    SameBrandComponent,
+    SpecificationTableComponent,
+    SpecificationTableModalComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +86,7 @@ import { MatCardModule } from '@angular/material/card';
     CarouselModule,
     ButtonModule,
     MatCardModule,
+    RippleModule,
 
     AppRoutingModule,
   ],

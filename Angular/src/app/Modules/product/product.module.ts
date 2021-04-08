@@ -14,6 +14,7 @@ import { AdvertisementComponent } from './Page/home/sub-component/advertisement/
 
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
+import {RippleModule} from 'primeng/ripple';
 
 import { MatCardModule } from '@angular/material/card';
 import { ProductDetailComponent } from './Page/product-detail/product-detail.component';
@@ -22,6 +23,9 @@ import { PolicyServiceComponent } from './Page/product-detail/sub-component/poli
 import { SimilarProductComponent } from './Page/product-detail/sub-component/similar-product/similar-product.component';
 import { DetailProductComponent } from './Page/product-detail/sub-component/detail-product/detail-product.component';
 import { SameBrandComponent } from './Page/product-detail/sub-component/same-brand/same-brand.component';
+import { SpecificationTableComponent } from './Page/product-detail/sub-component/detail-product/sub-component/specification-table/specification-table.component';
+import { SpecificationTableModalComponent } from './Page/product-detail/sub-component/detail-product/sub-component/specification-table-modal/specification-table-modal.component';
+import { FilterComponent } from './Page/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -37,14 +41,18 @@ import { SameBrandComponent } from './Page/product-detail/sub-component/same-bra
     PolicyServiceComponent,
     SimilarProductComponent,
     DetailProductComponent,
-    SameBrandComponent
+    SameBrandComponent,
+    SpecificationTableComponent,
+    SpecificationTableModalComponent,
+    FilterComponent,
   ],
   imports: [
     CommonModule,
     ProductRoutingModule,
     CarouselModule,
     ButtonModule,
-    MatCardModule
+    MatCardModule,
+    RippleModule
   ]
 })
 export class ProductModule { }

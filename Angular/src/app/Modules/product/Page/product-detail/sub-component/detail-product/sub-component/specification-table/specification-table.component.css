@@ -1,0 +1,10 @@
+table{
+    font-size: 14px;
+}
+table > tbody > tr > th{
+    color: rgb(132, 135, 136);
+    font-weight: 500;
+}
+table > tbody > tr > td{
+    font-weight: 400;
+}

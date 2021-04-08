@@ -1,0 +1,14 @@
+.common{
+    background-color: white;
+    border-radius: 10px;
+}
+.free-shipping{
+    color: rgb(83, 195, 5);
+}
+.icon-shipping{
+    padding: 2px;
+}
+.icon{
+    color: rgb(20, 53, 195);
+    padding: 2px;
+}

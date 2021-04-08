@@ -1,0 +1,23 @@
+.common{
+    background-color: white;
+    border-radius: 10px;
+}
+.image-product{
+    object-fit: cover;
+    width:500px;
+    height:300px;
+}
+.text-description{
+    font-weight: 500;
+}
+.div-button-tech{
+    color: #848788;
+}
+.icon-next{
+    padding: 3px;
+}
+@media screen and (max-width: 400px){
+    .image-product{
+        height: 200px;
+    }
+}

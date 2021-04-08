@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, SimpleChange } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Product } from 'src/app/Data/Types/Product';
@@ -20,6 +20,7 @@ export class ProductDetailComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.mappingRoute();
+    window.scrollTo(0, 0);
   }
 
   ngOnDestroy(): void {

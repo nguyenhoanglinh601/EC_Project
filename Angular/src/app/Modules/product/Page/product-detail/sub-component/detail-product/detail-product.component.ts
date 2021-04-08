@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Product } from 'src/app/Data/Types/Product';
 
 @Component({
   selector: 'app-detail-product',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./detail-product.component.css']
 })
 export class DetailProductComponent implements OnInit {
+  @Input() product: Product | undefined;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  openProductDetail(){
+    console.log("open");
+  }
 }

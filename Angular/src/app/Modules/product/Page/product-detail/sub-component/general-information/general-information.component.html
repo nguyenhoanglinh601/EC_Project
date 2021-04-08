@@ -1,17 +1,60 @@
-<div class="container-fluid p-0 border">
+<div class="container p-4 my-2 common " *ngIf="product!=undefined">
     <div class="row ">
-        <div class="col-5 m-0 border">
-            <div class="border">
-                <img class="img-fluid border" src="assets/Images/Products/{{img}}.png" alt="{{product.name}}">
+        <div class="col-md-5 m-0 px-lg-0 ">
+            <div class="">
+                <img *ngIf="img!=undefined" class="img-fluid " src="assets/Images/Products/{{img}}.png"
+                    alt="{{product.name}}">
             </div>
-            <div class="float-left d-flex border">
-                <div class="m-md-2 m-1 border" *ngFor="let img of product.images">
-                    <img class="img-fluid small-image" src="assets/Images/Products/{{img}}.png" alt="{{product.name}}" (mouseenter)="changeImage(img)">
+            <hr class="devider m-0">
+            <div class="float-left d-flex ">
+                <div class="m-md-2 m-1 " *ngFor="let img of product.images">
+                    <img class="img-fluid small-image" src="assets/Images/Products/{{img}}.png" alt="{{product.name}}"
+                        (mouseenter)="changeImage(img)">
                 </div>
             </div>
         </div>
-        <div class="col-7 border">
-            thong tin
+        <div class="col-md-7 pt-lg-0 px ">
+            <div class="row">
+                <h1 class="text-name m-0"><strong>{{product.name}}</strong></h1>
+            </div>
+            <div class="d-md-flex d-block">
+                <p class="text-small m-0">Thương hiệu: <a><b>{{product.brand.name}}</b></a></p>
+                <p class="text-small m-0 d-md-block d-none">&nbsp;| SKU: {{product._id}}</p>
+            </div>
+            <div>
+                <p class="text-product-quantity">Còn {{product.quantity}} sản phẩm (liên hệ số hotline khi cần đặt thêm hàng)
+                </p>
+            </div>
+            <div class="row">
+                <p class="text-price my-4"><strong>{{convertPrice(product.price)}}đ</strong></p>
+            </div>
+            <div class="row mb-3">
+                <p class="text-small"><strong>Tính năng nổi bật: </strong>{{product.feature}}</p>
+                <p class="text-small"><strong>Ống kính: </strong>{{product.lens}}</p>
+                <p class="text-small"><strong>Chất lượng hình ảnh: </strong>{{product.resolution.name}}</p>
+            </div>
+            <hr class="devider m-0">
+            <div class="row  my-3">
+                <div class="col-lg-6 my-lg-0 my-md-1 my-2">
+                    <button pButton pRipple type="button" label="MUA NGAY"
+                        class="p-button-raised button-sell w-100"></button>
+                </div>
+                <div class="col-lg-6 my-lg-0 my-md-1 my-2">
+                    <button pButton pRipple type="button" label="THÊM VÀO GIỎ HÀNG"
+                        class="p-button-raised button-add-cart w-100"></button>
+                </div>
+            </div> 
+            <div class="row mt-lg-3">
+                <b>Khuyến mãi liên quan</b>
+                <div class=" pl-5">
+                    <p class="mb-0" style="padding-left: 20px;">&#9679; Nhập mã <b>PV300</b> giảm thêm 5% tối đa <b
+                            style="color: red;">300.000đ</b> khi thanh toán qua VNPAY-QR. <a style="color: deepskyblue;">Xem chi tiết</a>
+                    </p>
+                    <p class="mb-0" style="padding-left: 20px;">&#9679; [Thông báo] Lưu ý khách hàng về ảnh hưởng vận
+                        chuyển bởi dịch Covid. <a style="color: deepskyblue;">Xem chi tiết</a>
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </div>

@@ -1,1 +1,29 @@
-<p>detail-product works!</p>
+<div class="container common " *ngIf="product!=undefined">
+    <div class="row ">
+        <div class="col-lg-8 ">
+            <h2 class="mb-0 mt-2">
+                <b>Mô tả sản phẩm</b>
+            </h2>
+            <div class="py-2 ">
+                <p class="text-description m-0">{{product.description}}</p>
+            </div>
+            <div class="d-flex justify-content-center " *ngFor="let img of product.images">
+                <img class="image-product" src="assets/Images/Products/{{img}}.png">
+            </div>
+            <div class="div-button-tech d-flex justify-content-center my-3 d-lg-none d-block " data-toggle="modal"
+                data-target="#specificationModal">
+                <strong>Xem thông số kỹ thuật</strong>
+                <i class="fas fa-chevron-right icon-next"></i>
+            </div>
+        </div>
+        <div class="col-lg-4  d-lg-block d-none">
+            <h2 class="mb-0 mt-2">
+                <b>Thông số kỹ thuật</b>
+            </h2>
+            <app-specification-table [product]="product"></app-specification-table>
+        </div>
+        <div class="">
+            <app-specification-table-modal [product]="product"></app-specification-table-modal>
+        </div>
+    </div>
+</div>

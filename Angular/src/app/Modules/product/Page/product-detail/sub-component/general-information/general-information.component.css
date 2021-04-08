@@ -1,3 +1,7 @@
+.common{
+    background-color: white;
+    border-radius: 10px;
+}
 .small-image{
     width: 60px;
     height: 60px;
@@ -6,7 +10,36 @@
     border: 2px solid #1435c3;
     border-radius: 10px;
 }
-
+.text-price{
+    font-size: 40px;
+    color: rgb(20, 53, 195);
+}
+.text-name{
+    font-size: 28px;
+}
+.text-small{
+    color: rgb(132, 135, 136);
+    margin: 0;
+}
+.devider{
+    border-top: 1px dashed rgb(51, 51, 51);
+}
+.button-sell{
+    background-color: #1435c3;
+    border-color: #1435c3;
+    font-weight: 600;
+    font-size: 14px;
+}
+.button-add-cart{
+    background-color: #3096B3;
+    border-color: #3096B3;
+    font-weight: 600;
+    font-size: 14px;
+}
+.text-product-quantity{
+    color: red;
+    margin: 0;
+}
 @media screen and (max-width: 780px){
     .small-image{
         width: 40px;
@@ -20,7 +53,7 @@
 
 @media screen and (max-width: 400px){
     .small-image{
-        width: 20px;
-        height: 20px;
+        width: 80px;
+        height: 80px;
     }
 }

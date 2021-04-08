@@ -45,6 +45,13 @@ namespace ec_project.Controllers
             return product;
         }
 
+        [HttpGet]
+        [Route("SearchProducts")]
+        public ActionResult<List<Product>> Search(string keyWord)
+        {
+            return _productService.Search(keyWord);
+        }
+
         [HttpPost]
         public ActionResult<Product> Create(Product product)
         {

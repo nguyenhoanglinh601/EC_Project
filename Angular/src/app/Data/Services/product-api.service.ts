@@ -23,12 +23,25 @@ export class ProductApiService {
   public getProductsBestSell(): Observable<Product[]>{
     return this.httpClient.get<Product[]>(this.ApiUrl+"GetProductsBestSell");
   }
+
+  public getSimilarProducts(): Observable<Product[]>{
+    return this.httpClient.get<Product[]>(this.ApiUrl+"GetProductsBestSell");
+  }
+
+  public getSameBrandProducts(): Observable<Product[]>{
+    return this.httpClient.get<Product[]>(this.ApiUrl+"GetProductsBestSell");
+  }
+
   public getMoreProducts(indexSkip: number): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.ApiUrl + "?index=" + indexSkip);
   }
 
   public getProduct(data: string): Observable<Product> {
     return this.httpClient.get<Product>(this.ApiUrl + data);
+  }
+
+  public searchProducts(keyWord: string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "SearchProducts?keyWord=" + keyWord);
   }
 
   public postProduct(body: object): Observable<Product> {

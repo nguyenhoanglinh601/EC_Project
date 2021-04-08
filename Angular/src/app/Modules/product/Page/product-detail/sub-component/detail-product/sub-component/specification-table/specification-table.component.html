@@ -1,0 +1,86 @@
+<div class="" *ngIf="product!=undefined">
+    <table class="table table-striped mt-3">
+        <tbody>
+            <tr>
+                <th>
+                    Thương hiệu
+                </th>
+                <td>
+                    {{product.brand.name}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Bảo hành
+                </th>
+                <td>
+                    {{product.warranty}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Màu
+                </th>
+                <td>
+                    {{product.color}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Độ phân giải
+                </th>
+                <td>
+                    {{product.resolution.name}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Cảm biến
+                </th>
+                <td>
+                    {{product.sensor}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Ống kính
+                </th>
+                <td>
+                    {{product.lens}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Nguồn điện
+                </th>
+                <td>
+                    {{product.power_source}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Kiểu kết nối
+                </th>
+                <td>
+                    {{product.connect_type}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    kích thước
+                </th>
+                <td>
+                    {{product.dimension}}
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Chất lượng hình ảnh
+                </th>
+                <td>
+                    {{product.quality}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
