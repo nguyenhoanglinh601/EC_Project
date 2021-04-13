@@ -1,0 +1,26 @@
+<div class="container common my-2 py-md-3 py-1">
+    <h2 class="mb-0 mt-2">
+        <b>Sản phẩm phù hợp</b>
+    </h2>
+    <div class="row">
+        <div class="col-lg-3 col-md-6" *ngFor="let product of products">
+            <a target="_blank" [routerLink]="['/product', product._id]">
+                <mat-card class="card my-2">
+                    <img mat-card-image src="assets/Images/Products/{{product.thumbnail}}.png/" alt="{{product.name}}">
+                    <mat-card-content>
+                        <h1>
+                            {{product.name}}
+                        </h1>
+                        <p class="product-description">{{product.truncateText(product.description,250)}}</p>
+                        <h2 class="d-inline-flex">
+                            {{product.convertPrice(product.price)}}đ
+                            <div class="div-services mx-2">
+                                <img class="img-fluid" src="assets/Icons/shipping.png" />
+                            </div>
+                        </h2>
+                    </mat-card-content>
+                </mat-card>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.message{
+    font-weight: 500;
+    font-size: 24px;
+}
+.filter{
+    color: #9b9b9b;
+    cursor: pointer;
+    font-size: 18px;
+}
+.filter:hover{
+    color: #1435c3;
+}
+
+.breadcrumb{
+    background-color: white;
+    border-radius: 20px;
+    font-size: 18px;
+}
+
+@media screen and (max-width: 400px){
+    .message{ font-size: 18px;}
+
+    .breadcrumb{
+        font-size: 14px;
+    }
+}

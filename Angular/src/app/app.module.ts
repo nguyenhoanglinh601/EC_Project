@@ -38,6 +38,8 @@ import { SameBrandComponent } from './Modules/product/Page/product-detail/sub-co
 import { SpecificationTableComponent } from 'src/app/Modules/product/Page/product-detail/sub-component/detail-product/sub-component/specification-table/specification-table.component';
 import { SpecificationTableModalComponent } from './Modules/product/Page/product-detail/sub-component/detail-product/sub-component/specification-table-modal/specification-table-modal.component';
 import { FilterComponent } from 'src/app/Modules/product/Page/filter/filter.component';
+import { FilterContentComponent } from 'src/app/Modules/product/Page/filter/sub-component/filter-content/filter-content.component';
+import { ResultsComponent } from 'src/app/Modules/product/Page/filter/sub-component/results/results.component';
 
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
@@ -70,7 +72,9 @@ import { MatCardModule } from '@angular/material/card';
     SameBrandComponent,
     SpecificationTableComponent,
     SpecificationTableModalComponent,
-    FilterComponent
+    FilterComponent,
+    FilterContentComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +91,7 @@ import { MatCardModule } from '@angular/material/card';
     ButtonModule,
     MatCardModule,
     RippleModule,
-
+    
     AppRoutingModule,
   ],
   providers: [],

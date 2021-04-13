@@ -51,6 +51,7 @@ namespace ec_project
             services.AddSingleton<ProductService>();
             services.AddSingleton<BrandService>();
             services.AddSingleton<CategoryService>();
+            services.AddSingleton<ResolutionService>();
 
 
             services.AddControllers()

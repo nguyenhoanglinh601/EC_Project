@@ -1,0 +1,32 @@
+<div class="container common">
+    <div class="row my-2 ">
+        <div class="col-lg-2 col-md-3 px-0">
+            <h3 class="pt-lg-1 pt-md-2"><b>Thương hiệu</b></h3>
+        </div>
+        <div class="col-lg-10 col-md-9 px-1 ">
+            <button *ngFor="let brand of brands" type="button"
+                class="btn btn-outline-primary button mr-3 my-lg-1 my-md-2 my-1"
+                (click)="selected($event, 'brand', brand)">{{brand.name}}</button>
+        </div>
+    </div>
+    <div class="row my-2 ">
+        <div class="col-lg-2 col-md-3 px-0">
+            <h3 class="pt-lg-1 pt-md-2"><b>Độ phân giải</b></h3>
+        </div>
+        <div class="col-lg-10 col-md-9 px-1 ">
+            <button *ngFor="let resolution of resolutions" type="button"
+                class="btn btn-outline-primary button mr-3 my-lg-1 my-md-2 my-1"
+                (click)="selected($event, 'resolution', resolution)">{{resolution.name}}</button>
+        </div>
+    </div>
+    <div class="row my-2 ">
+        <div class="col-lg-2 col-md-3 px-0">
+            <h3 class="pt-lg-1 pt-md-2"><b>Loại</b></h3>
+        </div>
+        <div class="col-lg-10 col-md-9 px-1 ">
+            <button *ngFor="let category of categories" type="button"
+                class="btn btn-outline-primary button mr-3 my-lg-1 my-md-2 my-1"
+                (click)="selected($event, 'category', category)">{{category.name}}</button>
+        </div>
+    </div>
+</div>

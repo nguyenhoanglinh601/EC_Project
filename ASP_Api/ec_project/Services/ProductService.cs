@@ -33,10 +33,46 @@ namespace ec_project.Services
         public Product Get(string id) =>
             _products.Find<Product>(product => product._id == id).FirstOrDefault();
 
-        public List<Product> Search(string keyWord)
+        public List<Product> Search(string keyWord, string brands, string resolutions, string categories)
         {
-            return _products.Find(p => p.name.Contains(keyWord)).ToList();
+            List<Product> searchList = _products.Find(p => true).ToList();
+
+            if(keyWord != ""){
+                searchList = _products.Find(p => p.name.ToLower().Contains(keyWord.ToLower())).ToList();
+            }
+
+            if (brands != "") searchList = Filter(searchList, brands, "brand");
+            if (resolutions != "") searchList = Filter(searchList, resolutions, "resolution");
+            if (categories != "") searchList = Filter(searchList, categories, "category");
+
+            return searchList;
         }
+
+        private List<Product> Filter(List<Product> searchList, string ids, string filterType)
+        {
+            string[] idList = ids.Split("-");
+            List<Product> filterList = new List<Product>();
+            foreach(string id in idList)
+            {
+                if (filterType == "brand")
+                {
+                    List<Product> tempList = searchList.Where(p => p.brand._id == id).ToList();
+                    filterList = filterList.Concat(tempList).ToList();
+                }
+                else if (filterType == "resolution")
+                {
+                    List<Product> tempList = searchList.Where(p => p.resolution._id == id).ToList();
+                    filterList = filterList.Concat(tempList).ToList();
+                }
+                else if(filterType == "category")
+                {
+                    List<Product> tempList = searchList.Where(p => p.category._id == id).ToList();
+                    filterList = filterList.Concat(tempList).ToList();
+                }
+            }
+            return filterList;
+        }
+
         public Product Create(Product product)
         {
             _products.InsertOne(product);

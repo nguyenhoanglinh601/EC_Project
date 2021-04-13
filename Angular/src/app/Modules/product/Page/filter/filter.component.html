@@ -1,13 +1,82 @@
 <app-header></app-header>
-<div class="container border" *ngIf="products!=undefined">
-    <div class="row border">
-        {{products.length}}
+<div class="container " *ngIf="products!=undefined">
+    <!-- FOR SEARCH PRODUCTS -->
+    <div class="mt-2 d-flex justify-content-between" *ngIf="keyWord!=null; else for_filter">
+        <div class="message mb-0" *ngIf="products.length>0; else other_content">
+            <div class="" *ngIf="keyWord!=''; else filterMessage">
+                Có {{products.length}} kết quả tìm kiếm cho "{{keyWord}}"
+            </div>
+            <ng-template class="" #filterMessage>
+                Có {{products.length}} sản phẩm phù hợp
+            </ng-template>
+        </div>
+        <ng-template #other_content>
+            <p class="message mb-0">Không có sản phẩm phù hợp</p>
+        </ng-template>
+        <div class="filter" data-toggle="modal" data-target="#filterModal">
+            <i class="fas fa-filter float-right px-1"></i>
+            <p class="d-md-inline-block d-none float-right">bộ lọc nâng cao</p>
+        </div>
     </div>
-    <div class="row border">
-        dong 2
+    <!-- FOR FILTER PRODUCTS -->
+    <ng-template #for_filter>
+        <div class="message mb-0" *ngIf="products.length>0; else other_content_1">
+            <div class="row">
+                <div class="col-md-8 col-10 d-flex ">
+                    <div class="breadcrumb my-2 ">
+                        <div class="m-0 d-flex" *ngIf="products[0]!=undefined">
+                            <div>
+                                <i class="fas fa-home"></i>
+                                <i class="fas fa-angle-right mx-1"></i>
+                                {{products[0].category.name}}
+                            </div>
+                            <div *ngIf="brand!=''">
+                                <i class="fas fa-angle-right ml-1"></i>
+                                {{products[0].brand.name}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-2 ">
+                    <a [routerLink]="['/search','']">
+                        <div class="float-right filter" data-toggle="modal" data-target="#filterModal">
+                            <i class="fas fa-filter float-right px-1 pt-4"></i>
+                            <p class="d-md-inline-block d-none m-0 pt-4">bộ lọc nâng cao</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <ng-template #other_content_1>
+            <p class="message mb-0">Không có sản phẩm phù hợp</p>
+        </ng-template>
+    </ng-template>
+
+    <div class="row ">
+        <div class="modal fade" id="filterModal" tabindex="-1" role="dialog" aria-labelledby="filterModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header pb-0">
+                        <h2 class="mb-4">
+                            <b>Bộ lọc</b>
+                        </h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body pt-0">
+                        <app-filter-content class="" [keyWord]="keyWord" [brands]="brands" [resolutions]="resolutions"
+                            [categories]="categories" (outputProducts)="filter($event)">
+                        </app-filter-content>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-    <div class="row border">
-        dong 3
+    <div class="row " *ngIf="products.length>0">
+        <app-results [products]="products"></app-results>
     </div>
 </div>
 <app-footer></app-footer>

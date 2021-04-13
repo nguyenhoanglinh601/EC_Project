@@ -47,9 +47,9 @@ namespace ec_project.Controllers
 
         [HttpGet]
         [Route("SearchProducts")]
-        public ActionResult<List<Product>> Search(string keyWord)
+        public ActionResult<List<Product>> Search(string keyWord="", string brands="", string categories="", string resolutions="")
         {
-            return _productService.Search(keyWord);
+            return _productService.Search(keyWord, brands, resolutions, categories);
         }
 
         [HttpPost]

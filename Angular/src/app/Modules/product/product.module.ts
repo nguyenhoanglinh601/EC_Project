@@ -26,6 +26,8 @@ import { SameBrandComponent } from './Page/product-detail/sub-component/same-bra
 import { SpecificationTableComponent } from './Page/product-detail/sub-component/detail-product/sub-component/specification-table/specification-table.component';
 import { SpecificationTableModalComponent } from './Page/product-detail/sub-component/detail-product/sub-component/specification-table-modal/specification-table-modal.component';
 import { FilterComponent } from './Page/filter/filter.component';
+import { FilterContentComponent } from './Page/filter/sub-component/filter-content/filter-content.component';
+import { ResultsComponent } from './Page/filter/sub-component/results/results.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { FilterComponent } from './Page/filter/filter.component';
     SpecificationTableComponent,
     SpecificationTableModalComponent,
     FilterComponent,
+    FilterContentComponent,
+    ResultsComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +56,7 @@ import { FilterComponent } from './Page/filter/filter.component';
     CarouselModule,
     ButtonModule,
     MatCardModule,
-    RippleModule
+    RippleModule,
   ]
 })
 export class ProductModule { }
