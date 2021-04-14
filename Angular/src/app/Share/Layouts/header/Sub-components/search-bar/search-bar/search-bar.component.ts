@@ -16,7 +16,7 @@ export class SearchBarComponent implements OnInit {
   search(){
     let key_word=(<HTMLInputElement>document.getElementById('key_word')).value;
     if(key_word!=""){
-      this.router.navigateByUrl('/search/'+key_word);
+      this.router.navigateByUrl('/products/search/'+key_word);
     }
   }
 }

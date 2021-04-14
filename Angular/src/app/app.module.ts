@@ -12,6 +12,8 @@ import { TestModuleRoutingModule } from './Modules/test-module/test-module-routi
 import { HomeComponent } from './Modules/product/Page/home/home.component';
 import { ProductDetailComponent } from './Modules/product/Page/product-detail/product-detail.component';
 import { ProductRoutingModule } from './Modules/product/product-routing.module';
+import { CartComponent } from 'src/app/Modules/order/Page/cart/cart.component';
+import { OrderRoutingModule } from 'src/app/Modules/order/order-routing.module';
 
 import { TestLayoutComponent } from './Share/Layouts/test-layout/test-layout.component';
 import { HeaderComponent } from './Share/Layouts/header/header.component';
@@ -21,7 +23,6 @@ import { MatButtonModule } from '@angular/material/button';
 import {ToggleButtonModule} from 'primeng/togglebutton';
 import {MatMenuModule} from '@angular/material/menu';
 
-import { from } from 'rxjs';
 import { MenuCategoriesComponent } from './Share/Layouts/header/Sub-components/menu-categories/menu-categories.component';
 import { MenuButtonComponent } from './Share/Materials/menu-button/menu-button/menu-button.component';
 import { SearchBarComponent } from './Share/Layouts/header/Sub-components/search-bar/search-bar/search-bar.component';
@@ -40,13 +41,18 @@ import { SpecificationTableModalComponent } from './Modules/product/Page/product
 import { FilterComponent } from 'src/app/Modules/product/Page/filter/filter.component';
 import { FilterContentComponent } from 'src/app/Modules/product/Page/filter/sub-component/filter-content/filter-content.component';
 import { ResultsComponent } from 'src/app/Modules/product/Page/filter/sub-component/results/results.component';
+import { ItemComponent } from 'src/app/Modules/order/Page/cart/sub-component/item/item.component';
+import { DiscountComponent } from 'src/app/Modules/order/Page/cart/sub-component/discount/discount.component';
+import { PaymentComponent } from 'src/app/Modules/order/Page/cart/sub-component/payment/payment.component';
 
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
 import {RippleModule} from 'primeng/ripple';
 
 import { MatCardModule } from '@angular/material/card';
-
+import { LayoutModule } from 'src/app/Share/Layouts/layout.module';
+// import {InputNumberModule} from 'primeng/inputnumber';
+// import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -74,7 +80,11 @@ import { MatCardModule } from '@angular/material/card';
     SpecificationTableModalComponent,
     FilterComponent,
     FilterContentComponent,
-    ResultsComponent
+    ResultsComponent,
+    CartComponent,
+    ItemComponent,
+    DiscountComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -91,6 +101,10 @@ import { MatCardModule } from '@angular/material/card';
     ButtonModule,
     MatCardModule,
     RippleModule,
+    OrderRoutingModule,
+    LayoutModule,
+    // InputNumberModule,
+    // FormsModule,
     
     AppRoutingModule,
   ],

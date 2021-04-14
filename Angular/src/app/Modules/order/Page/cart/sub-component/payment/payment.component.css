@@ -1,0 +1,25 @@
+.common{
+    background-color: white;
+    border-radius: 20px;
+}
+.text{
+    color: rgb(132, 135, 136);
+    font-size: 14px;
+    font-weight: 500;
+}
+.price{
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    font-weight: 600;
+}
+.total{
+    text-align: end;
+    color: rgb(235, 33, 1);
+    font-size: 20px;
+    font-weight: 600;
+}
+.btn-payment{
+    background-color: rgb(20, 53, 195);
+    border-color: rgb(20, 53, 195);
+    color: white;
+}

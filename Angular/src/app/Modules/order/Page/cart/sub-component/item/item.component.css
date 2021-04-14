@@ -1,0 +1,22 @@
+.common{
+    background-color: white;
+    border-radius: 20px;
+}
+.price{
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(20, 53, 195);
+}
+.input-quantity{
+    width: 20px;
+}
+.icon-trash{
+    cursor: pointer;
+    color: #9b9b9b;
+}
+.icon-trash:hover{
+    color: #007bff;
+}
+.inventory_quantity{
+    color: red;
+}

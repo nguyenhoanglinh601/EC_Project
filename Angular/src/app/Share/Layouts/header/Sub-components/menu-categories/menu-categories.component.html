@@ -9,33 +9,33 @@
   <mat-menu #categories="matMenu">
     <div>
       <div>
-        <a [routerLink]="['/filter', listCategories[0]._id]" mat-menu-item [matMenuTriggerFor]="listbrands1">{{listCategories[0].name}}</a>
+        <a [routerLink]="['/products/filter', listCategories[0]._id]" mat-menu-item [matMenuTriggerFor]="listbrands1">{{listCategories[0].name}}</a>
       </div>
       <div>
-        <a [routerLink]="['/filter', listCategories[1]._id]" mat-menu-item [matMenuTriggerFor]="listbrands2">{{listCategories[1].name}}</a>
+        <a [routerLink]="['/products/filter', listCategories[1]._id]" mat-menu-item [matMenuTriggerFor]="listbrands2">{{listCategories[1].name}}</a>
       </div>
       <div>
-        <a [routerLink]="['/filter', listCategories[2]._id]" mat-menu-item [matMenuTriggerFor]="listbrands3">{{listCategories[2].name}}</a>
+        <a [routerLink]="['/products/filter', listCategories[2]._id]" mat-menu-item [matMenuTriggerFor]="listbrands3">{{listCategories[2].name}}</a>
       </div>
       <div>
-        <a [routerLink]="['/filter', listCategories[3]._id]" mat-menu-item>{{listCategories[3].name}}</a>
+        <a [routerLink]="['/products/filter', listCategories[3]._id]" mat-menu-item>{{listCategories[3].name}}</a>
       </div>
       <div>
-        <a [routerLink]="['/filter', listCategories[4]._id]" mat-menu-item>{{listCategories[4].name}}</a>
+        <a [routerLink]="['/products/filter', listCategories[4]._id]" mat-menu-item>{{listCategories[4].name}}</a>
       </div>
     </div>
   </mat-menu>
 
   <mat-menu #listbrands1="matMenu">
-    <a [routerLink]="['/filter', listCategories[0]._id, brand._id]" mat-menu-item *ngFor="let brand of brands">{{brand.name}}</a>
+    <a [routerLink]="['/products/filter', listCategories[0]._id, brand._id]" mat-menu-item *ngFor="let brand of brands">{{brand.name}}</a>
   </mat-menu>
 
   <mat-menu #listbrands2="matMenu">
-    <a [routerLink]="['/filter', listCategories[1]._id, brand._id]" mat-menu-item *ngFor="let brand of brands">{{brand.name}}</a>
+    <a [routerLink]="['/products/filter', listCategories[1]._id, brand._id]" mat-menu-item *ngFor="let brand of brands">{{brand.name}}</a>
   </mat-menu>
 
   <mat-menu #listbrands3="matMenu">
-    <a [routerLink]="['/filter', listCategories[2]._id, brand._id]" mat-menu-item *ngFor="let brand of brands">{{brand.name}}</a>
+    <a [routerLink]="['/products/filter', listCategories[2]._id, brand._id]" mat-menu-item *ngFor="let brand of brands">{{brand.name}}</a>
   </mat-menu>
 
    <!-- <mat-menu #{{category.name}}="matMenu">

@@ -7,14 +7,14 @@ import { ProductDetailComponent } from './Page/product-detail/product-detail.com
 const routes: Routes = [
   {path:"", component: HomeComponent},
   {path:"product/:id", component: ProductDetailComponent},
-  {path:"search/:keyword", component: FilterComponent},
+  {path:"products/search/:keyword", component: FilterComponent},
 
   //DEFINE EVERY SEPERATE ROUTE
   // {path:"filter/:category", component: FilterComponent},
   // {path:"filter/:category/:brand", component: FilterComponent}
 
   //DEFINE ONLY CHILD ROUTE
-  { path: "filter",
+  { path: "products/filter",
     children: [
       {path: ":category", component: FilterComponent},
       {path: ":category/:brand", component: FilterComponent}

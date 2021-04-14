@@ -1,0 +1,17 @@
+<div class="container p-3 common ">
+    <h2>Mã giảm giá/Phiếu mua hàng</h2>
+    <div class="row mx-1 p-0">
+        <div class="col-lg-8 col-md-8 col-8 p-0 ">
+            <input type="text" class="form-control text" placeholder="Nhập mã của bạn">
+        </div>
+        <div class="col-lg-4 col-md-4 col-4  pr-0 pl-1">
+            <button class="btn btn-primary text w-100" (click)="checkDiscountCode()">Áp dụng</button>
+        </div>
+    </div>
+    <div class="alert alert-warning alert-dismissible fade show m-1" role="alert" *ngIf="is_message_error">
+        <strong>Mã không hợp lệ!</strong> Vui lòng kiểm tra và nhập lại mã giảm giá
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="closeMessage()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+</div>
