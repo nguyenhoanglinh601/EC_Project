@@ -7,7 +7,7 @@
             <div class="row ">
                 <div class="col-md-6 pt-2 ">
                     <strong>{{item.name}}</strong>
-                    <p class="d-md-block d-none">SKU: {{item.id}}</p>
+                    <p class="d-md-block d-none">SKU: {{item._id}}</p>
                     <p class="inventory_quantity m-0">
                         <i>còn {{item.inventory_quantity}} sản phẩm</i>
                     </p>
@@ -20,7 +20,7 @@
                     <p class="price">{{item.convertPrice(item.price)}}đ</p>
                 </div>
                 <div class="col-md-1 col-2 pt-3 icon-trash ">
-                    <i class="fas fa-trash-alt" (click)="deleteItem(item.id)"></i>
+                    <i class="fas fa-trash-alt" (click)="deleteItem(item._id)"></i>
                 </div>
             </div>
         </div>

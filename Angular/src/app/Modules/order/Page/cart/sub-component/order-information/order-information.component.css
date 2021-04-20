@@ -1,0 +1,22 @@
+.title{
+    font-weight: 500;
+}
+.text-gray{
+    color: rgb(132, 135, 136);
+    font-size: 14px;
+}
+.img-payment{
+    width: 10%;
+    margin-left: 7%;
+    display: block;
+    border-radius: 5px;
+}
+.selected-payment{
+    background-color: rgba(20, 53, 195, 0.08);
+    border-color: rgb(20, 53, 195) !important;
+}
+.btn-order{
+    background-color: rgb(20, 53, 195);
+    border-color: rgb(20, 53, 195);
+    color: whitesmoke;
+}

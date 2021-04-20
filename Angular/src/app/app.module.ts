@@ -14,6 +14,9 @@ import { ProductDetailComponent } from './Modules/product/Page/product-detail/pr
 import { ProductRoutingModule } from './Modules/product/product-routing.module';
 import { CartComponent } from 'src/app/Modules/order/Page/cart/cart.component';
 import { OrderRoutingModule } from 'src/app/Modules/order/order-routing.module';
+import { UserRoutingModule } from 'src/app/Modules/user/user-routing.module';
+import { CustomerAuthenticationComponent } from 'src/app/Modules/user/customer-authentication/customer-authentication.component';
+import { OrderListComponent } from 'src/app/Modules/order/Page/order-list/order-list.component';
 
 import { TestLayoutComponent } from './Share/Layouts/test-layout/test-layout.component';
 import { HeaderComponent } from './Share/Layouts/header/header.component';
@@ -44,6 +47,8 @@ import { ResultsComponent } from 'src/app/Modules/product/Page/filter/sub-compon
 import { ItemComponent } from 'src/app/Modules/order/Page/cart/sub-component/item/item.component';
 import { DiscountComponent } from 'src/app/Modules/order/Page/cart/sub-component/discount/discount.component';
 import { PaymentComponent } from 'src/app/Modules/order/Page/cart/sub-component/payment/payment.component';
+import { OrderInformationComponent } from 'src/app/Modules/order/Page/cart/sub-component/order-information/order-information.component';
+import { OrderDetailComponent } from 'src/app/Modules/order/Page/order-list/sub-component/order-detail/order-detail.component';
 
 import {CarouselModule} from 'primeng/carousel';
 import {ButtonModule} from 'primeng/button';
@@ -53,6 +58,13 @@ import { MatCardModule } from '@angular/material/card';
 import { LayoutModule } from 'src/app/Share/Layouts/layout.module';
 // import {InputNumberModule} from 'primeng/inputnumber';
 // import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AdministratorRoutingModule } from 'src/app/Modules/administrator/administrator-routing.module';
+import { LoginComponent } from 'src/app/Modules/administrator/Page/login/login.component';
+import { HeaderAdminComponent } from 'src/app/Share/Layouts/header-admin/header-admin.component';
+import { FooterAdminComponent } from 'src/app/Share/Layouts/footer-admin/footer-admin.component';
+
 
 @NgModule({
   declarations: [
@@ -84,7 +96,14 @@ import { LayoutModule } from 'src/app/Share/Layouts/layout.module';
     CartComponent,
     ItemComponent,
     DiscountComponent,
-    PaymentComponent
+    PaymentComponent,
+    OrderInformationComponent,
+    CustomerAuthenticationComponent,
+    OrderListComponent,
+    OrderDetailComponent,
+    LoginComponent,
+    HeaderAdminComponent,
+    FooterAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -105,6 +124,10 @@ import { LayoutModule } from 'src/app/Share/Layouts/layout.module';
     LayoutModule,
     // InputNumberModule,
     // FormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    UserRoutingModule,
+    AdministratorRoutingModule,
     
     AppRoutingModule,
   ],

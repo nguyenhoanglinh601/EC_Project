@@ -5,12 +5,16 @@ import { CommonModule } from '@angular/common';
 // import { SearchBarComponent } from './header/Sub-components/search-bar/search-bar/search-bar.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { ProductRoutingModule } from 'src/app/Modules/product/product-routing.module';
+// import { HeaderAdminComponent } from './header-admin/header-admin.component';
+// import { FooterAdminComponent } from './footer-admin/footer-admin.component';
 
 @NgModule({
     declarations: [
       // HeaderComponent,
       // MenuCategoriesComponent,
       // SearchBarComponent
+      // HeaderAdminComponent,
+      // FooterAdminComponent
     ],
     imports: [
       CommonModule,

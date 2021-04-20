@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div class="container border">
+  <div class="d-flex ">
+    <div class="breadcrumb my-2 ">
+      <i class="fas fa-home"></i>
+      <i class="fas fa-angle-right mx-1"></i>
+      <p class="m-0">Đơn hàng</p>
+    </div>
+  </div>
+  <div class="border order-list px-md-4 px-0 mb-3">
+    <div *ngIf="order_list===undefined || order_list.length==0" class="my-4">
+      <h1 class="text-center text-primary">
+        <strong>Bạn chưa có đơn hàng tại Hoàng Linh</strong>
+      </h1>
+      <h3 class="m-0 text-center">Kiểm tra và nhập lại thông tin tra cứu đơn hàng
+        <a [routerLink]="['/search-order']" (click)="scrollToTop()">
+          <u>tại đây</u>
+        </a>
+        .
+      </h3>
+      <h3 class="text-center">Nếu bạn đã đặt hàng nhưng không tra cứu được đơn hàng, vui lòng liên hệ
+        <a type="tel" value="0969076447">
+          <u>số điện thoại CSKH</u>
+        </a>
+        để được hỗ trợ.
+      </h3>
+      <h2 class="m-0 text-center">
+        <a [routerLink]="['']" (click)="scrollToTop()">
+          <i class="text-info">Khám phá thêm sảm phẩm tại Hoàng Linh</i>
+        </a>
+      </h2>
+    </div>
+
+    <table class="table table-hover" *ngIf="order_list!==undefined && order_list.length>0">
+      <thead>
+        <tr class="border-top-0">
+          <th class="px-0 text-center" scope="col">Mã đơn</th>
+          <th class="px-0 text-center" scope="col">Ngày đặt</th>
+          <th class="column-name px-0 text-center" scope="col">Sản phẩm</th>
+          <th scope="col" class="px-0 text-center">Tổng tiền</th>
+          <th class="px-0 text-center" scope="col">Trạng thái</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of order_list" (click)="showDetailInfo(order)" data-toggle="modal"
+          data-target="#modal-order-detail">
+          <th class="px-0 text-center">{{sliceId(order._id)}}</th>
+          <td class="px-0 text-center">{{convertTime(order.order_time)}}</td>
+          <td class="column-name px-0 text-center">
+            <p *ngFor="let product of order.carts">{{product.name}}</p>
+          </td>
+          <td class="text-danger px-0 text-center">{{caculateTotal(order.carts)}}đ</td>
+          <td class="text-primary px-0 text-center" *ngIf="order.status==0">Hủy</td>
+          <td class="text-primary px-0 text-center" *ngIf="order.status==1">Đã tiếp nhận</td>
+          <td class="text-primary px-0 text-center" *ngIf="order.status==2">Chờ thanh toán</td>
+          <td class="text-primary px-0 text-center" *ngIf="order.status==3">Đã thanh toán</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-order-detail [order]="order_detail"></app-order-detail>
+<app-footer></app-footer>

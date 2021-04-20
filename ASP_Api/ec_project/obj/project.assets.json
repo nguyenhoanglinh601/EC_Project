@@ -850,11 +850,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Project\\Git\\EC_Project_2\\EC_Project\\asp_api\\ec_project\\ec_project.csproj",
+      "projectUniqueName": "F:\\Project\\Git\\EC_Project\\asp_api\\ec_project\\ec_project.csproj",
       "projectName": "ec_project",
-      "projectPath": "F:\\Project\\Git\\EC_Project_2\\EC_Project\\asp_api\\ec_project\\ec_project.csproj",
+      "projectPath": "F:\\Project\\Git\\EC_Project\\asp_api\\ec_project\\ec_project.csproj",
       "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-      "outputPath": "F:\\Project\\Git\\EC_Project_2\\EC_Project\\asp_api\\ec_project\\obj\\",
+      "outputPath": "F:\\Project\\Git\\EC_Project\\asp_api\\ec_project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -917,7 +917,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

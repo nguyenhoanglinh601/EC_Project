@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container d-flex justify-content-center ">
+    <div class="my-3 py-2 common ">
+        <div class="mb-2 d-flex justify-content-center">
+            <h2 class="m-0 text-center">
+                Chào mừng bạn đến với Hoàng Linh!
+            </h2>
+        </div>
+        <div class="d-flex justify-content-center">
+            <p class="m-0 text-center w-75">Tra cứu nhanh đơn hàng bằng họ tên và số điện thoại người nhận</p>
+        </div>
+        <div>
+            <mat-form-field class="w-100">
+                <mat-label>Họ tên</mat-label>
+                <input matInput name="name" id="name">
+            </mat-form-field>
+            <mat-form-field class="w-100">
+                <mat-label>Số điện thoại</mat-label>
+                <input matInput name="phone_number" id="phone_number">
+            </mat-form-field>
+            <p class="m-0 my-1 text-danger text-center" *ngIf="result==false">Họ tên hoặc số điện thoại không đúng</p>
+            <button class="btn btn-outline-info w-100" (click)="searchOrder()">Tra cứu đơn hàng</button>
+        </div>
+        <div class="mt-4 d-flex justify-content-center">
+            <p class="m-0 text-center">
+                <i>Nếu bạn không tra cứu được đơn hàng đã đặt, vui lòng liên hệ số điện thoại CSKH để được hỗ trợ.</i>
+            </p>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

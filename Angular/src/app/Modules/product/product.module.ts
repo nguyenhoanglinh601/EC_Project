@@ -28,6 +28,7 @@ import { SpecificationTableModalComponent } from './Page/product-detail/sub-comp
 import { FilterComponent } from './Page/filter/filter.component';
 import { FilterContentComponent } from './Page/filter/sub-component/filter-content/filter-content.component';
 import { ResultsComponent } from './Page/filter/sub-component/results/results.component';
+import { ManagementComponent } from './Page/management/management.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ResultsComponent } from './Page/filter/sub-component/results/results.co
     FilterComponent,
     FilterContentComponent,
     ResultsComponent,
+    ManagementComponent,
   ],
   imports: [
     CommonModule,

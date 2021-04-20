@@ -48,7 +48,7 @@ export class ItemComponent implements OnInit {
   }
 
   changeQuantity(object: any, element: any){
-    let data = {id: object.item.id, quantity: element.target.value};
+    let data = {id: object.item._id, quantity: element.target.value};
     this.change_quantity.emit(data);
   }
 }

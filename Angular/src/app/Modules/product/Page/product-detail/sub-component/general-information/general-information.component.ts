@@ -66,17 +66,13 @@ export class GeneralInformationComponent implements OnInit {
         cart_item_quantity++;
         localStorage.setItem("cart_item_quantity",cart_item_quantity.toString());
         localStorage.setItem("cart_"+cart_item_quantity,id);
-        console.log(cart_item_quantity.toString());
         this.LocalStorageService.shareCartItemQuantity(cart_item_quantity.toString());
       }
     }
 
     let cart_item_quantity=parseInt(localStorage.getItem("cart_item_quantity")+"");
-    console.log("{");
     for(let i=1; i<=cart_item_quantity; i++){
       let item_id=localStorage.getItem("cart_"+i);
-      console.log(item_id);
     }
-    console.log("}");
   }
 }

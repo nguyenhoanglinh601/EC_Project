@@ -46,7 +46,7 @@ export class CartComponent implements OnInit {
 
   removeItem(id: string) {
     for (let i = 0; i < this.cart_items.length; i++) {
-      if (this.cart_items[i].id == id) this.cart_items.splice(i, 1);
+      if (this.cart_items[i]._id == id) this.cart_items.splice(i, 1);
     }
     this.caculateTotal();
   }
@@ -60,7 +60,7 @@ export class CartComponent implements OnInit {
 
   changeItemQuantity(data: any){
     this.cart_items.forEach(item =>{
-      if(item.id==data.id){
+      if(item._id==data.id){
         item.quantity=data.quantity;
       };
     });

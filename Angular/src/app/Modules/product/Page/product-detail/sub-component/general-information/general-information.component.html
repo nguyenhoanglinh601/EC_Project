@@ -22,7 +22,7 @@
                 <p class="text-small m-0 d-md-block d-none">&nbsp;| SKU: {{product._id}}</p>
             </div>
             <div>
-                <p class="text-product-quantity">Còn {{product.quantity}} sản phẩm (liên hệ số hotline khi cần đặt thêm hàng)
+                <p class="text-product-quantity" *ngIf="product.quantity>0">Còn {{product.quantity}} sản phẩm (liên hệ số hotline khi cần đặt thêm hàng)
                 </p>
             </div>
             <div class="row">
@@ -34,7 +34,7 @@
                 <p class="text-small"><strong>Chất lượng hình ảnh: </strong>{{product.resolution.name}}</p>
             </div>
             <hr class="devider m-0">
-            <div class="row  my-3">
+            <div class="row  my-3" *ngIf="product.quantity>0">
                 <div class="col-lg-6 my-lg-0 my-md-1 my-2">
                     <button pButton pRipple type="button" label="MUA NGAY"
                         class="p-button-raised button-sell w-100"></button>
@@ -42,6 +42,15 @@
                 <div class="col-lg-6 my-lg-0 my-md-1 my-2">
                     <button pButton pRipple type="button" label="THÊM VÀO GIỎ HÀNG"
                         class="p-button-raised button-add-cart w-100" (click)="addCart(product._id)"></button>
+                </div>
+            </div>
+            <div class="row my-3 text-danger" *ngIf="product.quantity==0">
+                <div *ngIf="product.status!='ngừng kinh doanh'">
+                    <h1 class="m-0">SẢN PHẨM TẠM HẾT HÀNG</h1>
+                    <p>liên hệ số hotline để biết thên thông tin</p>
+                </div>
+                <div *ngIf="product.status=='ngừng kinh doanh'">
+                    <h1 class="m-0">SẢN PHẨM ĐÃ NGỪNG KINH DOANH</h1>
                 </div>
             </div> 
             <div class="row mt-lg-3">

@@ -12,6 +12,8 @@ namespace ec_project.Models
         public string BrandsCollectionName { get; set; }
         public string CategoriesCollectionName { get; set; }
         public string ResolutionsCollectionName { get; set; }
+        public string CustomersCollectionName { get; set; }
+        public string OrdersCollectionName { get; set; }
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
     }
@@ -23,6 +25,8 @@ namespace ec_project.Models
         string BrandsCollectionName { get; set; }
         string CategoriesCollectionName { get; set; }
         string ResolutionsCollectionName { get; set; }
+        string CustomersCollectionName { get; set; }
+        string OrdersCollectionName { get; set; }
         string ConnectionString { get; set; }
         string DatabaseName { get; set; }
     }

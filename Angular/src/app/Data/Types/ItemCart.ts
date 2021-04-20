@@ -1,5 +1,5 @@
 export class ItemCart {
-  public id: string;
+  public _id: string;
   public name: string;
   public thumbnail: string;
   public price: number;
@@ -7,7 +7,7 @@ export class ItemCart {
   public quantity: number;
 
   constructor(id: string, name: string, thumbnail: string, price: number, inventory_quantity: number, quantity: number) {
-    this.id = id;
+    this._id = id;
     this.name = name;
     this.thumbnail = thumbnail;
     this.price = price;
