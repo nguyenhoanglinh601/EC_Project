@@ -18,6 +18,14 @@ namespace ec_project.Services
             _products = database.GetCollection<Product>(settings.ProductsCollectionName);
         }
 
+        public List<Product> GetAll()
+        {
+            return _products.Find(p => true).ToList();
+        }
+        public long countTotal()
+        {
+            return _products.Count(p => true);
+        }
         public List<Product> Get(int indexSkip)
         {
             return _products.Find(product => true)

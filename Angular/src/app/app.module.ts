@@ -64,8 +64,13 @@ import { AdministratorRoutingModule } from 'src/app/Modules/administrator/admini
 import { LoginComponent } from 'src/app/Modules/administrator/Page/login/login.component';
 import { HeaderAdminComponent } from 'src/app/Share/Layouts/header-admin/header-admin.component';
 import { FooterAdminComponent } from 'src/app/Share/Layouts/footer-admin/footer-admin.component';
-
-
+import { SidebarModule } from 'primeng/sidebar';
+import { ManagementComponent } from './Modules/product/Page/management/management.component';
+import {PaginatorModule} from 'primeng/paginator';
+import { AddProductComponent } from './Modules/product/Page/management/sub-component/add-product/add-product.component';
+import { EditProductComponent } from './Modules/product/Page/management/sub-component/edit-product/edit-product.component';
+import * as $ from 'jquery';
+import * as bootstrap from "bootstrap";
 @NgModule({
   declarations: [
     AppComponent,
@@ -103,7 +108,10 @@ import { FooterAdminComponent } from 'src/app/Share/Layouts/footer-admin/footer-
     OrderDetailComponent,
     LoginComponent,
     HeaderAdminComponent,
-    FooterAdminComponent
+    FooterAdminComponent,
+    ManagementComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     BrowserModule,
@@ -128,6 +136,8 @@ import { FooterAdminComponent } from 'src/app/Share/Layouts/footer-admin/footer-
     MatFormFieldModule,
     UserRoutingModule,
     AdministratorRoutingModule,
+    SidebarModule,
+    PaginatorModule,
     
     AppRoutingModule,
   ],

@@ -1,0 +1,25 @@
+.icon{
+    font-size: 20px;
+    padding: 20px 0px;
+}
+.common{
+    background-color: white;
+}
+.icon-nav{
+    padding: 7px 10px 0 0;
+    width: 30px;
+}
+.text-nav{
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+.text-nav:hover{
+    color: cadetblue;
+    -ms-transform: translate(10px); /* IE 9 */
+    transform: translate(10px); /* Standard syntax */;
+}
+@media screen and (max-width: 450px){
+    .div-logo{
+        border-bottom: 1px solid darkgrey;
+    }
+}

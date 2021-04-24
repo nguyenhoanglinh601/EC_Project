@@ -20,9 +20,23 @@ namespace ec_project.Controllers
         }
 
         [HttpGet]
+        [Route("CountProductsTotal")]
+        public ActionResult<long> CountProductsTotal()
+        {
+            return _productService.countTotal();
+        }
+
+        [HttpGet]
         public ActionResult<List<Product>> Get(int index=0)
         {
             return _productService.Get(index);
+        }
+
+        [HttpGet]
+        [Route("GetAll")]
+        public ActionResult<List<Product>> GetAll()
+        {
+            return _productService.GetAll();
         }
 
         [HttpGet]

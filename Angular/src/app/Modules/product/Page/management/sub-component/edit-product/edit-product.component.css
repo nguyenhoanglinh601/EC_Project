@@ -1,0 +1,22 @@
+.thumbnail{
+    text-align: end;
+}
+.thumbnail{
+    position: relative;
+}
+.thumbnail > img {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.thumbnail > span {
+    position: absolute;
+    top: 4%;
+    right: 4%;
+    color: red;
+    font-size: 25px;
+}
+@media screen and (max-width: 500px){
+    .thumbnail{
+        text-align: center;
+    }
+}

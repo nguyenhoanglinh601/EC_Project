@@ -29,14 +29,14 @@ export class CartComponent implements OnInit {
     for (let i = 1; i <= cart_item_quantity; i++) {
       let item_id = localStorage.getItem("cart_" + i) + "";
       this.ProductApiService.getProduct(item_id).subscribe(item => {
-        let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
-        let resolution = new Resolution(item.resolution._id, item.resolution.name);
-        let category = new Category(item.category._id, item.category.name);
-        let product = new Product(item._id, item.name, brand, item.warranty, item.color, resolution,
-          item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension,
-          item.quantity, item.price, item.quality, item.images, item.description, item.deliver,
-          item.thumbnail, category, item.status, item.quantity_sale);
-
+        // let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
+        // let resolution = new Resolution(item.resolution._id, item.resolution.name);
+        // let category = new Category(item.category._id, item.category.name);
+        // let product = new Product(item._id, item.name, brand, item.warranty, item.color, resolution,
+        //   item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension,
+        //   item.quantity, item.price, item.quality, item.images, item.description, item.deliver,
+        //   item.thumbnail, category, item.status, item.quantity_sale);
+        let product = new Product(item);
         let cart_item = new ItemCart(product._id, product.name, product.thumbnail , product.price, product.quantity, 1);
         this.cart_items.push(cart_item);
         this.total+=cart_item.cost();

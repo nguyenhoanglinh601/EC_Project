@@ -29,6 +29,12 @@ import { FilterComponent } from './Page/filter/filter.component';
 import { FilterContentComponent } from './Page/filter/sub-component/filter-content/filter-content.component';
 import { ResultsComponent } from './Page/filter/sub-component/results/results.component';
 import { ManagementComponent } from './Page/management/management.component';
+import { HeaderAdminComponent } from 'src/app/Share/Layouts/header-admin/header-admin.component';
+import { SidebarModule } from 'primeng/sidebar';
+import { SearchBarComponent } from 'src/app/Share/Layouts/header/Sub-components/search-bar/search-bar/search-bar.component';
+import {PaginatorModule} from 'primeng/paginator';
+import { AddProductComponent } from './Page/management/sub-component/add-product/add-product.component';
+import { EditProductComponent } from './Page/management/sub-component/edit-product/edit-product.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +57,10 @@ import { ManagementComponent } from './Page/management/management.component';
     FilterContentComponent,
     ResultsComponent,
     ManagementComponent,
+    HeaderAdminComponent,
+    SearchBarComponent,
+    AddProductComponent,
+    EditProductComponent
   ],
   imports: [
     CommonModule,
@@ -59,6 +69,8 @@ import { ManagementComponent } from './Page/management/management.component';
     ButtonModule,
     MatCardModule,
     RippleModule,
+    SidebarModule,
+    PaginatorModule
   ]
 })
 export class ProductModule { }

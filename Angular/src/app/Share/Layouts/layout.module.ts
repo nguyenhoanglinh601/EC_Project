@@ -8,6 +8,7 @@ import { ProductRoutingModule } from 'src/app/Modules/product/product-routing.mo
 // import { HeaderAdminComponent } from './header-admin/header-admin.component';
 // import { FooterAdminComponent } from './footer-admin/footer-admin.component';
 
+
 @NgModule({
     declarations: [
       // HeaderComponent,

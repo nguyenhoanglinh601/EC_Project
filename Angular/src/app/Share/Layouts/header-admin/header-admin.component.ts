@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-admin.component.css']
 })
 export class HeaderAdminComponent implements OnInit {
-
+  visibleSidebar: any;
   constructor() { }
 
   ngOnInit(): void {

@@ -75,4 +75,12 @@ export class GeneralInformationComponent implements OnInit {
       let item_id=localStorage.getItem("cart_"+i);
     }
   }
+
+  lineBreak(content: string){
+    return content.split("\n");
+  }
+
+  clearLine(line: string){
+    return line.replace("\\n","");
+  }
 }

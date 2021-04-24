@@ -1,1 +1,89 @@
-<p>management works!</p>
+<app-header-admin></app-header-admin>
+<div class="container-fluid mt-3 ">
+    <div class="p-3  rounded bg-white">
+        <div class="row mb-4 sticky-top bg-white pb-2">
+            <div class="col-md-6">
+                <p class="m-0 title my-3">
+                    <strong>Quản lý sản phẩm</strong>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-lg-8 col-10 px-1">
+                        <div class=" d-flex justify-content-center pt-1">
+                            <span class="p-input-icon-right span-search-bar">
+                                <i (click)="search()" class="pi pi-search icon-search"></i>
+                                <input id="key_word" value="" class="w-100 input-search" type="text" pInputText
+                                    placeholder="Nhập từ khóa cần tìm ..." />
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-2 p-1 justify-content-center d-flex">
+                        <button class="btn btn-primary mt-1 d-none d-lg-block" data-toggle="modal" data-target="#addProductModal">Thêm sản phẩm mới</button>
+                        <button class="btn btn-primary mt-1 d-block d-lg-none" data-toggle="modal" data-target="#addProductModal">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6" *ngFor="let product of products">
+                <a data-toggle="modal" data-target="#editProductModal" (click)="setEditProduct(product)">
+                    <mat-card class="card my-2">
+                        <img mat-card-image src="{{product.thumbnail}}"
+                            alt="{{product.name}}">
+                        <mat-card-content >
+                            <h2 class="m-0 w-100">
+                                {{product.name}}
+                            </h2>
+                            <h2 class="m-0 w-100 d-inline-flex">
+                                <p class="m-0">
+                                    Thương hiệu:&nbsp;
+                                </p>
+                                <p class="m-0 text-normal">
+                                    {{product.brand.name}}
+                                </p>
+                            </h2>
+                            <h2 class="m-0 w-100 d-inline-flex">
+                                <p class="m-0">
+                                    Giá bán:&nbsp;
+                                </p>
+                                <p class="m-0 text-normal">
+                                    {{convertPrice(product.price)}}đ
+                                </p>
+                            </h2>
+                            <h2 class="m-0 w-50 d-inline-flex">
+                                <p class="m-0">
+                                    Đã bán:&nbsp;
+                                </p>
+                                <p class="m-0 text-normal">
+                                    {{product.quantity_sale}}
+                                </p>
+                            </h2>
+                            <h2 class="m-0 w-50 d-inline-flex">
+                                <p class="m-0">
+                                    Tồn kho:&nbsp;
+                                </p>
+                                <p class="m-0 text-normal">
+                                    {{product.quantity}}
+                                </p>
+                            </h2>
+                            <h2 class="m-0 w-100 d-inline-flex">
+                                <p class="m-0">
+                                    Trạng thái:&nbsp;
+                                </p>
+                                <p class="m-0 text-normal">
+                                    {{product.status}}
+                                </p>
+                            </h2>
+                        </mat-card-content>
+                    </mat-card>
+                </a>
+            </div>
+        </div>
+    </div>
+    <p-paginator [rows]="numberOfPage" [totalRecords]="totalProducts" pageLinkSize="3" (onPageChange)="paginate($event)" [first]="(currentPage)*numberOfPage"></p-paginator>
+</div>
+<app-add-product [brands]="brands" [resolutions]="resolutions" [categories]="categories"></app-add-product>
+<app-edit-product [brands]="brands" [resolutions]="resolutions" [categories]="categories" [productDetail]="productDetail" ></app-edit-product>

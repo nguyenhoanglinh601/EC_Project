@@ -6,7 +6,7 @@
         <div class="col-lg-3 col-md-6" *ngFor="let product of products">
             <a [routerLink]="['/product', product._id]">
                 <mat-card class="card my-2">
-                    <img mat-card-image src="assets/Images/Products/{{product.thumbnail}}.png/" alt="{{product.name}}">
+                    <img mat-card-image src="{{product.thumbnail}}" alt="{{product.name}}">
                     <mat-card-content>
                         <h1>
                             {{product.name}}

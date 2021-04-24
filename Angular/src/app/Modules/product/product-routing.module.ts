@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FilterComponent } from './Page/filter/filter.component';
 import { HomeComponent } from './Page/home/home.component';
+import { ManagementComponent } from './Page/management/management.component';
 import { ProductDetailComponent } from './Page/product-detail/product-detail.component';
 
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
       {path: ":category", component: FilterComponent},
       {path: ":category/:brand", component: FilterComponent}
     ]
-  }
+  },
+  {path: "products/management", component: ManagementComponent}
 ];
 
 @NgModule({

@@ -42,10 +42,11 @@ export class ListProductComponent implements OnInit {
   public getProducts() {
     this.ProductApiService.getProducts().subscribe(data => {
       this.products = data.map(item => {
-        let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
-        let resolution = new Resolution(item.resolution._id, item.resolution.name);
-        let category = new Category(item.category._id, item.category.name);
-        return new Product(item._id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status, item.quantity_sale);
+        // let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
+        // let resolution = new Resolution(item.resolution._id, item.resolution.name);
+        // let category = new Category(item.category._id, item.category.name);
+        // return new Product(item._id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status, item.quantity_sale);
+        return new Product(item);
       })
     });
   }
@@ -68,10 +69,11 @@ export class ListProductComponent implements OnInit {
     let productsLoaded = new Array<Product>();
     this.ProductApiService.getMoreProducts(this.indexSkip).subscribe(data => {
       productsLoaded = data.map(item => {
-        let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
-        let resolution = new Resolution(item.resolution._id, item.resolution.name);
-        let category = new Category(item.category._id, item.category.name);
-        return new Product(item._id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status, item.quantity_sale);
+        // let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
+        // let resolution = new Resolution(item.resolution._id, item.resolution.name);
+        // let category = new Category(item.category._id, item.category.name);
+        // return new Product(item._id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status, item.quantity_sale);
+        return new Product(item);
       });
       if(productsLoaded.length<4){
         this.isLoadMore=false;

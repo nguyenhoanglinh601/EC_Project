@@ -2,13 +2,13 @@
     <div class="row ">
         <div class="col-md-5 m-0 px-lg-0 ">
             <div class="">
-                <img *ngIf="img!=undefined" class="img-fluid " src="assets/Images/Products/{{img}}.png"
+                <img *ngIf="img!=undefined" class="img-fluid " src="{{img}}"
                     alt="{{product.name}}">
             </div>
             <hr class="devider m-0">
             <div class="float-left d-flex ">
                 <div class="m-md-2 m-1 " *ngFor="let img of product.images">
-                    <img class="img-fluid small-image" src="assets/Images/Products/{{img}}.png" alt="{{product.name}}"
+                    <img class="img-fluid small-image" src="{{img}}" alt="{{product.name}}"
                         (mouseenter)="changeImage(img)">
                 </div>
             </div>
@@ -29,7 +29,10 @@
                 <p class="text-price my-4"><strong>{{convertPrice(product.price)}}đ</strong></p>
             </div>
             <div class="row mb-3">
-                <p class="text-small"><strong>Tính năng nổi bật: </strong>{{product.feature}}</p>
+                <strong class="text-small">Tính năng nổi bật: </strong>
+                <p class="text-small" *ngFor="let line of lineBreak(product.feature)">
+                    {{clearLine(line)}}
+                </p>
                 <p class="text-small"><strong>Ống kính: </strong>{{product.lens}}</p>
                 <p class="text-small"><strong>Chất lượng hình ảnh: </strong>{{product.resolution.name}}</p>
             </div>

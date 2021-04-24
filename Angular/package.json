@@ -44,11 +44,13 @@
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.3",
+    "@angular-devkit/build-angular": "^0.1102.9",
     "@angular/cli": "~11.2.3",
     "@angular/compiler-cli": "~11.2.4",
     "@fortawesome/fontawesome-free": "^5.15.3",
+    "@types/bootstrap": "^5.0.12",
     "@types/jasmine": "~3.6.0",
+    "@types/jquery": "^3.5.5",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "jasmine-core": "~3.6.0",

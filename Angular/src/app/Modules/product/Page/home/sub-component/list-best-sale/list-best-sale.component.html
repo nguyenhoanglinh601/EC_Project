@@ -11,7 +11,7 @@
                 <a [routerLink]="['/product',product._id]">
                     <div class="product-item-content">
                         <img class="w-100 img-fluid rounded thumbnail-product"
-                            src="assets/Images/Products/{{product.thumbnail}}.png" [alt]="product.name" />
+                            src="{{product.thumbnail}}" [alt]="product.name" />
                         <div>
                             <h3 class="mb-0 mt-4">
                                 <b>{{product.name}}</b>

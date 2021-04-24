@@ -1,0 +1,439 @@
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="addProductModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title m-0" id="addProductModalLabel">
+                    <strong>Thông tin sản phẩm</strong>
+                </h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form data-toggle="validator" role="form">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Loại sản phẩm</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8 mt-1">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="product_type" value="true" id="single_product"
+                                    (change)="changeProductType()" checked>
+                                <label class="form-check-label" for="single_product">
+                                    Sản phẩm đơn
+                                </label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="product_type" value="false" id="product_set"
+                                    (change)="changeProductType()">
+                                <label class="form-check-label" for="product_set">
+                                    Bộ sản phẩm
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Tên sản phẩm</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="name" value="" required />
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="!isSingleProduct && products!=undefined">
+                        <div class="col-lg-3">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Danh sách sản phẩm</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 div-product-list">
+                            <div class="form-check border rounded p-0" *ngFor="let product of products">
+                                <div class="row">
+                                    <div class="col-md-3 col-3 p-0">
+                                        <img class="img-fluid" src="{{product.thumbnail}}" />
+                                    </div>
+                                    <div class="col-md-3 col-4 ">
+                                        <p class="text-name">{{product.name}}</p>
+                                    </div>
+                                    <div class="col-md-1 d-none d-lg-block ">
+                                        <p class="m-0 mt-lg-5 mt-4">{{product.quantity}}</p>
+                                    </div>
+                                    <div class="col-md-2 d-none d-md-block ">
+                                        <p class="text-price">{{convertPrice(product.price)}}đ</p>
+                                    </div>
+                                    <div class="col-md-2 col-3 d-flex p-0">
+                                        <p class="text-multiple">x</p>
+                                        <input type="number" class="form-control text-number mx-2 p-0" id="quantityPick_{{product._id}}">
+                                    </div>
+                                    <div class="col-md-1 col-1 pr-lg-3 p-0 text-center">
+                                        <i class="fas fa-plus-square text-info text-plus" style="font-size:25px;" (click)="addProductSet(product)"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 border" *ngFor="let product of set_detail">
+                            <div class="row border">
+                                <div class="col-lg-2 col-4 p-0">
+                                    <img class="img-fluid" src="{{product.thumbnail}}">
+                                </div>
+                                <div class="col-lg-8 col-5">
+                                    <div class="row">
+                                        <div class="col-lg-4 pt-1">
+                                            <p class="m-0 mt-4"><strong>{{product.name}}</strong></p>
+                                        </div>
+                                        <div class="col-lg-4 pt-lg-1">
+                                            <p class="m-0 mt-lg-4"><strong>{{convertPrice(product.price)}} x {{product.quantity}}</strong></p>
+                                        </div>
+                                        <div class="col-lg-4 pt-lg-1">
+                                            <p class="m-0 mt-lg-4"><strong>{{convertPrice(product.price*product.quantity)}}đ</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-3">
+                                    <button class="btn btn-danger mt-lg-4 mt-5" (click)="deleteProductInSet(product)">xóa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="isSingleProduct">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Thương hiệu</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="brand">
+                                <option selected value="null"></option>
+                                <option value="{{i}}" *ngFor="let brand of brands; let i=index">{{brand.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="isSingleProduct">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Danh mục</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="category">
+                                <option selected value="null"></option>
+                                <option value="{{i}}" *ngFor="let category of categories; let i = index">
+                                    {{category.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="isSingleProduct">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Bảo hành</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="warranty" placeholder="vd: 12 tháng">
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="isSingleProduct">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Màu sắc</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="color" placeholder="vd: trắng, đen">
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="isSingleProduct">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Độ phân giải</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="resolution">
+                                <option selected value="null"></option>
+                                <option value="{{i}}" *ngFor="let resolution of resolutions; let i = index">
+                                    {{resolution.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="isSingleProduct">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Cảm biến</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="sensor">
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="isSingleProduct">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Thấu kính</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="lens">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Thời gian lưu trữ</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="store_time" value="" required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Thiết bị tương thích</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="form-control" id="compatible_device" multiple>
+                                <option>Máy tính</option>
+                                <option>Điện thoại</option>
+                                <option>Máy tính bảng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Tính năng nổi bật</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <textarea class="form-control" id="feature"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="isSingleProduct">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Nguồn điện</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="power_source" placeholder="vd: 12 VDC">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Kiểu kết nối</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <textarea class="form-control" id="connect_type"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="isSingleProduct">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Kích thước</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="dimension">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Chất lượng hình ảnh</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="quality" placeholder="vd: 1920 x 1080@30fps">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Giá bán</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="price"
+                                placeholder="Không gồm dấu chấm. vd: 890000">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Giá thị trường</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="market_price"
+                                placeholder="Không gồm dấu chấm. vd: 890000">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Số lượng tồn</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="quantity" placeholder="vd: 25"
+                                required="true" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Hình ảnh</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8 d-flex">
+                            <input type="text" class="form-control" id="images"
+                                placeholder="Nhập đường dẫn chia sẽ Google Drive" required="true" />
+                            <button class="btn btn-warning" (click)="addImage()">Thêm</button>
+                        </div>
+                        <div class="row justify-content-md-end justify-content-center"
+                            *ngIf="images!=undefined && images.length>0">
+                            <div class="col-lg-4 col-md-6 col-8 mt-3" *ngFor="let img of images">
+                                <div class="thumbnail">
+                                    <img class="img-fluid" src="{{img}}" />
+                                    <span (click)="deleteImage(img)"><i class="fas fa-times"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Mô tả</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <textarea class="form-control" id="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Vận chuyển</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="deliver">
+                                <option selected value=""></option>
+                                <option value="có">Miễn phí</option>
+                                <option value="không">Có phí</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Trạng thái</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="status">
+                                <option selected value=""></option>
+                                <option value="Đang kinh doanh">Đang kinh doanh</option>
+                                <option value="Ngừng kinh doanh">Ngừng kinh doanh</option>
+                                <option value="Sắp nhập hàng">Sắp nhập hàng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4">
+                                <label>
+                                    <h2 class="m-0">
+                                        <strong>Ảnh đại diện</strong>
+                                    </h2>
+                                </label>
+                            </div>
+                            <div class="col-lg-9 col-md-8 d-flex">
+                                <input type="text" class="form-control" id="thumbnail"
+                                    placeholder="Nhập đường dẫn chia sẽ Google Drive" required="true" />
+                                <button class="btn btn-warning" (click)="addThumbnail()">Thêm</button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-md-end justify-content-center" *ngIf="thumbnail!=''">
+                            <div class="col-lg-4 col-md-6 col-8 mt-3">
+                                <div class="thumbnail">
+                                    <img class="img-fluid" src="{{thumbnail}}" />
+                                    <span (click)="deleteThumbnail()"><i class="fas fa-times"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-block">
+                    <div class="row text-center " *ngIf="errorMesage!=''">
+                        <h2 class="m-0 text-danger">{{errorMesage}}</h2>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary m-1" (click)="validate()">Lưu sản phẩm</button>
+                        <button type="submit" class="btn btn-secondary m-1">Hủy</button>
+                    </div>
+                    <!-- <img src="https://drive.google.com/thumbnail?id=1jS3yNs9fVaKfOI3j8uRzy9t8U-Guhy4a"/> -->
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>

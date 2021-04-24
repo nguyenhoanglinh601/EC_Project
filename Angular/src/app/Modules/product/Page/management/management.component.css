@@ -1,0 +1,56 @@
+.icon-search{
+    cursor: pointer;
+}
+.input-search{
+    height: 45px;
+    border: 1px solid#eaeaea;
+    border-radius: 5px;
+    background-color: #F5F5F5;
+}
+.span-search-bar{
+    width: 95%;
+}
+.title{
+    font-size: 30px;
+}
+.div-product{
+    cursor: pointer;
+}
+.div-product:hover{
+    color: dodgerblue;
+}
+.card {
+    max-width: 400px;
+    background-color: #444e5c;
+    color: #e0e4ea;
+}
+.card:hover{
+  background-color: #126f53;
+}
+.div-services{
+    width: 10%;
+}
+.product-description{
+    height: 150px;
+}
+.text-normal{
+  font-weight: 300 !important;
+}
+@media screen and (max-width: 1200px){
+    .product-description{
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 800px){
+    .product-description{
+      height: 130px;
+    }
+  }
+  
+  @media screen and (max-width: 400px){
+    .product-description{
+      height: 110px;
+    }
+  }
+  

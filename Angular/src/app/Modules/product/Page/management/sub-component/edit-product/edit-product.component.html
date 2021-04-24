@@ -1,0 +1,344 @@
+<div class="modal fade" id="editProductModal" tabindex="-1" role="dialog" aria-labelledby="editProductModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document" *ngIf="productDetail!=undefined">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title m-0" id="editProductModalLabel">
+                    <strong>Thông tin sản phẩm</strong>
+                </h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form data-toggle="validator" role="form">
+                <div class="modal-body">
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Tên sản phẩm</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="name-edit"
+                                value="{{this.productDetail.name}}" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Thương hiệu</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="brand-edit">
+                                <option value="null" selected>{{productDetail.brand.name}} (đã chọn)</option>
+                                <option value="{{i}}" *ngFor="let brand of brands; let i=index">{{brand.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Danh mục</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="category-edit">
+                                <option value="null" selected>{{productDetail.category.name}} (đã chọn)</option>
+                                <option value="{{i}}" *ngFor="let category of categories; let i = index">
+                                    {{category.name}}
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Bảo hành</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="warranty-edit"
+                                value="{{productDetail.warranty}}" placeholder="vd: 12 tháng">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Màu sắc</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="color-edit" value="{{productDetail.color}}"
+                                placeholder="vd: trắng, đen">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Độ phân giải</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="resolution-edit">
+                                <option value="null" selected>{{productDetail.resolution.name}} (đã chọn)</option>
+                                <option value="{{i}}" *ngFor="let resolution of resolutions; let i = index">
+                                    {{resolution.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Cảm biến</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" value="{{productDetail.sensor}}" id="sensor-edit">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Thấu kính</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" value="{{productDetail.lens}}" id="lens-edit">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Tính năng nổi bật</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <textarea class="form-control" id="feature-edit" value="{{productDetail.feature}}"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Nguồn điện</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="power_source-edit"
+                                value="{{productDetail.power_source}}" placeholder="vd: 12 VDC">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Kiểu kết nối</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <textarea class="form-control"
+                                id="connect_type-edit" value="{{productDetail.connect_type}}"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Kích thước</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="dimension-edit"
+                                value="{{productDetail.dimension}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Chất lượng hình ảnh</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="quality-edit" value="{{productDetail.quality}}"
+                                placeholder="vd: 1920 x 1080@30fps">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Giá bán</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="price-edit" value="{{productDetail.price}}"
+                                placeholder="Không gồm dấu chấm. vd: 890000">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Số lượng tồn</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="quantity-edit" placeholder="vd: 25"
+                                value="{{productDetail.quantity}}" required="true" />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Đã bán</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="quantity_sale-edit" placeholder="vd: 25"
+                                value="{{productDetail.quantity_sale}}" required="true" disabled/>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Hình ảnh</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8 d-flex">
+                            <input type="text" class="form-control" id="images-edit"
+                                placeholder="Nhập đường dẫn chia sẽ Google Drive" required="true" />
+                            <button class="btn btn-warning" (click)="addImage()">Thêm</button>
+                        </div>
+                        <div class="row justify-content-md-end justify-content-center"
+                            *ngIf="productDetail.images.length>0">
+                            <div class="col-lg-4 col-md-6 col-8 mt-3" *ngFor="let img of productDetail.images">
+                                <div class="thumbnail">
+                                    <img class="img-fluid" src="{{img}}" />
+                                    <span (click)="deleteImage(img)"><i class="fas fa-times"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Mô tả</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <textarea class="form-control"
+                                id="description-edit" value="{{productDetail.description}}"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Vận chuyển</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="deliver-edit">
+                                <option selected value="{{productDetail.deliver}}" *ngIf="productDetail.deliver=='có'">
+                                    có phí (đã chọn)</option>
+                                <option selected value="{{productDetail.deliver}}"
+                                    *ngIf="productDetail.deliver=='không'">
+                                    không (đã chọn)</option>
+                                <option selected value="" *ngIf="productDetail.deliver==''">(chưa chọn)</option>
+                                <option value=""></option>
+                                <option value="có">Miễn phí</option>
+                                <option value="không">Có phí</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Trạng thái</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="custom-select" id="status-edit">
+                                <option selected value="null">{{productDetail.status}} (đã chọn)</option>
+                                <option value="Đang kinh doanh">Đang kinh doanh</option>
+                                <option value="Ngừng kinh doanh">Ngừng kinh doanh</option>
+                                <option value="Sắp nhập hàng">Sắp nhập hàng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-4">
+                                <label>
+                                    <h2 class="m-0">
+                                        <strong>Ảnh đại diện</strong>
+                                    </h2>
+                                </label>
+                            </div>
+                            <div class="col-lg-9 col-md-8 d-flex">
+                                <input type="text" class="form-control" id="thumbnail-edit"
+                                    placeholder="Nhập đường dẫn chia sẽ Google Drive" required="true" />
+                                <button class="btn btn-warning" (click)="addThumbnail()">Thêm</button>
+                            </div>
+                        </div>
+                        <div class="row justify-content-md-end justify-content-center"
+                            *ngIf="productDetail.thumbnail!=''">
+                            <div class="col-lg-4 col-md-6 col-8 mt-3">
+                                <div class="thumbnail">
+                                    <img class="img-fluid" src="{{productDetail.thumbnail}}" />
+                                    <span (click)="deleteThumbnail()"><i class="fas fa-times"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer d-block">
+                    <div class="row text-center border" *ngIf="errorMesage!=''">
+                        <h2 class="m-0 text-danger">{{errorMesage}}</h2>
+                    </div>
+                    <div class="row">
+                        <button type="submit" class="btn btn-primary m-1" (click)="validate()">Lưu thay đổi</button>
+                        <button type="submit" class="btn btn-secondary m-1" data-dismiss="modal">Thoát</button>
+                    </div>
+                    <!-- <img src="https://drive.google.com/thumbnail?id=1jS3yNs9fVaKfOI3j8uRzy9t8U-Guhy4a"/> -->
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
