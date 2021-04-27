@@ -1,0 +1,185 @@
+<app-header-admin></app-header-admin>
+<div class="container-fluid mt-3 ">
+    <div class="p-3  rounded bg-white">
+        <div class="row mb-4 sticky-top bg-white pb-2">
+            <div class="col-md-6 col-10">
+                <p class="m-0 title my-3">
+                    <a class="link">
+                        <strong>Danh sách thương hiệu</strong>
+                    </a>
+                </p>
+            </div>
+            <div class="col-md-6 col-2 px-md-3 py-2 px-0 d-flex justify-content-md-end">
+                <button class="btn btn-primary mt-1 d-none d-lg-block" data-toggle="modal"
+                    data-target="#addBrandModal">Thêm thương hiệu</button>
+                <button class="btn btn-primary mt-1 d-block d-lg-none" data-toggle="modal" data-target="#addBrandModal">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+        </div>
+        <div class="row px-1" *ngIf="brands!=undefined">
+            <div class="border rounded my-1 div-brand" data-toggle="modal" data-target="#showBrandModal"
+                (click)="showBrand(brand)" *ngFor="let brand of brands">
+                <h1 class="my-1">{{brand.name}}</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addBrandModal" tabindex="-1" role="dialog" aria-labelledby="addBrandModalLabel"
+    aria-hidden="true" *ngIf="brandToShow!=undefined">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="addBrandModalLabel">
+                    <strong>Thông tin thương hiệu</strong>
+                </h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <h2 class="m-0">
+                                <strong>Tên thương hiệu</strong>
+                            </h2>
+                        </label>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <input type="text" class="form-control" id="name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <h2 class="m-0">
+                                <strong>Slogan</strong>
+                            </h2>
+                        </label>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <input type="text" class="form-control" id="slogan">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <h2 class="m-0">
+                                <strong>Ảnh đại diện</strong>
+                            </h2>
+                        </label>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <input type="text" class="form-control" id="thumbnail">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <h2 class="m-0">
+                                <strong>Trạng thái</strong>
+                            </h2>
+                        </label>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="status">
+                            <label class="form-check-label mt-1" for="status">
+                                Đang kinh doanh
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="saveBrand()">Lưu thương
+                    hiệu</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="showBrandModal" tabindex="-1" role="dialog" aria-labelledby="showBrandModalLabel"
+    aria-hidden="true" *ngIf="brandToShow!=undefined">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="showBrandModalLabel">
+                    <strong>Thông tin thương hiệu</strong>
+                </h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <h2 class="m-0">
+                                <strong>Tên thương hiệu</strong>
+                            </h2>
+                        </label>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <input type="text" class="form-control" id="name-edit" value="{{brandToShow.name}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <h2 class="m-0">
+                                <strong>Slogan</strong>
+                            </h2>
+                        </label>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <input type="text" class="form-control" id="slogan-edit" value="{{brandToShow.slogan}}">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <h2 class="m-0">
+                                <strong>Ảnh đại diện</strong>
+                            </h2>
+                        </label>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <input type="text" class="form-control" id="thumbnail-edit" value="{{brandToShow.thumbnail}}">
+                    </div>
+                    <div class="w-100 d-flex justify-content-center">
+                        <img class="img-fluid my-2 img-thumbnail" src="{{displayThumbnail(brandToShow.thumbnail)}}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-3 col-md-4">
+                        <label>
+                            <h2 class="m-0">
+                                <strong>Trạng thái</strong>
+                            </h2>
+                        </label>
+                    </div>
+                    <div class="col-lg-9 col-md-8">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="status-edit"
+                                *ngIf="brandToShow.status" checked>
+                            <input class="form-check-input" type="checkbox" value="" id="status-edit"
+                                *ngIf="!brandToShow.status">
+                            <label class="form-check-label mt-1" for="status-edit">
+                                Đang kinh doanh
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="updateBrand()">Lưu thay
+                    đổi</button>
+            </div>
+        </div>
+    </div>
+</div>

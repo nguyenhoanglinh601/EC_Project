@@ -9,6 +9,7 @@
     border-radius: 5px;
 }
 .thumbnail > span {
+    cursor: pointer;
     position: absolute;
     top: 4%;
     right: 4%;

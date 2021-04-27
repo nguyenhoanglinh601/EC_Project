@@ -56,11 +56,13 @@
                             <tr *ngFor="let item of order.carts">
                                 <th class="row m-0 p-0">
                                     <div class="col-lg-3 col-md-6">
-                                        <img class="img-fluid" src="assets/Images/Products/{{item.thumbnail}}.png" />
+                                        <img class="img-fluid" src="{{item.thumbnail}}" />
                                     </div>
-                                    <div class="col-lg-8 col-md-6 mt-lg-5 mt-md-4">
+                                    <div class="col-lg-8 col-md-6 mt-lg-4 mt-md-4">
                                         <h3>
-                                            <strong>{{item.name}}</strong>
+                                            <a target="_blank" [routerLink]="['/product', item._id]">
+                                                <strong>{{item.name}}</strong>
+                                            </a>
                                             <p class="d-none d-lg-block">SKU: {{item._id}}</p>
                                         </h3>
                                     </div>
@@ -87,7 +89,7 @@
                 <div class=" d-block d-md-none">
                     <div class="row border border-left-0 border-right-0 pt-1" *ngFor="let item of order.carts">
                         <div class="col-4 ">
-                            <img class="img-fluid" src="assets/Images/Products/{{item.thumbnail}}.png">
+                            <img class="img-fluid" src="{{item.thumbnail}}">
                         </div>
                         <div class="col-8  px-0">
                             <div>

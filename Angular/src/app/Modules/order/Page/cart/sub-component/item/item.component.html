@@ -1,12 +1,14 @@
 <div class="container mb-2 common ">
     <div class="row p-2 ">
         <div class="col-md-2 col-4 px-md-3 p-0 ">
-            <img class="img-fluid" src="assets/Images/Products/{{item.thumbnail}}.png">
+            <img class="img-fluid" src="{{item.thumbnail}}">
         </div>
         <div class="col-md-10 col-8 ">
             <div class="row ">
                 <div class="col-md-6 pt-2 ">
-                    <strong>{{item.name}}</strong>
+                    <a [routerLink]="['/product',item._id]">
+                        <strong>{{item.name}}</strong>
+                    </a>
                     <p class="d-md-block d-none">SKU: {{item._id}}</p>
                     <p class="inventory_quantity m-0">
                         <i>còn {{item.inventory_quantity}} sản phẩm</i>

@@ -8,7 +8,7 @@ import { Order } from 'src/app/Data/Types/Order';
   providedIn: 'root'
 })
 export class OrderApiService {
-  ApiUrl = "https://localhost:5001/api/orders/";
+  ApiUrl = "https://hoangphuccamera.somee.com/api/orders/";
 
   constructor(private httpClient: HttpClient) { }
 

@@ -8,13 +8,17 @@ import { Brand } from '../../Data/Types/Brand';
   providedIn: 'root'
 })
 export class BrandApiService {
-  ApiUrl="https://localhost:5001/api/brands";
+  ApiUrl="https://hoangphuccamera.somee.com/api/brands";
 
   httpOptions = {
     headers: new Headers({ 'Content-Type': 'application/json' })
   };
 
   constructor(private httpClient: HttpClient) { }
+
+  public getAllBrands(): Observable<Brand[]> {
+    return this.httpClient.get<Brand[]>(this.ApiUrl + "/GetAll");
+  }
 
   public getBrands(): Observable<Brand[]> {
     return this.httpClient.get<Brand[]>(this.ApiUrl);
@@ -32,7 +36,7 @@ export class BrandApiService {
     return this.httpClient.delete(this.ApiUrl + data);
   }
 
-  public updateBrand(body: object, data: string) {
-    return this.httpClient.put(this.ApiUrl + data, body);
+  public updateBrand(body: object, data: string): Observable<any> {
+    return this.httpClient.put<any>(this.ApiUrl + "/" + data, body);
   }
 }

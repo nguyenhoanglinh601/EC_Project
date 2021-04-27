@@ -8,7 +8,7 @@ import { Product } from '../Types/Product';
   providedIn: 'root'
 })
 export class ProductApiService {
-  ApiUrl = "https://localhost:5001/api/products";
+  ApiUrl = "https://hoangphuccamera.somee.com/api/products";
 
   httpOptions = {
     headers: new Headers({ 'Content-Type': 'application/json' })
@@ -26,6 +26,10 @@ export class ProductApiService {
 
   public getProductsByPage(page: number): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.ApiUrl + "?index=" + page);
+  }
+
+  public getProductsByPageForAnalyse(page: number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetForAnalyse?index=" + page);
   }
 
   public getProductsBestSell(): Observable<Product[]> {

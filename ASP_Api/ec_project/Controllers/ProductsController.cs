@@ -33,6 +33,13 @@ namespace ec_project.Controllers
         }
 
         [HttpGet]
+        [Route("GetForAnalyse")]
+        public ActionResult<List<Product>> GetForAnalyse(int index = 0)
+        {
+            return _productService.GetForAnalyse(index);
+        }
+
+        [HttpGet]
         [Route("GetAll")]
         public ActionResult<List<Product>> GetAll()
         {
@@ -61,10 +68,17 @@ namespace ec_project.Controllers
 
         [HttpGet]
         [Route("SearchProducts")]
-        public ActionResult<List<Product>> Search(string keyWord="", string brands="", string categories="", string resolutions="")
+        public ActionResult<List<Product>> Search(string keyWord="", string brands="", string categories="", string resolutions="", bool product_type=true)
         {
-            return _productService.Search(keyWord, brands, resolutions, categories);
+            string[] categoriesList = categories.Split("-");
+            foreach (string category in categoriesList)
+            {
+                if (category == "606a62d44665f514bcd9b5a0") product_type = false;
+            }
+            return _productService.Search(keyWord, brands, resolutions, categories, product_type);
         }
+
+
 
         [HttpPost]
         public ActionResult<Product> Create(Product product)

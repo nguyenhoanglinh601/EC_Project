@@ -19,8 +19,11 @@ namespace ec_project.Services
             _brands = database.GetCollection<Brand>(settings.BrandsCollectionName);
         }
 
+        public List<Brand> GetAll() =>
+           _brands.Find(brand => true).ToList();
+
         public List<Brand> Get() =>
-            _brands.Find(brand => true).ToList();
+            _brands.Find(brand => brand.status==true).ToList();
 
         public Brand Get(string id) =>
             _brands.Find<Brand>(brand => brand._id == id).FirstOrDefault();

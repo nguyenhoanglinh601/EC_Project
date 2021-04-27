@@ -21,6 +21,11 @@ namespace ec_project.Controllers
         }
 
         [HttpGet]
+        [Route("GetAll")]
+        public ActionResult<List<Brand>> GetAll() =>
+            _brandService.GetAll();
+
+        [HttpGet]
         public ActionResult<List<Brand>> Get() =>
             _brandService.Get();
 

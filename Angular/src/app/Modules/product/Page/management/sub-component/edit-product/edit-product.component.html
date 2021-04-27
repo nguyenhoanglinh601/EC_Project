@@ -16,16 +16,88 @@
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
+                                    <strong>Loại sản phẩm</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" value="Sản phẩm đơn"
+                                *ngIf="productDetail.product_single" disabled />
+                            <input type="text" class="form-control" value="Bộ sản phẩm"
+                                *ngIf="productDetail.product_set" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
                                     <strong>Tên sản phẩm</strong>
                                 </h2>
                             </label>
                         </div>
                         <div class="col-lg-9 col-md-8">
                             <input type="text" class="form-control" id="name-edit"
-                                value="{{this.productDetail.name}}" />
+                                value="{{productDetail.name}}" />
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="!productDetail.product_single && products!=undefined">
+                        <div class="col-lg-3">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Danh sách sản phẩm</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 div-product-list">
+                            <div class="form-check border rounded p-0" *ngFor="let product of products">
+                                <div class="row">
+                                    <div class="col-md-3 col-3 p-0">
+                                        <img class="img-fluid" src="{{product.thumbnail}}" />
+                                    </div>
+                                    <div class="col-md-3 col-4 ">
+                                        <p class="text-name">{{product.name}}</p>
+                                    </div>
+                                    <div class="col-md-1 d-none d-lg-block ">
+                                        <p class="m-0 mt-lg-5 mt-4">{{product.quantity}}</p>
+                                    </div>
+                                    <div class="col-md-2 d-none d-md-block ">
+                                        <p class="text-price">{{convertPrice(product.price)}}đ</p>
+                                    </div>
+                                    <div class="col-md-2 col-3 d-flex p-0">
+                                        <p class="text-multiple">x</p>
+                                        <input type="number" class="form-control text-number mx-2 p-0" id="quantityPick_{{product._id}}">
+                                    </div>
+                                    <div class="col-md-1 col-1 pr-lg-3 p-0 text-center">
+                                        <i class="fas fa-plus-square text-info text-plus" style="font-size:25px;" (click)="addProductSet(product)"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 border" *ngFor="let product of set_detail">
+                            <div class="row border">
+                                <div class="col-lg-2 col-4 p-0">
+                                    <img class="img-fluid" src="{{product.thumbnail}}">
+                                </div>
+                                <div class="col-lg-8 col-5">
+                                    <div class="row">
+                                        <div class="col-lg-4 pt-1">
+                                            <p class="m-0 mt-4"><strong>{{product.name}}</strong></p>
+                                        </div>
+                                        <div class="col-lg-4 pt-lg-1">
+                                            <p class="m-0 mt-lg-4"><strong>{{convertPrice(product.price)}} x {{product.quantity}}</strong></p>
+                                        </div>
+                                        <div class="col-lg-4 pt-lg-1">
+                                            <p class="m-0 mt-lg-4"><strong>{{convertPrice(product.price*product.quantity)}}đ</strong></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-3">
+                                    <button class="btn btn-danger mt-lg-4 mt-5" (click)="deleteProductInSet(product)">xóa</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row" *ngIf="productDetail.product_single">
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
@@ -40,7 +112,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="productDetail.product_single">
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
@@ -57,7 +129,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="productDetail.product_single">
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
@@ -70,7 +142,7 @@
                                 value="{{productDetail.warranty}}" placeholder="vd: 12 tháng">
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="productDetail.product_single">
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
@@ -83,7 +155,7 @@
                                 placeholder="vd: trắng, đen">
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="productDetail.product_single">
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
@@ -99,7 +171,7 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="productDetail.product_single">
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
@@ -111,7 +183,7 @@
                             <input type="text" class="form-control" value="{{productDetail.sensor}}" id="sensor-edit">
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="productDetail.product_single">
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
@@ -127,15 +199,47 @@
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
+                                    <strong>Thời gian lưu trữ</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="store_time-edit" value="{{productDetail.store_time}}" required />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
+                                    <strong>Thiết bị tương thích</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <select class="form-control" id="compatible_device-edit" multiple>
+                                <option *ngIf="isCheckCompatibleDevice('Máy tính')" selected>Máy tính</option>
+                                <option *ngIf="!isCheckCompatibleDevice('Máy tính')">Máy tính</option>
+                                <option *ngIf="isCheckCompatibleDevice('Điện thoại')" selected>Điện thoại</option>
+                                <option *ngIf="!isCheckCompatibleDevice('Điện thoại')">Điện thoại</option>
+                                <option *ngIf="isCheckCompatibleDevice('Máy tính bảng')" selected>Máy tính bảng</option>
+                                <option *ngIf="!isCheckCompatibleDevice('Máy tính bảng')">Máy tính bảng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
                                     <strong>Tính năng nổi bật</strong>
                                 </h2>
                             </label>
                         </div>
                         <div class="col-lg-9 col-md-8">
-                            <textarea class="form-control" id="feature-edit" value="{{productDetail.feature}}"></textarea>
+                            <textarea class="form-control" id="feature-edit"
+                                value="{{productDetail.feature}}"></textarea>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="productDetail.product_single">
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
@@ -157,11 +261,11 @@
                             </label>
                         </div>
                         <div class="col-lg-9 col-md-8">
-                            <textarea class="form-control"
-                                id="connect_type-edit" value="{{productDetail.connect_type}}"></textarea>
+                            <textarea class="form-control" id="connect_type-edit"
+                                value="{{productDetail.connect_type}}"></textarea>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" *ngIf="productDetail.product_single">
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
@@ -204,6 +308,19 @@
                         <div class="col-lg-3 col-md-4">
                             <label>
                                 <h2 class="m-0">
+                                    <strong>Giá thị trường</strong>
+                                </h2>
+                            </label>
+                        </div>
+                        <div class="col-lg-9 col-md-8">
+                            <input type="text" class="form-control" id="market_price-edit"
+                                placeholder="Không gồm dấu chấm. vd: 890000" value="{{productDetail.market_price}}">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-lg-3 col-md-4">
+                            <label>
+                                <h2 class="m-0">
                                     <strong>Số lượng tồn</strong>
                                 </h2>
                             </label>
@@ -223,7 +340,7 @@
                         </div>
                         <div class="col-lg-9 col-md-8">
                             <input type="text" class="form-control" id="quantity_sale-edit" placeholder="vd: 25"
-                                value="{{productDetail.quantity_sale}}" required="true" disabled/>
+                                value="{{productDetail.quantity_sale}}" required="true" disabled />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -258,8 +375,8 @@
                             </label>
                         </div>
                         <div class="col-lg-9 col-md-8">
-                            <textarea class="form-control"
-                                id="description-edit" value="{{productDetail.description}}"></textarea>
+                            <textarea class="form-control" id="description-edit"
+                                value="{{productDetail.description}}"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -273,10 +390,10 @@
                         <div class="col-lg-9 col-md-8">
                             <select class="custom-select" id="deliver-edit">
                                 <option selected value="{{productDetail.deliver}}" *ngIf="productDetail.deliver=='có'">
-                                    có phí (đã chọn)</option>
+                                    miễn phí (đã chọn)</option>
                                 <option selected value="{{productDetail.deliver}}"
                                     *ngIf="productDetail.deliver=='không'">
-                                    không (đã chọn)</option>
+                                    có phí (đã chọn)</option>
                                 <option selected value="" *ngIf="productDetail.deliver==''">(chưa chọn)</option>
                                 <option value=""></option>
                                 <option value="có">Miễn phí</option>

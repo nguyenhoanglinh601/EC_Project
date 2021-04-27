@@ -40,7 +40,7 @@ export class ListBrandComponent implements OnInit {
   public getBrands() {
     this.BrandApiService.getBrands().subscribe(data => {
       this.brands = data.map(item => {
-        return new Brand(item._id, item.name, item.thumbnail, item.slogan);
+        return new Brand(item._id, item.name, item.thumbnail, item.slogan, item.status);
       })
     });
   }
@@ -51,17 +51,17 @@ export class ListBrandComponent implements OnInit {
     });
   }
 
-  // public postBrand() {
-  //   this.BrandApiService.postBrand(this.body).subscribe(data => {
-  //     this.brands.push(data);
-  //   })
-  // }
-
   public deleteBrand(data: string) {
     this.BrandApiService.deleleBrand(data).subscribe(data => {
       const index = this.brands.findIndex(Id => Id == data);
       this.brands.splice(index, 1);
     })
+  }
+
+  displayThumbnail(link: string){
+    link = link.replace("file/d/", "thumbnail?id=");
+    link = link.replace("/view?usp=sharing", "");
+    return link;
   }
 
 }

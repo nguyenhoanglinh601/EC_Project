@@ -25,14 +25,19 @@
                 <div class="col-md-8 col-10 d-flex ">
                     <div class="breadcrumb my-2 ">
                         <div class="m-0 d-flex" *ngIf="products[0]!=undefined">
-                            <div>
+                            <div *ngIf="products[0].category!=null">
                                 <i class="fas fa-home"></i>
                                 <i class="fas fa-angle-right mx-1"></i>
                                 {{products[0].category.name}}
                             </div>
-                            <div *ngIf="brand!=''">
+                            <div *ngIf="brand!='' && products[0].brand!=null">
                                 <i class="fas fa-angle-right ml-1"></i>
                                 {{products[0].brand.name}}
+                            </div>
+                            <div *ngIf="products[0].category===null">
+                                <i class="fas fa-home"></i>
+                                <i class="fas fa-angle-right mx-1"></i>
+                                Bộ sản phẩm
                             </div>
                         </div>
                     </div>

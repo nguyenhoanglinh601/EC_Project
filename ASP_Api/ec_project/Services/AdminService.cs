@@ -19,6 +19,11 @@ namespace ec_project.Services
             _admins = database.GetCollection<Admin>(settings.AdminsCollectionName);
         }
 
+        public Admin getAdmin(string phoneNumber, string password)
+        {
+            return _admins.Find<Admin>(a => a.phone_number == phoneNumber && a.password == password).FirstOrDefault();
+        }
+
         public List<Admin> Get() =>
             _admins.Find(admin => true).ToList();
 

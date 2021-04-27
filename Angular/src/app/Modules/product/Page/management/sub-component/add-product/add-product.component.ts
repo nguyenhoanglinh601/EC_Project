@@ -111,7 +111,7 @@ export class AddProductComponent implements OnInit {
     if (this.thumbnail === "") return this.errorMesage = "Hình đại diện không được để trống";
     if (this.images.length < 1) return this.errorMesage = "Sản phẩm cần có ít nhất 1 hình ảnh";
     if (isNaN(parseInt(quantity)) || parseInt(quantity) < 0) return this.errorMesage = "Số lượng sản phẩm không hợp lệ";
-    if (isNaN(parseInt(price)) || parseInt(price) <= 0) return this.errorMesage = "Giá bán không hợp lệ";
+    if (isNaN(parseInt(price)) || parseInt(price) < 0) return this.errorMesage = "Giá bán không hợp lệ";
     if (isNaN(parseInt(market_price)) || parseInt(market_price) < 0) return this.errorMesage = "Giá thị trường không hợp lệ";
 
     let numberOfEmptyElement = 0;
@@ -195,10 +195,6 @@ export class AddProductComponent implements OnInit {
     }
 
     if (confirmValue === true) {
-      // let product = new ("",name,brand,warranty,color,resolution,sensor,lens,feature,power_source,
-      // connect_type,dimension,parseInt(quantity),parseInt(price),quality,this.images,description,deliver,this.thumbnail,category,
-      // status,0);
-      // this.postProduct(product);
       let saved_product = new Product(product);
       console.log(saved_product);
       this.postProduct(saved_product);
@@ -232,7 +228,7 @@ export class AddProductComponent implements OnInit {
     this.isSingleProduct = !this.isSingleProduct;
   }
 
-  public convertPrice(price: number) {
+  convertPrice(price: number) {
     var value = price.toString();
     var result = "";
     var length = value.length;

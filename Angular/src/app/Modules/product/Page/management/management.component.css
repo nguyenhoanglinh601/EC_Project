@@ -36,6 +36,9 @@
 .text-normal{
   font-weight: 300 !important;
 }
+.link:hover{
+  color: navy;
+}
 @media screen and (max-width: 1200px){
     .product-description{
       display: none;

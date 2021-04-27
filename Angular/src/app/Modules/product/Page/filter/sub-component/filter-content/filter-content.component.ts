@@ -73,7 +73,7 @@ export class FilterContentComponent implements OnInit {
     let stringResolution = "";
     let stringCategory = "";
 
-    console.log("length: " + this.brandList.length);
+    // console.log("length: " + this.brandList.length);
 
     if (this.brandList.length > 0) {
       this.brandList.forEach(item => {
@@ -82,7 +82,7 @@ export class FilterContentComponent implements OnInit {
       stringBrand = stringBrand.substring(1);
     }
 
-    console.log("stringBrand: " + stringBrand);
+    // console.log("stringBrand: " + stringBrand);
 
     if (this.resolutionList.length > 0) {
       this.resolutionList.forEach(item => {
@@ -91,7 +91,7 @@ export class FilterContentComponent implements OnInit {
       stringResolution = stringResolution.substring(1);
     }
 
-    console.log("stringResolution: " + stringResolution);
+    // console.log("stringResolution: " + stringResolution);
 
     if (this.categoryList.length > 0) {
       this.categoryList.forEach(item => {
@@ -100,7 +100,7 @@ export class FilterContentComponent implements OnInit {
       stringCategory = stringCategory.substring(1);
     }
 
-    console.log("stringCategory: " + stringCategory);
+    // console.log("stringCategory: " + stringCategory);
 
     this.ProductApiService.searchProducts(this.keyWord, stringBrand, stringResolution, stringCategory).subscribe(data => {
       this.products = data.map(item => {

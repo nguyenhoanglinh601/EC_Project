@@ -21,10 +21,25 @@
 
 <p-sidebar [(visible)]="visibleSidebar" [baseZIndex]="10000">
     <h1>Danh mục quản lý</h1>
-    <h2 class="text-nav d-flex">
-        <a>
+    <h2 class="text-nav d-flex m-0">
+        <a [routerLink]="['/products/management']">
             <i class="fas fa-video icon-nav"></i>
             <strong>Quản lý sản phẩm</strong>
+        </a>
+    </h2>
+    <h2 class="text-nav d-flex m-0 ml-4">
+        <a [routerLink]="['/products/management/brand']">
+            <strong>Danh sách thương hiệu</strong>
+        </a>
+    </h2>
+    <h2 class="text-nav d-flex m-0 ml-4">
+        <a>
+            <strong>Danh sách độ phân giải</strong>
+        </a>
+    </h2>
+    <h2 class="text-nav d-flex ml-4">
+        <a>
+            <strong>Danh sách thể loại</strong>
         </a>
     </h2>
     <h2 class="text-nav d-flex">

@@ -13,6 +13,7 @@
 .text-price{
     font-size: 40px;
     color: rgb(20, 53, 195);
+    line-height: 0.8;
 }
 .text-name{
     font-size: 28px;

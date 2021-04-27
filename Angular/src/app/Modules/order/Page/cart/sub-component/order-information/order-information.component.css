@@ -15,6 +15,10 @@
     background-color: rgba(20, 53, 195, 0.08);
     border-color: rgb(20, 53, 195) !important;
 }
+.unselected-payment{
+    background-color: auto;
+    border-color: auto;
+}
 .btn-order{
     background-color: rgb(20, 53, 195);
     border-color: rgb(20, 53, 195);

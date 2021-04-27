@@ -74,16 +74,19 @@
                             <div class="p-2 mt-2 border rounded" *ngIf="location=='showroom'">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="showroomInfo" id="showroom1"
-                                        value="212/58 Thoại Ngọc Hầu, Phường Phú Thạnh, Quận Tân Phú, Hồ Chí Minh" checked="true">
+                                        value="212/58 Thoại Ngọc Hầu, Phường Phú Thạnh, Quận Tân Phú, Hồ Chí Minh"
+                                        checked="true">
                                     <label class="form-check-label" for="showroom1">
-                                        <b>Showroom 1:</b> 212/58 Thoại Ngọc Hầu, Phường Phú Thạnh, Quận Tân Phú, Hồ Chí Minh
+                                        <b>Showroom 1:</b> 212/58 Thoại Ngọc Hầu, Phường Phú Thạnh, Quận Tân Phú, Hồ Chí
+                                        Minh
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="showroomInfo" id="showroom2"
                                         value="158/31M Xuân Thới Thượng 31, Xã Xuân Thới Thượng, Huyện Hóc Môn, Hồ Chí Minh">
                                     <label class="form-check-label" for="showroom2">
-                                        <b>Showroom 2:</b> 158/31M Xuân Thới Thượng 31, Xã Xuân Thới Thượng, Huyện Hóc Môn, Hồ Chí Minh
+                                        <b>Showroom 2:</b> 158/31M Xuân Thới Thượng 31, Xã Xuân Thới Thượng, Huyện Hóc
+                                        Môn, Hồ Chí Minh
                                     </label>
                                 </div>
                             </div>
@@ -102,10 +105,9 @@
                         <h2 class="title m-0">Phương thức thanh toán</h2>
                         <p class="mb-0 ml-1">Thông tin thanh toán của bạn sẽ luôn được bảo mật</p>
                         <div class="row mx-2 mt-2">
-                            <div class="col-lg-* m-1 border rounded selected-payment">
+                            <div class="col-lg-* m-1 paymentMethod border rounded selected-payment" (click)="changePaymentMethod()">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="payment" id="cash" value="cash"
-                                        checked="true">
+                                    <input class="form-check-input" type="radio" name="payment" id="cash" value="cash">
                                     <label class="form-check-label pt-1" for="cash">
                                         <strong>Thanh toán khi nhận hàng</strong>
                                     </label>
@@ -113,7 +115,7 @@
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-lg-* m-1 border rounded">
+                            <div class="col-lg-* m-1 paymentMethod border rounded">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="payment" id="momo" value="momo"
                                         disabled>
@@ -122,12 +124,11 @@
                                     </label>
                                 </div>
                                 <img class="img-payment" src="assets/Images/Payments/momo.png" />
-                                <small class="text-danger ml-3">phương thức thanh toán này hiện tại không khả
-                                    dụng</small>
+                                <small class="text-danger ml-3">Hệ thống đang bảo trì</small>
                             </div>
                         </div>
                         <div class="row mx-2 mt-2">
-                            <div class="col-lg-* m-1 border rounded">
+                            <!-- <div class="col-lg-* m-1 paymentMethod border rounded">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="payment" id="zalopay"
                                         value="zalopay" disabled>
@@ -138,24 +139,39 @@
                                 <img class="img-payment" src="assets/Images/Payments/zalopay.png" />
                                 <small class="text-danger ml-3">phương thức thanh toán này hiện tại không khả
                                     dụng</small>
-                            </div>
-                            <div class="col-lg-* m-1 border rounded">
+                            </div> -->
+                            <div class="col-lg-* m-1 paymentMethod border rounded" (click)="changePaymentMethod()">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="payment" id="credit_cart"
-                                        value="credit_cart" disabled>
+                                        value="credit_cart">
                                     <label class="form-check-label pt-1" for="credit_cart">
-                                        <strong>Thanh toán qua thẻ ngân hàng</strong>
+                                        <strong>Thanh toán qua chuyển khoản ngân hàng</strong>
                                     </label>
                                 </div>
-                                <img class="img-fluid ml-3"
-                                    src="https://phongvu.vn/media/wysiwyg/phongvu/phongvu_v3/banklist.jpg" />
-                                <small class="text-danger ml-3">phương thức thanh toán này hiện tại không khả
-                                    dụng</small>
+                                <!-- <div class="mt-2 pl-4">
+                                    <p class="m-0">
+                                        <strong>Thông tin tài khoản</strong>
+                                    </p>
+                                    <p class="m-0" style="line-height: 1;">
+                                        <strong>Ngân hàng: </strong>
+                                        Vietcombank - Chi nhánh Hùng Vương
+                                    </p>
+                                    <p class="m-0">
+                                        <strong>Chủ tài khoản: </strong>
+                                        Nguyễn Hoàng Linh
+                                    </p>
+                                    <p class="m-0">
+                                        <strong>Số tài khoản: </strong>
+                                        0421000521632
+                                    </p>
+                                </div> -->
+                                <em class="mt-3">Thông tin tài khoản thanh toán được cung cấp sau khi quý khách hoàn tất đặt hàng.</em>
                             </div>
                         </div>
                         <div class="form-check form-check-inline mt-1">
                             <input class="form-check-input" type="checkbox" id="export_bill" value="true">
-                            <label class="form-check-label pt-1" for="export_bill">Xuất hóa đơn cho đơn hàng này.</label>
+                            <label class="form-check-label pt-1" for="export_bill">Xuất hóa đơn cho đơn hàng
+                                này.</label>
                         </div>
                     </div>
 
@@ -164,13 +180,13 @@
                     <div class="w-100">
                         <button type="button" class="btn btn-order w-100" (click)="order()">Đặt
                             hàng</button>
-                      </div>
+                    </div>
                     <div class="alert alert-danger alert-dismissible fade show w-100" role="alert" *ngIf="error">
                         <strong>{{error_message}}!</strong> Vui lòng kiểm tra và nhập lại.
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                          <span aria-hidden="true" (click)="closeMessage()">&times;</span>
+                            <span aria-hidden="true" (click)="closeMessage()">&times;</span>
                         </button>
-                      </div>
+                    </div>
                 </div>
             </form>
         </div>
@@ -187,13 +203,15 @@
             </div>
             <div class="modal-body">
                 <div class="">
-                    <p class="m-0">Cảm ơn quý khách đã mua sắm tại Camera Hoàng Linh. Hệ thống đã ghi nhận đơn đặt hàng của quý khách.</p>
+                    <p class="m-0">Cảm ơn quý khách đã mua sắm tại Camera Hoàng Linh. Hệ thống đã ghi nhận đơn đặt hàng
+                        của quý khách.</p>
                     <p><b>Mã đơn hàng</b> của quý khách là: {{order_success._id}}</p>
                     <div class="d-flex justify-content-center mt-2">
                         <a class="text-primary text-center w-100"><i>Xem thông tin đơn hàng</i></a>
                     </div>
                     <div class="d-flex justify-content-center mt-2">
-                        <a class="btn btn-secondary" [routerLink]="['']" data-dismiss="modal" (click)="scrollToTop()">Tiếp tục mua sắm</a>
+                        <a class="btn btn-secondary" [routerLink]="['']" data-dismiss="modal"
+                            (click)="scrollToTop()">Tiếp tục mua sắm</a>
                     </div>
                 </div>
             </div>

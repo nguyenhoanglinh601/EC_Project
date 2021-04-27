@@ -20,7 +20,7 @@ export class OrderInformationComponent implements OnInit {
 
   @Input() cart = new Array<ItemCart>();
 
-  constructor(private OrderApiServices: OrderApiService, private LocalStorageService: LocalStorageService) { }
+  constructor(private OrderApiServices: OrderApiService, private LocalStorageService: LocalStorageService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -59,27 +59,27 @@ export class OrderInformationComponent implements OnInit {
       street = (<HTMLInputElement>document.getElementById("street")).value;
       home_number = (<HTMLInputElement>document.getElementById("homeNumber")).value;
 
-      if (city == ""){
+      if (city == "") {
         this.error = true;
         this.error_message = "Tỉnh/Thành phố không hợp lệ";
-      } 
+      }
 
       if (district == "") {
         this.error = true;
         this.error_message = "Quận/Huyện không hợp lệ";
       }
 
-      if (ward == ""){
+      if (ward == "") {
         this.error = true;
         this.error_message = "Phường/Xã không hợp lệ";
       }
 
-      if (street == ""){
+      if (street == "") {
         this.error = true;
         this.error_message = "Tên đường không hợp lệ";
       }
 
-      if (home_number == ""){
+      if (home_number == "") {
         this.error = true;
         this.error_message = "Số nhà không hợp lệ";
       }
@@ -119,27 +119,39 @@ export class OrderInformationComponent implements OnInit {
 
   order() {
     let info = this.getOrderInfo();
-    let customer_id=localStorage.getItem("customer_id") + "";
-    let time=new Date();
-    let order_info = new Order("",customer_id, info.location_home, info.location_showroom, info.name, info.phone_number, info.email,
+    let customer_id = localStorage.getItem("customer_id") + "";
+    let time = new Date();
+    let order_info = new Order("", customer_id, info.location_home, info.location_showroom, info.name, info.phone_number, info.email,
       info.city, info.district, info.ward, info.street, info.home_number, info.showroom_info,
       info.note, info.payment_method, info.export_bill, this.cart, time.getTime(), 0, time.getTime(), 1);
 
     if (this.error == false) {
       this.OrderApiServices.postOrder(order_info).subscribe(item => {
-        if(item!=null){
-          this.result=true;
-          this.order_success=item;
+        if (item != null) {
+          this.result = true;
+          this.order_success = item;
 
-          let cart_length = parseInt(localStorage.getItem("cart_item_quantity")+"");
-          for(let i=1; i<=cart_length; i++){
-            localStorage.removeItem("cart_"+i);
+          let cart_length = parseInt(localStorage.getItem("cart_item_quantity") + "");
+          for (let i = 1; i <= cart_length; i++) {
+            localStorage.removeItem("cart_" + i);
           }
-          localStorage.setItem("cart_item_quantity","0");
+          localStorage.setItem("cart_item_quantity", "0");
 
           this.LocalStorageService.shareCartItemQuantity("0");
         }
       })
+      
+      let divModal = (<HTMLElement>document.getElementById("order-information"));
+      document.getElementsByTagName("body")[0].classList.toggle("modal-open");
+      divModal.classList.toggle("show");
+      divModal.setAttribute("style", "display: none;");
+      divModal.removeAttribute("aria-modal");
+      divModal.removeAttribute("role");
+      divModal.setAttribute("aria-hidden", "true");
+      (<HTMLElement>document.getElementsByClassName("modal-backdrop")[0]).remove();
+
+      this.router.navigateByUrl("/search-order");
+      this.scrollToTop();
     }
   }
 
@@ -147,7 +159,18 @@ export class OrderInformationComponent implements OnInit {
     this.error = false;
   }
 
-  scrollToTop(){
+  scrollToTop() {
     window.scrollTo(0, 0);
+  }
+
+  changePaymentMethod() {
+    let paymentMethods = document.getElementsByClassName("paymentMethod");
+    for (let i = 0; i < paymentMethods.length; i++) {
+      let paymentMethod = (<HTMLElement>paymentMethods[i]);
+      paymentMethod.classList.remove("selected-payment");
+      if((<HTMLInputElement>paymentMethod.childNodes[0].childNodes[0]).checked){
+        paymentMethod.classList.add("selected-payment");
+      }
+    }
   }
 }

@@ -15,5 +15,6 @@ namespace ec_project.Models
         public string name { get; set; }
         public string thumbnail { get; set; }
         public string slogan { get; set; }
+        public bool status { get; set; }
     }
 }

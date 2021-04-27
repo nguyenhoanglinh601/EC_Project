@@ -17,7 +17,7 @@ export class MenuCategoriesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCategories();
-    this.getBrands(); 
+    this.getBrands();
   }
 
   public getCategories() {
@@ -28,10 +28,10 @@ export class MenuCategoriesComponent implements OnInit {
     });
   }
 
-  public getBrands(){
+  public getBrands() {
     this.BrandApiService.getBrands().subscribe(data => {
-      this.brands = data.map(item=>{
-        return new Brand(item._id,item.name,item.slogan,item.thumbnail);
+      this.brands = data.map(item => {
+        return new Brand(item._id, item.name, item.slogan, item.thumbnail, item.status);
       })
     })
   }

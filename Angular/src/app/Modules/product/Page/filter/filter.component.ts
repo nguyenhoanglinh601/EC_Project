@@ -61,7 +61,7 @@ export class FilterComponent implements OnInit {
   public getBrands() {
     this.BrandApiService.getBrands().subscribe(data => {
       this.brands = data.map(item => {
-        return new Brand(item._id, item.name, item.slogan, item.thumbnail);
+        return new Brand(item._id, item.name, item.slogan, item.thumbnail, item.status);
       })
     })
   }

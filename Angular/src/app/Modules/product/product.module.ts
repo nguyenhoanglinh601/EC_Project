@@ -35,6 +35,7 @@ import { SearchBarComponent } from 'src/app/Share/Layouts/header/Sub-components/
 import {PaginatorModule} from 'primeng/paginator';
 import { AddProductComponent } from './Page/management/sub-component/add-product/add-product.component';
 import { EditProductComponent } from './Page/management/sub-component/edit-product/edit-product.component';
+import { BrandManagementComponent } from './Page/management/sub-component/brand-management/brand-management.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { EditProductComponent } from './Page/management/sub-component/edit-produ
     HeaderAdminComponent,
     SearchBarComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    BrandManagementComponent
   ],
   imports: [
     CommonModule,

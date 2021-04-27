@@ -4,7 +4,9 @@
         <div class="row mb-4 sticky-top bg-white pb-2">
             <div class="col-md-6">
                 <p class="m-0 title my-3">
-                    <strong>Quản lý sản phẩm</strong>
+                    <a class="link" (click)="reload()">
+                        <strong>Quản lý sản phẩm</strong>
+                    </a>
                 </p>
             </div>
             <div class="col-md-6">
@@ -27,7 +29,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="products!=undefined">
             <div class="col-lg-3 col-md-6" *ngFor="let product of products">
                 <a data-toggle="modal" data-target="#editProductModal" (click)="setEditProduct(product)">
                     <mat-card class="card my-2">
@@ -37,11 +39,11 @@
                             <h2 class="m-0 w-100">
                                 {{product.name}}
                             </h2>
-                            <h2 class="m-0 w-100 d-inline-flex">
+                            <h2 class="m-0 w-100 d-inline-flex" *ngIf="product.product_single">
                                 <p class="m-0">
                                     Thương hiệu:&nbsp;
                                 </p>
-                                <p class="m-0 text-normal">
+                                <p class="m-0 text-normal" *ngIf="product.product_single">
                                     {{product.brand.name}}
                                 </p>
                             </h2>
@@ -83,7 +85,7 @@
             </div>
         </div>
     </div>
-    <p-paginator [rows]="numberOfPage" [totalRecords]="totalProducts" pageLinkSize="3" (onPageChange)="paginate($event)" [first]="(currentPage)*numberOfPage"></p-paginator>
+    <p-paginator id="paginator-bar" [rows]="numberOfPage" [totalRecords]="totalProducts" pageLinkSize="3" (onPageChange)="paginate($event)" [first]="(currentPage)*numberOfPage"></p-paginator>
 </div>
 <app-add-product [brands]="brands" [resolutions]="resolutions" [categories]="categories"></app-add-product>
 <app-edit-product [brands]="brands" [resolutions]="resolutions" [categories]="categories" [productDetail]="productDetail" ></app-edit-product>

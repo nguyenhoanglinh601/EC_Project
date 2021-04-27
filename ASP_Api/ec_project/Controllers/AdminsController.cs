@@ -20,6 +20,13 @@ namespace ec_project.Controllers
         }
 
         [HttpGet]
+        [Route("Login")]
+        public ActionResult<Admin> login(string phoneNumber, string password)
+        {
+            return _adminService.getAdmin(phoneNumber, password);
+        }
+
+        [HttpGet]
         public ActionResult<List<Admin>> Get() =>
             _adminService.Get();
 

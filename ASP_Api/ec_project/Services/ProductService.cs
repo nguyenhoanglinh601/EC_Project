@@ -18,40 +18,54 @@ namespace ec_project.Services
             _products = database.GetCollection<Product>(settings.ProductsCollectionName);
         }
 
+        public List<Product> GetForAnalyse(int indexSkip)
+        {
+            return _products.Find(product => true)
+                        .Skip(indexSkip * 12)
+                        .Limit(12)
+                        .SortByDescending(p => p.create_time)
+                        .ToList();
+        }
         public List<Product> GetAll()
         {
-            return _products.Find(p => true).ToList();
+            return _products.Find(product => product.status != "Ngừng kinh doanh" && product.product_single==true)
+                .SortByDescending(p => p.create_time).ToList();
         }
         public long countTotal()
         {
-            return _products.Count(p => true);
+            return _products.Count(product => true);
         }
         public List<Product> Get(int indexSkip)
         {
-            return _products.Find(product => true)
-                        .Skip(indexSkip*4)
-                        .Limit(4)
+            return _products.Find(product => product.status != "Ngừng kinh doanh")
+                        .Skip(indexSkip*12)
+                        .Limit(12)
+                        .SortByDescending(p => p.create_time)
                         .ToList();
         }
 
         public List<Product> GetProductsBestSell(){
-            return _products.Find(product => true).SortByDescending(p => p.quantity_sale).Limit(6).ToList();
+            return _products.Find(product => product.status!="Ngừng kinh doanh").SortByDescending(p => p.quantity_sale).Limit(6).ToList();
         }
             
         public Product Get(string id) =>
             _products.Find<Product>(product => product._id == id).FirstOrDefault();
 
-        public List<Product> Search(string keyWord, string brands, string resolutions, string categories)
+        public List<Product> Search(string keyWord, string brands, string resolutions, string categories, bool product_type)
         {
-            List<Product> searchList = _products.Find(p => true).ToList();
+            List<Product> searchList = new List<Product>();
+            searchList = _products.Find(p => p.product_single==product_type).ToList();
 
             if(keyWord != ""){
-                searchList = _products.Find(p => p.name.ToLower().Contains(keyWord.ToLower())).ToList();
+                searchList = searchList.Where(p => p.name.ToLower().Contains(keyWord.ToLower())).ToList();
             }
 
-            if (brands != "") searchList = Filter(searchList, brands, "brand");
-            if (resolutions != "") searchList = Filter(searchList, resolutions, "resolution");
-            if (categories != "") searchList = Filter(searchList, categories, "category");
+            if (product_type == true)
+            {
+                if (brands != "") searchList = Filter(searchList, brands, "brand");
+                if (resolutions != "") searchList = Filter(searchList, resolutions, "resolution");
+                if (categories != "") searchList = Filter(searchList, categories, "category");
+            }
 
             return searchList;
         }
@@ -64,7 +78,8 @@ namespace ec_project.Services
             {
                 if (filterType == "brand")
                 {
-                    List<Product> tempList = searchList.Where(p => p.brand._id == id).ToList();
+                    List<Product> tempList = new List<Product>();
+                    tempList = searchList.Where(p => p.brand._id == id).ToList();
                     filterList = filterList.Concat(tempList).ToList();
                 }
                 else if (filterType == "resolution")

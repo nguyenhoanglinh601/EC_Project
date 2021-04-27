@@ -71,6 +71,8 @@ import { AddProductComponent } from './Modules/product/Page/management/sub-compo
 import { EditProductComponent } from './Modules/product/Page/management/sub-component/edit-product/edit-product.component';
 import * as $ from 'jquery';
 import * as bootstrap from "bootstrap";
+import { BrandManagementComponent } from 'src/app/Modules/product/Page/management/sub-component/brand-management/brand-management.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -111,7 +113,8 @@ import * as bootstrap from "bootstrap";
     FooterAdminComponent,
     ManagementComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    BrandManagementComponent
   ],
   imports: [
     BrowserModule,

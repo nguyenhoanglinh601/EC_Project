@@ -1,0 +1,22 @@
+.title{
+    font-size: 30px;
+}
+.link:hover{
+    color: navy;
+}
+.div-brand:hover{
+    background-color: darkcyan;
+    color: white;
+    cursor: pointer;
+}
+.img-thumbnail{
+    width: 50%;
+}
+@media screen and (max-width: 600px){
+    .title{
+        font-size: 23px;
+    }
+    .img-thumbnail{
+        width: 100%;
+    }
+}

@@ -12,8 +12,14 @@
                             {{product.name}}
                         </h1>
                         <p class="product-description">{{product.truncateText(product.description,250)}}</p>
-                        <h2 class="d-inline-flex">
+                        <h2 class="d-inline-flex" *ngIf="product.price!=0">
                             {{product.convertPrice(product.price)}}đ
+                            <div class="div-services mx-2">
+                                <img class="img-fluid" src="assets/Icons/shipping.png" />
+                            </div>
+                        </h2>
+                        <h2 class="d-inline-flex" *ngIf="product.price==0">
+                            Liên hệ
                             <div class="div-services mx-2">
                                 <img class="img-fluid" src="assets/Icons/shipping.png" />
                             </div>

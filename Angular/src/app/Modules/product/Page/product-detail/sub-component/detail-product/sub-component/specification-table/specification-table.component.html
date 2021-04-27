@@ -1,7 +1,7 @@
 <div class="" *ngIf="product!=undefined">
     <table class="table table-striped mt-3">
         <tbody>
-            <tr>
+            <tr *ngIf="product.brand!=null">
                 <th>
                     Thương hiệu
                 </th>
@@ -9,7 +9,7 @@
                     {{product.brand.name}}
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="product.warranty!=''">
                 <th>
                     Bảo hành
                 </th>
@@ -17,7 +17,7 @@
                     {{product.warranty}}
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="product.color!=''">
                 <th>
                     Màu
                 </th>
@@ -25,7 +25,7 @@
                     {{product.color}}
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="product.resolution!=null">
                 <th>
                     Độ phân giải
                 </th>
@@ -33,7 +33,7 @@
                     {{product.resolution.name}}
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="product.sensor!=''">
                 <th>
                     Cảm biến
                 </th>
@@ -41,7 +41,7 @@
                     {{product.sensor}}
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="product.lens!=''">
                 <th>
                     Ống kính
                 </th>
@@ -49,7 +49,7 @@
                     {{product.lens}}
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="product.power_source!=''">
                 <th>
                     Nguồn điện
                 </th>
@@ -57,7 +57,7 @@
                     {{product.power_source}}
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="product.connect_type!=''">
                 <th>
                     Kiểu kết nối
                 </th>
@@ -65,7 +65,7 @@
                     {{product.connect_type}}
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="product.dimension!=''">
                 <th>
                     kích thước
                 </th>
@@ -73,12 +73,38 @@
                     {{product.dimension}}
                 </td>
             </tr>
-            <tr>
+            <tr *ngIf="product.quality!=''">
                 <th>
                     Chất lượng hình ảnh
                 </th>
                 <td>
                     {{product.quality}}
+                </td>
+            </tr>
+            <tr *ngIf="product.store_time!=''">
+                <th>
+                    Thời gian lưu trữ
+                </th>
+                <td>
+                    {{product.store_time}}
+                </td>
+            </tr>
+            <tr *ngIf="product.compatible_device.length>0">
+                <th>
+                    Thiết bị tương thích
+                </th>
+                <td>
+                    <p class="m-0" *ngFor="let device of product.compatible_device">{{device}}</p>
+                </td>
+            </tr>
+            <tr *ngIf="product.product_set">
+                <th>
+                    Sản phẩm
+                </th>
+                <td>
+                    <a target="_blank" *ngFor="let item of product.set_detail" [routerLink]="['/product',item._id]">
+                        <p class="m-0 text-info">{{item.quantity}} x {{item.name}}</p>
+                    </a>
                 </td>
             </tr>
         </tbody>

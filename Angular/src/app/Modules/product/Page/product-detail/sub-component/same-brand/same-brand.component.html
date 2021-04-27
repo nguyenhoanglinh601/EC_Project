@@ -16,7 +16,8 @@
                             <h3 class="mb-0 mt-4">
                                 <b>{{product.name}}</b>
                             </h3>
-                            <h3 class="m-0">{{product.convertPrice(product.price)}}đ</h3>
+                            <h3 class="m-0" *ngIf="product.price!=0">{{product.convertPrice(product.price)}}đ</h3>
+                            <h3 class="m-0" *ngIf="product.price==0">Liên hệ</h3>
                         </div>
                     </div>
                 </a>

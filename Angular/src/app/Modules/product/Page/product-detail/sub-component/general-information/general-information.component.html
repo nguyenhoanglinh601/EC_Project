@@ -2,8 +2,7 @@
     <div class="row ">
         <div class="col-md-5 m-0 px-lg-0 ">
             <div class="">
-                <img *ngIf="img!=undefined" class="img-fluid " src="{{img}}"
-                    alt="{{product.name}}">
+                <img *ngIf="img!=undefined" class="img-fluid " src="{{img}}" alt="{{product.name}}">
             </div>
             <hr class="devider m-0">
             <div class="float-left d-flex ">
@@ -18,26 +17,44 @@
                 <h1 class="text-name m-0"><strong>{{product.name}}</strong></h1>
             </div>
             <div class="d-md-flex d-block">
-                <p class="text-small m-0">Thương hiệu: <a><b>{{product.brand.name}}</b></a></p>
-                <p class="text-small m-0 d-md-block d-none">&nbsp;| SKU: {{product._id}}</p>
+                <p class="text-small m-0 d-md-block d-none">SKU: {{product._id}} &nbsp;</p>
+                <p class="text-small m-0" *ngIf="product.brand!=null">| Thương hiệu:
+                    <a><b>{{product.brand.name}}</b></a>
+                </p>
             </div>
             <div>
-                <p class="text-product-quantity" *ngIf="product.quantity>0">Còn {{product.quantity}} sản phẩm (liên hệ số hotline khi cần đặt thêm hàng)
+                <p class="text-product-quantity"
+                    *ngIf="product.quantity>0 && product.status!='Ngừng kinh doanh' && product.status!='Sắp nhập hàng'">
+                    Còn {{product.quantity}} sản phẩm (liên hệ số hotline khi cần đặt thêm hàng)
                 </p>
             </div>
-            <div class="row">
-                <p class="text-price my-4"><strong>{{convertPrice(product.price)}}đ</strong></p>
+            <div class="row my-4">
+                <p class="text-price m-0" *ngIf="product.price!=0"><strong>{{convertPrice(product.price)}}đ</strong></p>
+                <p class="text-price m-0" *ngIf="product.price==0"><strong>Liên hệ</strong></p>
+                <p class="text-price m-0" *ngIf="product.status=='Sắp nhập hàng'">
+                    <em style="font-size: 24px;">(Sắp nhập hàng)</em>
+                </p>
             </div>
             <div class="row mb-3">
-                <strong class="text-small">Tính năng nổi bật: </strong>
-                <p class="text-small" *ngFor="let line of lineBreak(product.feature)">
-                    {{clearLine(line)}}
+                <div *ngIf="product.feature!=''">
+                    <strong class="text-small">Tính năng nổi bật: </strong>
+                    <p class="text-small" *ngFor="let line of lineBreak(product.feature)">
+                        {{clearLine(line)}}
+                    </p>
+                </div>
+                <p class="text-small" *ngIf="product.lens!=''"><strong>Ống kính: </strong>{{product.lens}}</p>
+                <p class="text-small" *ngIf="product.quality!=''"><strong>Chất lượng hình ảnh:
+                    </strong>{{product.quality}}
                 </p>
-                <p class="text-small"><strong>Ống kính: </strong>{{product.lens}}</p>
-                <p class="text-small"><strong>Chất lượng hình ảnh: </strong>{{product.resolution.name}}</p>
+                <div class="text-small" *ngIf="product.product_set">
+                    <strong>Bộ sản phẩm gồm: </strong><br>
+                    <a target="_blank" *ngFor="let item of product.set_detail" [routerLink]="['/product',item._id]">
+                        <p class="m-0 text-info">{{item.quantity}} x {{item.name}}</p>
+                    </a>
+                </div>
             </div>
             <hr class="devider m-0">
-            <div class="row  my-3" *ngIf="product.quantity>0">
+            <div class="row  my-3" *ngIf="product.quantity>0 && product.status!='Ngừng kinh doanh' && product.price!=0">
                 <div class="col-lg-6 my-lg-0 my-md-1 my-2">
                     <button pButton pRipple type="button" label="MUA NGAY"
                         class="p-button-raised button-sell w-100"></button>
@@ -47,20 +64,21 @@
                         class="p-button-raised button-add-cart w-100" (click)="addCart(product._id)"></button>
                 </div>
             </div>
-            <div class="row my-3 text-danger" *ngIf="product.quantity==0">
-                <div *ngIf="product.status!='ngừng kinh doanh'">
+            <div class="row my-3 text-danger">
+                <div *ngIf="product.status!='Ngừng kinh doanh' && product.quantity==0">
                     <h1 class="m-0">SẢN PHẨM TẠM HẾT HÀNG</h1>
                     <p>liên hệ số hotline để biết thên thông tin</p>
                 </div>
-                <div *ngIf="product.status=='ngừng kinh doanh'">
+                <div *ngIf="product.status=='Ngừng kinh doanh'">
                     <h1 class="m-0">SẢN PHẨM ĐÃ NGỪNG KINH DOANH</h1>
                 </div>
-            </div> 
+            </div>
             <div class="row mt-lg-3">
                 <b>Khuyến mãi liên quan</b>
                 <div class=" pl-5">
                     <p class="mb-0" style="padding-left: 20px;">&#9679; Nhập mã <b>PV300</b> giảm thêm 5% tối đa <b
-                            style="color: red;">300.000đ</b> khi thanh toán qua VNPAY-QR. <a style="color: deepskyblue;">Xem chi tiết</a>
+                            style="color: red;">300.000đ</b> khi thanh toán qua VNPAY-QR. <a
+                            style="color: deepskyblue;">Xem chi tiết</a>
                     </p>
                     <p class="mb-0" style="padding-left: 20px;">&#9679; [Thông báo] Lưu ý khách hàng về ảnh hưởng vận
                         chuyển bởi dịch Covid. <a style="color: deepskyblue;">Xem chi tiết</a>

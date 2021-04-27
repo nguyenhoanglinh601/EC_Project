@@ -21,7 +21,7 @@
                 <mat-label>Mật khẩu</mat-label>
                 <input matInput type="password" name="password" id="password">
             </mat-form-field>
-            <!-- <p class="m-0 my-1 text-danger text-center" *ngIf="result==false">Họ tên hoặc số điện thoại không đúng</p> -->
+            <p class="m-0 my-1 text-danger text-center" *ngIf="!result">Họ tên hoặc số điện thoại không đúng</p>
             <button class="btn btn-outline-info w-75" (click)="login()">Đăng nhập</button>
         </div>
         <div class="mt-4 d-flex justify-content-center">

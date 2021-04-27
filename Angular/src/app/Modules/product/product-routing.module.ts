@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FilterComponent } from './Page/filter/filter.component';
 import { HomeComponent } from './Page/home/home.component';
 import { ManagementComponent } from './Page/management/management.component';
+import { BrandManagementComponent } from './Page/management/sub-component/brand-management/brand-management.component';
 import { ProductDetailComponent } from './Page/product-detail/product-detail.component';
 
 const routes: Routes = [
@@ -21,7 +22,10 @@ const routes: Routes = [
       {path: ":category/:brand", component: FilterComponent}
     ]
   },
-  {path: "products/management", component: ManagementComponent}
+  {path: "products/management", children: [
+    {path: "", component: ManagementComponent},
+    {path: "brand", component: BrandManagementComponent}
+  ]}
 ];
 
 @NgModule({

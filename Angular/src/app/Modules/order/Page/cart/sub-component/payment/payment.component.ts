@@ -30,12 +30,11 @@ export class PaymentComponent implements OnInit {
     return result;
   }
 
-  isLogin(){
-    let customer_id=localStorage.getItem("customer_id");
-    if(customer_id==null){
-      this.router.navigate(['/login']);
-    }
-  }
+  // isLogin(){
+  //   let customer_id=localStorage.getItem("customer_id");
+  //   if(customer_id==null){
+  //     this.router.navigate(['/login']);
+  //   }
+  // }
 
-  
 }

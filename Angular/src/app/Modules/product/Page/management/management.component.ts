@@ -1,5 +1,6 @@
 import { TypeCheckScopeRegistry } from '@angular/compiler-cli/src/ngtsc/scope';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { BrandApiService } from 'src/app/Data/Services/brand-api.service';
 import { CategoriesApiService } from 'src/app/Data/Services/categories-api.service';
 import { ProductApiService } from 'src/app/Data/Services/product-api.service';
@@ -17,7 +18,7 @@ import { Resolution } from 'src/app/Data/Types/Resolution';
 export class ManagementComponent implements OnInit {
   productDetail!: Product;
   products!: Array<Product>;
-  numberOfPage: number = 4;
+  numberOfPage: number = 12;
   totalProducts!: number;
   currentPage: number = 0;
   brands!: Array<Brand>;
@@ -27,8 +28,11 @@ export class ManagementComponent implements OnInit {
     private ProductApiService: ProductApiService,
     private BrandApiService: BrandApiService,
     private ResolutionApiService: ResolutionApiService,
-    private CategoryApiService: CategoriesApiService
-    ) { }
+    private CategoryApiService: CategoriesApiService,
+    private router: Router
+  ) { 
+    if(sessionStorage.getItem("admin_id")===null) this.router.navigateByUrl("/admin/login")
+  }
 
   ngOnInit(): void {
     this.getProductsTotal();
@@ -38,35 +42,36 @@ export class ManagementComponent implements OnInit {
     this.getResolutions();
   }
 
-  getProductsTotal(){
+  getProductsTotal() {
     this.ProductApiService.countProductsTotal().subscribe(total => {
-      this.totalProducts=total;
+      this.totalProducts = total;
     })
   }
 
   getProducts(currentPage: number) {
-    this.ProductApiService.getProductsByPage(currentPage).subscribe(products => {
+    this.ProductApiService.getProductsByPageForAnalyse(currentPage).subscribe(products => {
       this.products = products;
       this.highlightSelectedPage(this.currentPage);
-      window.scrollTo(0,0);
+      window.scrollTo(0, 0);
+    })
+
+  }
+
+  getBrands() {
+    this.BrandApiService.getBrands().subscribe(brands => {
+      this.brands = brands;
     })
   }
 
-  getBrands(){
-    this.BrandApiService.getBrands().subscribe(brands =>{
-      this.brands=brands;
-    })
-  }
-
-  getCategories(){
+  getCategories() {
     this.CategoryApiService.getCategories().subscribe(categories => {
-      this.categories=categories;
+      this.categories = categories;
     })
   }
 
-  getResolutions(){
+  getResolutions() {
     this.ResolutionApiService.getResolutions().subscribe(resolutions => {
-      this.resolutions=resolutions;
+      this.resolutions = resolutions;
     })
   }
 
@@ -87,23 +92,35 @@ export class ManagementComponent implements OnInit {
     return result;
   }
 
-  search(){}
+  search() {
+    let keyWord = (<HTMLInputElement>document.getElementById("key_word")).value;
+    if(keyWord!==""){
+      this.ProductApiService.searchProducts(keyWord,"","","").subscribe(products => {
+        this.products=products;
+        (<HTMLElement>document.getElementById("paginator-bar")).setAttribute("style","display: none;")
+        window.scrollTo(0,0);
+      })
+    }
+  }
 
   paginate(event: any) {
-    console.log(event);
-    this.currentPage=event.page;
+    this.currentPage = event.page;
     this.getProducts(this.currentPage);
   }
 
-  highlightSelectedPage(page: number){
+  highlightSelectedPage(page: number) {
     let pageButtonArray = document.getElementsByClassName("p-paginator-page");
-    for(let i=0; i<pageButtonArray.length; i++){
+    for (let i = 0; i < pageButtonArray.length; i++) {
       pageButtonArray[i].classList.remove("p-highlight");
     }
     pageButtonArray[page].classList.add("p-highlight");
   }
 
-  setEditProduct(product: Product){
-    this.productDetail=product;
+  setEditProduct(product: Product) {
+    this.productDetail = product;
+  }
+
+  reload(){
+    location.reload();
   }
 }
