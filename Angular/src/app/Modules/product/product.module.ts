@@ -31,11 +31,20 @@ import { ResultsComponent } from './Page/filter/sub-component/results/results.co
 import { ManagementComponent } from './Page/management/management.component';
 import { HeaderAdminComponent } from 'src/app/Share/Layouts/header-admin/header-admin.component';
 import { SidebarModule } from 'primeng/sidebar';
-import { SearchBarComponent } from 'src/app/Share/Layouts/header/Sub-components/search-bar/search-bar/search-bar.component';
 import {PaginatorModule} from 'primeng/paginator';
 import { AddProductComponent } from './Page/management/sub-component/add-product/add-product.component';
 import { EditProductComponent } from './Page/management/sub-component/edit-product/edit-product.component';
 import { BrandManagementComponent } from './Page/management/sub-component/brand-management/brand-management.component';
+
+import { MenuCategoriesComponent } from 'src/app/Share/Layouts/header/Sub-components/menu-categories/menu-categories.component';
+import { SearchBarComponent } from 'src/app/Share/Layouts/header/Sub-components/search-bar/search-bar/search-bar.component';
+import { MatMenuModule } from '@angular/material/menu';
+import { IntroduceComponent } from './Page/home/sub-component/introduce/introduce.component';
+import { FeedbackComponent } from './Page/home/sub-component/feedback/feedback.component';
+import { GeneralCarouselComponent } from './Page/home/sub-component/general-carousel/general-carousel.component';
+import { ListCameraWifiComponent } from './Page/home/sub-component/list-camera-wifi/list-camera-wifi.component';
+import { ListCameraSetComponent } from './Page/home/sub-component/list-camera-set/list-camera-set.component';
+import { ListSmartKeyComponent } from './Page/home/sub-component/list-smart-key/list-smart-key.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +71,14 @@ import { BrandManagementComponent } from './Page/management/sub-component/brand-
     SearchBarComponent,
     AddProductComponent,
     EditProductComponent,
-    BrandManagementComponent
+    BrandManagementComponent,
+    MenuCategoriesComponent,
+    IntroduceComponent,
+    FeedbackComponent,
+    GeneralCarouselComponent,
+    ListCameraWifiComponent,
+    ListCameraSetComponent,
+    ListSmartKeyComponent
   ],
   imports: [
     CommonModule,
@@ -72,7 +88,8 @@ import { BrandManagementComponent } from './Page/management/sub-component/brand-
     MatCardModule,
     RippleModule,
     SidebarModule,
-    PaginatorModule
+    PaginatorModule,
+    MatMenuModule
   ]
 })
 export class ProductModule { }

@@ -8,7 +8,8 @@ import { Brand } from '../../Data/Types/Brand';
   providedIn: 'root'
 })
 export class BrandApiService {
-  ApiUrl="https://hoangphuccamera.somee.com/api/brands";
+  // ApiUrl="https://hoangphuccamera.somee.com/api/brands";
+  ApiUrl="https://localhost:5001/api/brands";
 
   httpOptions = {
     headers: new Headers({ 'Content-Type': 'application/json' })

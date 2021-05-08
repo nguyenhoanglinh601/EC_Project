@@ -1,10 +1,9 @@
 .icon-menu-categories{
-    font-size: 15px;
+    font-size: 26px;
 }
 .title-menu-categories{
-    font-size: 15px;
+    font-size: 16px;
 }
-
 @media screen and (max-width: 576px){
     .icon-menu-categories{
         font-size: 25px;

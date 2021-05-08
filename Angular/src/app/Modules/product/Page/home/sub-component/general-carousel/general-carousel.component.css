@@ -1,0 +1,118 @@
+.common{
+    position: relative;
+    margin-bottom: 2%;
+}
+.catolog-title{
+    font-weight: 500;
+    font-size: 24px;
+}
+.discount{
+    font-size: 22px;
+}
+.discount-value{
+    font-size: 18px;
+    font-weight: 500;
+}
+/* .product-catolog-1{
+    border-radius: 10px;
+    background-image: linear-gradient(125deg, #2a602c, #b2ddb4);
+    position: absolute;
+    width: 18.75%;
+    height: 150px;
+    top: 85%;
+    left: 5%;
+    z-index: 1000;
+    color: white;
+    font-size: 16px;
+}
+.product-catolog-2{
+    border-radius: 10px;
+    background-image: linear-gradient(125deg, #424242, #EEEEEE);
+    position: absolute;
+    width: 18.75%;
+    height: 150px;
+    top: 85%;
+    left: 28.75%;
+    z-index: 1000;
+    color: white;
+    font-size: 16px;
+}
+.product-catolog-3{
+    border-radius: 10px;
+    background-image: linear-gradient(125deg, #232d64, #acb4df);
+    position: absolute;
+    width: 18.75%;
+    height: 150px;
+    top: 85%;
+    left: 52.5%;
+    z-index: 1000;
+    color: white;
+    font-size: 16px;
+}
+.product-catolog-4{
+    border-radius: 10px;
+    background-image: linear-gradient(125deg, #35454c, #bbc7cd);
+    position: absolute;
+    width: 18.75%;
+    height: 150px;
+    top: 85%;
+    left: 76.25%;
+    color: white;
+    font-size: 16px;
+}  */
+.row-catolog{
+    margin-top: -5%;
+}
+.product-catolog-1{
+    border-radius: 10px;
+    background-image: linear-gradient(125deg, #2a602c, #b2ddb4);
+    height: 150px;
+    color: white;
+    font-size: 16px;
+}
+.product-catolog-2{
+    border-radius: 10px;
+    background-image: linear-gradient(125deg, #424242, #EEEEEE);
+    height: 150px;
+    color: white;
+    font-size: 16px;
+}
+.product-catolog-3{
+    border-radius: 10px;
+    background-image: linear-gradient(125deg, #232d64, #acb4df);
+    height: 150px;
+    color: white;
+    font-size: 16px;
+}
+.product-catolog-4{
+    border-radius: 10px;
+    background-image: linear-gradient(125deg, #35454c, #bbc7cd);
+    height: 150px;
+    color: white;
+    font-size: 16px;
+}
+.carousel-title{
+    font-size: 50px;
+    color: #009688;
+}
+.carousel-slogan{
+    font-size: 40px;
+    color: #009688;
+}
+.caption{
+    margin-bottom: 5%;
+}
+@media screen and (max-width: 1200px){
+    .product-catolog-1, .product-catolog-2, .product-catolog-3, .product-catolog-4{
+        height: 220px;
+        line-height: 1.2;
+    }
+    .row-catolog{
+        margin-top: 2%;
+    }
+}
+@media screen and (max-width: 1000px){
+    .product-catolog-1, .product-catolog-2, .product-catolog-3, .product-catolog-4{
+        height: 160px;
+    }
+}

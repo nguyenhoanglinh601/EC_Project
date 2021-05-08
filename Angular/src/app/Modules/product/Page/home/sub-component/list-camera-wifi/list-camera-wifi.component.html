@@ -1,0 +1,63 @@
+<div class="container common my-2 py-3">
+    <h2 class="mb-4 d-flex div-title">
+        <p class="m-0 p-2 pr-3 pl-3 title">Camera wifi</p>
+    </h2>
+    <div class="row">
+        <div class="col-lg-3 col-6 px-2" *ngFor="let product of products">
+            <a [routerLink]="['/product', product._id]">
+                <mat-card class="card my-md-2 my-1 pb-0 ">
+                    <img mat-card-image src="{{product.thumbnail}}" alt="{{product.name}}">
+                    <mat-card-content>
+                        <h1 class="d-md-block d-none m-0 mb-2 fix-line-height">
+                            {{product.name}}
+                        </h1>
+                        <h4 class="d-md-none d-block m-0 fix-line-height">
+                            {{product.name}}
+                        </h4>
+                        <p class="product-description m-0">{{product.truncateText(product.description,200)}}</p>
+                        <h2 class="d-md-block d-none fix-line-height text-center mt-0" *ngIf="product.price!=0">
+                            <del class="text-light">
+                                <small>{{product.convertPrice(product.market_price)}}đ</small>
+                            </del>
+                            <div class="d-inline-flex justify-content-center">
+                                <p class="m-0 text-light">
+                                    {{product.convertPrice(product.price)}}đ
+                                </p>
+                                <div class="div-services mx-2">
+                                    <img class="img-fluid" src="assets/Icons/shipping.png" />
+                                </div>
+                            </div>
+                        </h2>
+                        <h3 class="d-md-none d-block fix-line-height text-center" *ngIf="product.price!=0">
+                            <del class="text-light">
+                                <small>{{product.convertPrice(product.market_price)}}đ</small>
+                            </del>
+                            <div class="d-inline-flex justify-content-center">
+                                <p class="m-0 text-light">
+                                    {{product.convertPrice(product.price)}}đ
+                                </p>
+                                <div class="div-services mx-2">
+                                    <img class="img-fluid" src="assets/Icons/shipping.png" />
+                                </div>
+                            </div>
+                        </h3>
+                        <h2 class="d-inline-flex" *ngIf="product.price==0">
+                            Liên hệ
+                            <div class="div-services mx-2">
+                                <img class="img-fluid" src="assets/Icons/shipping.png" />
+                            </div>
+                        </h2>
+                    </mat-card-content>
+                    <img class="discount-img img-fluid" src="assets/Images/General/discount.png">
+                    <p class="discount-value">
+                        -{{(100-(product.price/product.market_price)*100).toFixed(0)}}%
+                    </p>
+                    <img class="new-img img-fluid" src="assets/Images/General/new.png">
+                </mat-card>
+            </a>
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center" *ngIf="isLoadMore">
+        <button pButton class="btn-load-more mt-4" label="Xem thêm" (click)="loadMoreProduct()"></button>
+    </div>
+</div>

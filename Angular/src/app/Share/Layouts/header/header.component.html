@@ -1,9 +1,9 @@
 <div class="container-fluid p-0 common">
-    <img class="img-fluid"
-        src="https://lh3.googleusercontent.com/scMdiksFUWM2Fq8hDOCoWcIII-LpTvqC78ddZH93ZH0rwuDtURpUKgqwkvPG_AhXSFKVj9KHnGbsgHu595f_zqfaWX5uV7w=w1920-rw" />
+    <!-- <img class="img-fluid"
+        src="https://lh3.googleusercontent.com/scMdiksFUWM2Fq8hDOCoWcIII-LpTvqC78ddZH93ZH0rwuDtURpUKgqwkvPG_AhXSFKVj9KHnGbsgHu595f_zqfaWX5uV7w=w1920-rw" /> -->
     <div class="container ">
         <div class="row ">
-            <div class="col-lg-3 col-md-3 col-9 ">
+            <div class="col-lg-3 col-md-3 text-md-left text-center">
                 <a [routerLink]="['']">
                     <img class="img-fluid" src="../../../../assets/Images/logo.png" />
                 </a>
@@ -11,38 +11,45 @@
             <div class="col-9 float-right m-0 p-0 d-md-flex justify-content-end d-none ">
                 <div class="d-flex justify-content-end px-2 pt-2 ">
                     <h5>
-                        <a href="tel:0961776806">
-                            <i class="fas fa-headset"></i>
-                            <b style="color: #1435c3;"> Tư vấn mua hàng: </b>
-                            <b style="color: #64B5F6;">0961776806</b>
+                        <a class="d-flex" href="tel:0961776806">
+                            <i class="fas fa-headset p-1"></i>
+                            <p class="m-0" style="color: rgb(255, 255, 255); font-size: 14px;"> Tư vấn mua hàng: </p>
+                            <p class="m-0" style="color: rgb(255, 255, 255); font-size: 14px;">0961776806</p>
                         </a>
                     </h5>
                 </div>
                 <div class="d-flex justify-content-end px-2 pt-2 ">
                     <h5>
-                        <a href="tel:0969076447">
-                            <i class="fas fa-phone-volume"></i>
-                            <b style="color: #1435c3;"> CSKH: </b>
-                            <b style="color: #64B5F6;">0969076447</b>
+                        <a class="d-flex" href="tel:0969076447">
+                            <i class="fas fa-phone-volume p-1"></i>
+                            <p class="m-0" style="color: rgb(255, 255, 255); font-size: 14px;"> CSKH: &nbsp;</p>
+                            <p class="m-0" style="color: rgb(255, 255, 255); font-size: 14px;">0969076447</p>
                         </a>
                     </h5>
                 </div>
-                <div class="d-flex justify-content-end px-2 pt-2 ">
+                <div class="justify-content-end px-2 pt-2 d-none d-lg-flex">
                     <h5>
-                        <a>
-                            <i class="fab fa-facebook-square"></i>
-                            <b style="color: #1435c3;"> facebook.com/HoangPhucDigiatal.vn </b>
+                        <a class="d-flex">
+                            <i class="fab fa-facebook-square p-1"></i>
+                            <p class="m-0" style="color: rgb(255, 255, 255); font-size: 14px;">
+                                facebook.com/HoangPhucDigiatal.vn </p>
                         </a>
                     </h5>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-3 col-3 px-0 pt-md-2 ">
-                <app-menu-categories></app-menu-categories>
-            </div>
-            <div class="col-lg-6 col-md-6 ">
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-md-2 p-0 common sticky-top div-navigation">
+    <div class="container ">
+        <div class="row pb-md-1 pb-0">
+            <div class="col-md-6 col-10 px-md-1 pr-0 pb-md-0 pb-2 order-md-2 order-2">
                 <app-search-bar></app-search-bar>
             </div>
-            <div class="col-lg-4 col-md-3 row m-0 p-0 ">
+            <div class="col-lg-2 col-md-3 col-2 px-0 pb-md-0 pb-2 pt-md-2 order-md-1 order-3">
+                <app-menu-categories></app-menu-categories>
+            </div>
+            <div class="col-lg-4 col-md-3 row m-0 p-0 order-md-3 order-1 d-md-flex d-none">
                 <div class="col-lg-3 col-3 pt-lg-2 pt-md-3 pt-2 px-0 ">
                     <a class="link-navigation">
                         <div class="w-100 d-flex justify-content-center">
@@ -53,7 +60,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-3 pt-lg-2 pt-md-3 pt-2 px-0 ">
+                <div class="col-lg-3 col-3 pt-lg-2 pt-md-3 pt-2 px-0">
                     <a class="link-navigation" [routerLink]="['/orders']">
                         <div class="w-100 d-flex justify-content-center">
                             <i class="fas fa-file-invoice-dollar icon-navigation"></i>
@@ -63,7 +70,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-3 pt-lg-2 pt-md-3 pt-2 px-0 ">
+                <div class="col-lg-3 col-3 pt-lg-2 pt-md-3 pt-2 px-0">
                     <a class="link-navigation">
                         <div class="w-100 d-flex justify-content-center">
                             <i class="fas fa-user-circle icon-navigation"></i>
@@ -73,7 +80,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-3 pt-lg-2 pt-md-3 pt-2 px-0 ">
+                <div class="col-lg-3 col-3 pt-lg-2 pt-md-3 pt-2 px-0">
                     <a [routerLink]="['/cart']" class="link-navigation">
                         <div class="w-100 d-flex justify-content-center div-cart">
                             <div class="div-badge" *ngIf="cart_item_quantity!='0'">{{cart_item_quantity}}</div>
@@ -87,5 +94,4 @@
             </div>
         </div>
     </div>
-    <hr class="m-0 mt-2 p-0" style="background-color: blue; height: 2px;">
 </div>

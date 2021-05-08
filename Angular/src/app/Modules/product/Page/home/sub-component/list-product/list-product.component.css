@@ -2,6 +2,27 @@
     max-width: 400px;
     background-color: #444e5c;
     color: #e0e4ea;
+    position: relative;
+}
+.discount-img{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 50px;
+  height: 50px;
+}
+.discount-value{
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  font-size: 18px;
+}
+.new-img{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 50px;
+  height: 50px;
 }
 .card:hover{
   background-color: #126f53;
@@ -26,10 +47,39 @@
 .btn-load-more:hover{
   background-color: #126f53;
 }
-
+.title{
+  background-color: #232d64;
+  color: white;
+  font-size: 500;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+.div-title{
+  border-bottom: 1px solid #232d64;
+}
 @media screen and (max-width: 1200px){
   .product-description{
     display: none;
+  }
+  .new-img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 35px;
+    height: 35px;
+  }
+  .discount-img{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+  }
+  .discount-value{
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    font-size: 18px;
   }
 }
 
@@ -40,8 +90,31 @@
   .btn-load-more{
     width: 30%;
   }
+  .new-img{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 50px;
+    height: 50px;
+  }
+  .discount-img{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 45px;
+    height: 45px;
+  }
+  .discount-value{
+    position: absolute;
+    top: 12px;
+    right: 5px;
+    font-size: 16px;
+  }
 }
-
+.fix-line-height{
+  line-height: 1;
+  margin-top: 5%;
+}
 @media screen and (max-width: 400px){
   .product-description{
     height: 110px;

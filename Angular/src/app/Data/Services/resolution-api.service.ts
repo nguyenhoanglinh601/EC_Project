@@ -8,7 +8,8 @@ import { Resolution } from '../../Data/Types/Resolution';
   providedIn: 'root'
 })
 export class ResolutionApiService {
-  ApiUrl="https://hoangphuccamera.somee.com/api/resolutions";
+  // ApiUrl="https://hoangphuccamera.somee.com/api/resolutions";
+  ApiUrl="https://localhost:5001/api/resolutions";
 
   httpOptions = {
     headers: new Headers({ 'Content-Type': 'application/json' })

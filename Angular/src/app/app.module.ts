@@ -69,9 +69,16 @@ import { ManagementComponent } from './Modules/product/Page/management/managemen
 import {PaginatorModule} from 'primeng/paginator';
 import { AddProductComponent } from './Modules/product/Page/management/sub-component/add-product/add-product.component';
 import { EditProductComponent } from './Modules/product/Page/management/sub-component/edit-product/edit-product.component';
-import * as $ from 'jquery';
-import * as bootstrap from "bootstrap";
+// import * as $ from 'jquery';
+// import * as bootstrap from "bootstrap";
 import { BrandManagementComponent } from 'src/app/Modules/product/Page/management/sub-component/brand-management/brand-management.component';
+import { IntroduceComponent } from 'src/app/Modules/product/Page/home/sub-component/introduce/introduce.component';
+import { FeedbackComponent } from 'src/app/Modules/product/Page/home/sub-component/feedback/feedback.component';
+import { PopupMessageComponent } from './Share/popup-message/popup-message.component';
+import { GeneralCarouselComponent } from 'src/app/Modules/product/Page/home/sub-component/general-carousel/general-carousel.component';
+import { ListCameraWifiComponent } from 'src/app/Modules/product/Page/home/sub-component/list-camera-wifi/list-camera-wifi.component';
+import { ListCameraSetComponent } from 'src/app/Modules/product/Page/home/sub-component/list-camera-set/list-camera-set.component';
+import { ListSmartKeyComponent } from 'src/app/Modules/product/Page/home/sub-component/list-smart-key/list-smart-key.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +121,14 @@ import { BrandManagementComponent } from 'src/app/Modules/product/Page/managemen
     ManagementComponent,
     AddProductComponent,
     EditProductComponent,
-    BrandManagementComponent
+    BrandManagementComponent,
+    IntroduceComponent,
+    FeedbackComponent,
+    PopupMessageComponent,
+    GeneralCarouselComponent,
+    ListCameraWifiComponent,
+    ListCameraSetComponent,
+    ListSmartKeyComponent
   ],
   imports: [
     BrowserModule,

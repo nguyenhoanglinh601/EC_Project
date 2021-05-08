@@ -24,6 +24,7 @@ namespace ec_project.Controllers
         public ActionResult<List<Order>> GetAll(string customer_id) =>
             _orderService.GetAll(customer_id).OrderByDescending(o => o.order_time).ToList();
 
+        [HttpGet]
         [Route("SearchOrder")]
         public ActionResult<List<Order>> Search(string customer_name, string customer_phone_number)
         {

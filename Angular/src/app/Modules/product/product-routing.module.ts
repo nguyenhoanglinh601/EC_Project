@@ -18,6 +18,7 @@ const routes: Routes = [
   //DEFINE ONLY CHILD ROUTE
   { path: "products/filter",
     children: [
+      {path: "brand/:brand", component: FilterComponent},
       {path: ":category", component: FilterComponent},
       {path: ":category/:brand", component: FilterComponent}
     ]

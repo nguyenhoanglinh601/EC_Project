@@ -8,7 +8,8 @@ import { Product } from '../Types/Product';
   providedIn: 'root'
 })
 export class ProductApiService {
-  ApiUrl = "https://hoangphuccamera.somee.com/api/products";
+  // ApiUrl = "https://hoangphuccamera.somee.com/api/products";
+  ApiUrl="https://localhost:5001/api/products";
 
   httpOptions = {
     headers: new Headers({ 'Content-Type': 'application/json' })

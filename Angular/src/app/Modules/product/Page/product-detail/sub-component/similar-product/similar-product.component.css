@@ -19,6 +19,15 @@
     background-color: white;
     border-radius: 10px;
 }
+.title{
+    background-color: #232d64;
+    color: white;
+    font-size: 500;
+    border-top-right-radius: 7px;
+}
+.div-title{
+    border-bottom: 1px solid #232d64;
+}
 @media screen and (max-width: 560px) {
     .thumbnail-product{
         height: 200px;

@@ -19,6 +19,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { OrderListComponent } from './Page/order-list/order-list.component';
 import { OrderDetailComponent } from './Page/order-list/sub-component/order-detail/order-detail.component';
 
+import { MenuCategoriesComponent } from 'src/app/Share/Layouts/header/Sub-components/menu-categories/menu-categories.component';
+import { SearchBarComponent } from 'src/app/Share/Layouts/header/Sub-components/search-bar/search-bar/search-bar.component';
+import { MatMenuModule } from '@angular/material/menu';
+
 @NgModule({
   declarations: [
     CartComponent,
@@ -29,7 +33,9 @@ import { OrderDetailComponent } from './Page/order-list/sub-component/order-deta
     PaymentComponent,
     OrderInformationComponent,
     OrderListComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    MenuCategoriesComponent,
+    SearchBarComponent
   ],
   imports: [
     CommonModule,
@@ -37,7 +43,8 @@ import { OrderDetailComponent } from './Page/order-list/sub-component/order-deta
     // InputNumberModule,
     // FormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatMenuModule
   ]
 })
 export class OrderModule { }

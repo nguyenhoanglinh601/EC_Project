@@ -1,0 +1,13 @@
+.common{
+    background-color: rgb(204, 136, 0);
+    color: cornsilk;
+    font-size: 20px;
+    line-height: 1.2;
+    border-radius: 10px;
+}
+.big-title{
+    font-size: 40px;
+}
+.title{
+    font-size: 30px;
+}

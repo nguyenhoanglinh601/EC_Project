@@ -1,10 +1,12 @@
 <div class="d-flex justify-content-end justify-content-md-start" *ngIf="listCategories!=undefined && brands!=undefined">
-  <button mat-button [matMenuTriggerFor]="categories">
-    <i class="fas fa-bars icon-menu-categories d-md-none pt-3"></i>
-    <b class="d-none d-md-block title-menu-categories">
-      <i class="fas fa-bars icon-menu-categories"></i>
-      Danh mục sản phẩm
-    </b>
+  <button class="px-0" mat-button [matMenuTriggerFor]="categories">
+    <i class="fas fa-bars icon-menu-categories d-md-none pt-2" style="font-size: 35px;"></i>
+    <div class="d-none d-md-flex">
+      <i class="fas fa-bars icon-menu-categories p-1"></i>
+      <p class=" title-menu-categories m-0">
+        Danh mục sản phẩm
+      </p>
+    </div>
   </button>
   <mat-menu #categories="matMenu">
     <div>
@@ -31,7 +33,7 @@
 
   <mat-menu #listbrands="matMenu">
     <div *ngFor="let brand of brands">
-      <a [routerLink]="['/products/filter', listCategories[0]._id, brand._id]" mat-menu-item>{{brand.name}}</a>
+      <a [routerLink]="['/products/filter/brand', brand._id]" mat-menu-item>{{brand.name}}</a>
     </div>
   </mat-menu>
 

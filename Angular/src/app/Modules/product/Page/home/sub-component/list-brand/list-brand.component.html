@@ -1,9 +1,9 @@
-<div class="container common my-3">
+<div class="container common my-3 p-0">
     <p-carousel [value]="brands" styleClass="custom-carousel" [numVisible]="4" [numScroll]="1" [circular]="true"
         [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
         <ng-template pTemplate="header">
-            <h2 class="mt-2 mb-4">
-                <b>Thương hiệu nổi bật</b>
+            <h2 class="mb-3 mt-3 d-flex div-title">
+                <p class="m-0 p-2 pr-3 pl-3 title">Đối tác của chúng tôi</p>
             </h2>
         </ng-template>
         <ng-template let-brand pTemplate="item">

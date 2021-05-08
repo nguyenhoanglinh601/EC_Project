@@ -26,7 +26,16 @@
 .btn-load-more:hover{
   background-color: #126f53;
 }
-
+.title{
+  background-color: #232d64;
+  color: white;
+  font-size: 500;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+.div-title{
+  border-bottom: 1px solid #232d64;
+}
 @media screen and (max-width: 1200px){
   .product-description{
     display: none;

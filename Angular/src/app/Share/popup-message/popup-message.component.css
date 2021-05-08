@@ -1,0 +1,18 @@
+.common{
+    position: fixed;
+    bottom: 35%;
+    right: 2%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+.fb-message{
+    animation-name: rotate;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+@keyframes rotate {
+    0%   {transform: rotate(0deg);}
+    50%  {transform: rotate(15deg);}
+    100%  {transform: rotate(0deg);}
+}

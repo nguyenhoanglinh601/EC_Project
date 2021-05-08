@@ -7,7 +7,8 @@ import { Admin } from '../Types/Admin';
   providedIn: 'root'
 })
 export class AdminApiService {
-  ApiUrl="https://hoangphuccamera.somee.com/api/admins";
+  // ApiUrl="https://hoangphuccamera.somee.com/api/admins";
+  ApiUrl="https://localhost:5001/api/admins";
 
   constructor(private httpClient: HttpClient) { }
 
