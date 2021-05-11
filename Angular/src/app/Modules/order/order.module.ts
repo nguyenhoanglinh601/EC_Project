@@ -22,7 +22,10 @@ import { OrderDetailComponent } from './Page/order-list/sub-component/order-deta
 import { MenuCategoriesComponent } from 'src/app/Share/Layouts/header/Sub-components/menu-categories/menu-categories.component';
 import { SearchBarComponent } from 'src/app/Share/Layouts/header/Sub-components/search-bar/search-bar/search-bar.component';
 import { MatMenuModule } from '@angular/material/menu';
-
+import { OrderManagementComponent } from './Page/order-management/order-management.component';
+import { HeaderAdminComponent } from 'src/app/Share/Layouts/header-admin/header-admin.component';
+import { FooterAdminComponent } from 'src/app/Share/Layouts/footer-admin/footer-admin.component';
+import { OrderDetailManagementComponent } from './Page/order-management/sub-component/order-detail-management/order-detail-management.component';
 @NgModule({
   declarations: [
     CartComponent,
@@ -32,10 +35,14 @@ import { MatMenuModule } from '@angular/material/menu';
     DiscountComponent,
     PaymentComponent,
     OrderInformationComponent,
-    OrderListComponent,
-    OrderDetailComponent,
+    // OrderListComponent,
+    // OrderDetailComponent,
     MenuCategoriesComponent,
-    SearchBarComponent
+    SearchBarComponent,
+    // OrderManagementComponent,
+    HeaderAdminComponent,
+    FooterAdminComponent,
+    // OrderDetailManagementComponent,
   ],
   imports: [
     CommonModule,

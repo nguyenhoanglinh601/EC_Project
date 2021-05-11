@@ -14,7 +14,7 @@
                     <h3 class="m-0 text-warning" *ngIf="order.status==0">ĐƠN HÀNG ĐÃ HỦY</h3>
                     <h3 class="m-0 text-warning" *ngIf="order.status==1">ĐƠN HÀNG ĐANG CHỜ XỬ LÝ</h3>
                     <h3 class="m-0 text-warning" *ngIf="order.status==2">ĐƠN HÀNG CHỜ THANH TOÁN</h3>
-                    <h3 class="m-0 text-warning" *ngIf="order.status==0">ĐƠN HÀNG ĐÃ THANH TOÁN</h3>
+                    <h3 class="m-0 text-warning" *ngIf="order.status==3">ĐƠN HÀNG ĐÃ THANH TOÁN</h3>
                 </div>
                 <div class="row ">
                     <div class="col-lg-6 pl-lg-3 pr-lg-1 px-1">
@@ -109,15 +109,15 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="d-flex justify-content-between">
                             <p class="text-muted m-0">Tổng tiền: </p>
-                            <p class="font-weigth-bold m-0">{{caculateTotal(order.carts)}}đ</p>
+                            <p class="font-weigth-bold m-0">{{caculateTotal(order.carts,0)}}đ</p>
                         </div>
                         <div class="d-flex justify-content-between">
                             <p class="text-muted m-0">Phí vận chuyển: </p>
-                            <p class="font-weigth-bold m-0">{{order.deliver_expense}}đ</p>
+                            <p class="font-weigth-bold m-0">{{(order.deliver_expense).toLocaleString("tr-TR")}}đ</p>
                         </div>
                         <div class="d-flex justify-content-between">
                             <p class="text-muted m-0 pt-1">Thành tiền: </p>
-                            <h3 class="font-weight-bold text-danger m-0">{{caculateTotal(order.carts)}}đ</h3>
+                            <h3 class="font-weight-bold text-danger m-0">{{caculateTotal(order.carts, order.deliver_expense)}}đ</h3>
                         </div>
                     </div>
                 </div>

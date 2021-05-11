@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vPDdKyK6y/cnlLztncS4JKVmkRAzYhOqwP8+F8uB4IlCqhMTvzNaa1KJfgEvMC1kx7gqRKt+SsO3jaF+uBeuIw==",
+  "dgSpecHash": "nwLtlRBqd+9Flp2vffPmJ9RKcgay82/+ZfweRVoc3mqGmCWLrC3c477lc1u5ctCOpZ0uHR4jEu+mlxUWXe0IsA==",
   "success": true,
-  "projectFilePath": "F:\\Project\\Git\\EC_Project_3\\EC_Project\\asp_api\\ec_project\\ec_project.csproj",
+  "projectFilePath": "F:\\Project\\Git\\EC_Project\\ASP_Api\\ec_project\\ec_project.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Asus\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\Asus\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\5.0.4\\microsoft.aspnetcore.jsonpatch.5.0.4.nupkg.sha512",

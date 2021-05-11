@@ -8,13 +8,17 @@ import { Order } from 'src/app/Data/Types/Order';
   providedIn: 'root'
 })
 export class OrderApiService {
-  // ApiUrl = "https://hoangphuccamera.somee.com/api/orders/";
-  ApiUrl="https://localhost:5001/api/orders/";
+  ApiUrl = "https://hoangphuccamera.somee.com/api/orders";
+  // ApiUrl="https://localhost:5001/api/orders";
 
   constructor(private httpClient: HttpClient) { }
 
   public SearchOrders(customer_name: any, customer_phone_number: any): Observable<Order[]> {
-    return this.httpClient.get<Order[]>(this.ApiUrl + "SearchOrder?customer_name=" + customer_name + "&customer_phone_number=" + customer_phone_number);
+    return this.httpClient.get<Order[]>(this.ApiUrl + "/SearchOrder?customer_name=" + customer_name + "&customer_phone_number=" + customer_phone_number);
+  }
+
+  public getAllOrder(): Observable<Order[]> {
+    return this.httpClient.get<Order[]>(this.ApiUrl + "/GetAll");
   }
 
   public getOrder(data: string): Observable<Order> {
@@ -31,6 +35,6 @@ export class OrderApiService {
   }
 
   public updateOrder(body: object, data: string) {
-    return this.httpClient.put(this.ApiUrl + data, body);
+    return this.httpClient.put(this.ApiUrl + "/" + data, body);
   }
 }

@@ -8,8 +8,8 @@ import { Category } from '../Types/Category';
   providedIn: 'root'
 })
 export class CategoriesApiService {
-  // ApiUrl="https://hoangphuccamera.somee.com/api/categories";
-  ApiUrl="https://localhost:5001/api/categories";
+  ApiUrl="https://hoangphuccamera.somee.com/api/categories";
+  // ApiUrl="https://localhost:5001/api/categories";
 
   httpOptions = {
     headers: new Headers({ 'Content-Type': 'application/json' })

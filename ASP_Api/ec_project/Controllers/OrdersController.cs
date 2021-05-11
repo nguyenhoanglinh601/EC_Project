@@ -23,8 +23,8 @@ namespace ec_project.Controllers
 
         [HttpGet]
         [Route("GetAll")]
-        public ActionResult<List<Order>> GetAll(string customer_id) =>
-            _orderService.GetAll(customer_id).OrderByDescending(o => o.order_time).ToList();
+        public ActionResult<List<Order>> GetAll() =>
+            _orderService.GetAll().OrderByDescending(o => o.order_time).ToList();
 
         [HttpGet]
         [Route("SearchOrder")]
@@ -70,6 +70,17 @@ namespace ec_project.Controllers
             if (order == null)
             {
                 return NotFound();
+            }
+
+            if (orderIn.status == 0)
+            {
+                foreach(CartItem item in orderIn.carts)
+                {
+                    Product product = new Product();
+                    product=_productService.Get(item._id);
+                    product.quantity += item.quantity;
+                    _productService.Update(product._id, product);
+                }
             }
 
             _orderService.Update(id, orderIn);

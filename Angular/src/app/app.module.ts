@@ -80,6 +80,8 @@ import { ListCameraWifiComponent } from 'src/app/Modules/product/Page/home/sub-c
 import { ListCameraSetComponent } from 'src/app/Modules/product/Page/home/sub-component/list-camera-set/list-camera-set.component';
 import { ListSmartKeyComponent } from 'src/app/Modules/product/Page/home/sub-component/list-smart-key/list-smart-key.component';
 import { ListRecordDeviceComponent } from 'src/app/Modules/product/Page/home/sub-component/list-record-device/list-record-device.component';
+import { OrderManagementComponent } from './Modules/order/Page/order-management/order-management.component';
+import { OrderDetailManagementComponent } from './Modules/order/Page/order-management/sub-component/order-detail-management/order-detail-management.component';
 
 @NgModule({
   declarations: [
@@ -130,7 +132,9 @@ import { ListRecordDeviceComponent } from 'src/app/Modules/product/Page/home/sub
     ListCameraWifiComponent,
     ListCameraSetComponent,
     ListSmartKeyComponent,
-    ListRecordDeviceComponent
+    ListRecordDeviceComponent,
+    OrderManagementComponent,
+    OrderDetailManagementComponent,
   ],
   imports: [
     BrowserModule,

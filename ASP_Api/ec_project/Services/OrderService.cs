@@ -19,9 +19,9 @@ namespace ec_project.Services
             _orders = database.GetCollection<Order>(settings.OrdersCollectionName);
         }
 
-        public List<Order> GetAll(string customer_id)
+        public List<Order> GetAll()
         {
-            return _orders.Find(order => order.customer_id == customer_id).ToList();
+            return _orders.Find(order => true).ToList();
         }
 
         public List<Order> Search(string customer_name, string customer_phone_number)

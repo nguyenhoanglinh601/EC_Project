@@ -34,15 +34,16 @@ export class OrderDetailComponent implements OnInit {
     return result;
   }
 
-  caculateTotal(cart: Array<ItemCart>) {
+  caculateTotal(cart: Array<ItemCart>, other: number) {
     let total = 0;
     cart.forEach(item => {
       total += item.price * item.quantity;
     });
+    total+=other;
     return this.convertPrice(total);
   }
 
-  convertTime(milliseconds: string) {
+  convertTime(milliseconds: number) {
     let time = new Date(milliseconds);
     return time.getHours() + ":" + time.getMinutes() + ":" + time.getSeconds() + "  " + time.getDate() + "/" + (time.getMonth() + 1) + "/" + time.getFullYear();
   }

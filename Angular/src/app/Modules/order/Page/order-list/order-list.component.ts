@@ -69,7 +69,7 @@ export class OrderListComponent implements OnInit {
     return this.convertPrice(total);
   }
 
-  convertTime(milliseconds: string) {
+  convertTime(milliseconds: number) {
     let time = new Date(milliseconds);
     return time.getDate() + "/" + (time.getMonth()+1) + "/" + time.getFullYear();
   }

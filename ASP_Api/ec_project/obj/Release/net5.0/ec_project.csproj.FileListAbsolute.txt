@@ -27,7 +27,6 @@ F:\Project\Git\EC_Project\ASP_Api\ec_project\bin\Release\net5.0\runtimes\win\nat
 F:\Project\Git\EC_Project\ASP_Api\ec_project\bin\Release\net5.0\runtimes\linux\native\libmongocrypt.so
 F:\Project\Git\EC_Project\ASP_Api\ec_project\bin\Release\net5.0\runtimes\osx\native\libmongocrypt.dylib
 F:\Project\Git\EC_Project\ASP_Api\ec_project\bin\Release\net5.0\runtimes\win\native\mongocrypt.dll
-F:\Project\Git\EC_Project\ASP_Api\ec_project\obj\Release\net5.0\ec_project.csprojAssemblyReference.cache
 F:\Project\Git\EC_Project\ASP_Api\ec_project\obj\Release\net5.0\ec_project.GeneratedMSBuildEditorConfig.editorconfig
 F:\Project\Git\EC_Project\ASP_Api\ec_project\obj\Release\net5.0\ec_project.AssemblyInfoInputs.cache
 F:\Project\Git\EC_Project\ASP_Api\ec_project\obj\Release\net5.0\ec_project.AssemblyInfo.cs
