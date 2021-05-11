@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/Data/Types/Product';
 import { PrimeNGConfig } from 'primeng/api';
 import { LocalStorageService } from 'src/app/Data/Services/local-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-general-information',
@@ -12,7 +13,10 @@ export class GeneralInformationComponent implements OnInit {
   @Input() product: Product | undefined;
   img: string | undefined;
 
-  constructor(private primengConfig: PrimeNGConfig, private LocalStorageService: LocalStorageService) {
+  constructor(
+    private primengConfig: PrimeNGConfig, 
+    private LocalStorageService: LocalStorageService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
@@ -74,6 +78,11 @@ export class GeneralInformationComponent implements OnInit {
     for(let i=1; i<=cart_item_quantity; i++){
       let item_id=localStorage.getItem("cart_"+i);
     }
+  }
+
+  buy(id: string){
+    this.addCart(id);
+    this.router.navigateByUrl('/cart');
   }
 
   lineBreak(content: string){

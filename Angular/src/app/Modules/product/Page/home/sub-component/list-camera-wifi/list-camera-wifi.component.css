@@ -115,11 +115,14 @@
   line-height: 1;
   margin-top: 5%;
 }
-@media screen and (max-width: 400px){
+@media screen and (max-width: 600px){
   .product-description{
     height: 110px;
   }
   .btn-load-more{
     width: 60%;
+  }
+  .div-title{
+    font-size: 15px;
   }
 }

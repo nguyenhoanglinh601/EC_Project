@@ -7,10 +7,13 @@ import { Product } from 'src/app/Data/Types/Product';
   styleUrls: ['./results.component.css']
 })
 export class ResultsComponent implements OnInit {
-  @Input() products!: Product;
+  @Input() products!: Product[];
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  public isNew(create_time: number){
+    return (Date.now()-create_time) < (86400000*30);
+  }
 }

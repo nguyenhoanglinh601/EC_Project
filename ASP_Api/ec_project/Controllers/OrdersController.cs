@@ -13,10 +13,12 @@ namespace ec_project.Controllers
     public class OrdersController : Controller
     {
         private readonly OrderService _orderService;
+        private readonly ProductService _productService;
 
-        public OrdersController(OrderService orderService)
+        public OrdersController(OrderService orderService, ProductService productService)
         {
             _orderService = orderService;
+            _productService = productService;
         }
 
         [HttpGet]
@@ -48,6 +50,14 @@ namespace ec_project.Controllers
         public ActionResult<Order> Create(Order order)
         {
             _orderService.Create(order);
+
+            foreach(CartItem item in order.carts)
+            {
+                Product product = _productService.Get(item._id);
+                product.quantity = product.quantity - item.quantity;
+
+                _productService.Update(product._id, product);
+            }
 
             return CreatedAtRoute("GetOrder", new { id = order._id.ToString() }, order);
         }

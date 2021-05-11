@@ -11,7 +11,7 @@
         <div class="row ">
             <h2 class="pl-3 m-0">
                 <strong *ngIf="cart_items.length>0">Giỏ hàng của bạn có {{cart_items.length}} sản phẩm</strong>
-                <strong *ngIf="cart_items.length==0">Bạn không có sản phẩm trong giỏ hàng</strong>
+                <!-- <strong *ngIf="cart_items.length==0">Bạn không có sản phẩm trong giỏ hàng</strong> -->
             </h2>
             <div class="col-lg-8 my-1 ">
                 <app-item *ngFor="let item of cart_items" [item]="item" (remove_item)="removeItem($event)"
@@ -27,8 +27,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col-12 border rounded bg-white py-2" *ngIf="cart_items.length<=0">
+                <h1 class="text-center font-weight-bold text-warning">
+                    Không có sản phẩm trong giỏ hàng
+                </h1>
+                <a [routerLink]="['']" data-toggle="tooltip" data-placement="top" title="Đi đến trang chủ">
+                    <h2 class="text-center text-primary">
+                        <i>Mua thêm sản phẩm tại Hoàng Phúc Digital...</i>
+                    </h2>
+                </a>
+            </div>
         </div>
     </div>
+    <div class="d-md-none d-block" style="height: 60px;"></div>
     <app-order-information [cart]="cart_items"></app-order-information>
     <app-footer></app-footer>
 </div>

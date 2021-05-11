@@ -25,6 +25,7 @@ export class FilterComponent implements OnInit {
   keyWord!: any;
   sub!: any;
 
+  isEmptyProducts: boolean=false;
   constructor(
     private ProductApiService: ProductApiService,
     private BrandApiService: BrandApiService,
@@ -45,6 +46,7 @@ export class FilterComponent implements OnInit {
     if (this.brand == null) this.brand = "";
     if (this.category == null) this.category = "";
     this.ProductApiService.searchProducts(key_word, this.brand, "", this.category).subscribe(data => {
+      this.isEmptyProducts=false;
       this.products = data.map(item => {
         // let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
         // let resolution = new Resolution(item.resolution._id, item.resolution.name);
@@ -54,7 +56,8 @@ export class FilterComponent implements OnInit {
         //   item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category,
         //   item.status, item.quantity_sale);
         return new Product(item);
-      })
+      });
+      if(this.products.length==0) this.isEmptyProducts=true;
     });
   }
 
@@ -100,6 +103,8 @@ export class FilterComponent implements OnInit {
   }
 
   filter(inputProducts: Array<Product>) {
+    this.isEmptyProducts=false;
     this.products = inputProducts;
+    if(this.products.length==0) this.isEmptyProducts=true;
   }
 }

@@ -18,4 +18,12 @@ export class DetailProductComponent implements OnInit {
   openProductDetail(){
     console.log("open");
   }
+
+  lineBreak(content: string){
+    return content.split("\n");
+  }
+
+  clearLine(line: string){
+    return line.replace("\\n","");
+  }
 }

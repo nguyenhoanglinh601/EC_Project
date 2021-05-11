@@ -12,6 +12,7 @@ export class CustomerAuthenticationComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
+    window.scrollTo(0,0);
   }
 
   searchOrder(){
@@ -28,6 +29,7 @@ export class CustomerAuthenticationComponent implements OnInit {
       this.router.navigateByUrl("/orders")
     }
   }
+
   // confirmLogin(){
   //   let phone_number=(<HTMLInputElement>document.getElementById("phone_number")).value;
   //   let password=(<HTMLInputElement>document.getElementById("password")).value;

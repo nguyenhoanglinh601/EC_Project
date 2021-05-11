@@ -12,7 +12,7 @@
             </div>
             <div class="row d-flex ">
                 <div class=" px-lg-1 p-0 order-md-1 order-3">
-                    <app-similar-product></app-similar-product>
+                    <app-similar-product [product]="product"></app-similar-product>
                 </div>
                 <div class=" px-lg-1 p-0 order-md-2 order-1">
                     <app-detail-product [product]="product"></app-detail-product>
@@ -20,10 +20,11 @@
             </div>
             <div class="row ">
                 <div class="col-12 px-lg-1 p-0 ">
-                    <app-same-brand></app-same-brand>
+                    <app-same-brand [product]="product"></app-same-brand>
                 </div>
             </div>
         </div>
     </div>
     <app-footer></app-footer>
 </div>
+<div class="d-md-none d-block" style="height: 60px;"></div>

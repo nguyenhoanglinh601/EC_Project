@@ -9,7 +9,7 @@ import { Product } from '../Types/Product';
 })
 export class ProductApiService {
   // ApiUrl = "https://hoangphuccamera.somee.com/api/products";
-  ApiUrl="https://localhost:5001/api/products";
+  ApiUrl = "https://localhost:5001/api/products";
 
   httpOptions = {
     headers: new Headers({ 'Content-Type': 'application/json' })
@@ -37,20 +37,44 @@ export class ProductApiService {
     return this.httpClient.get<Product[]>(this.ApiUrl + "/GetProductsBestSell");
   }
 
-  public getSimilarProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetProductsBestSell");
+  public getSimilarProducts(singleProduct: boolean, type: string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetSimilarProducts?isSingleProduct=" + singleProduct + "&type=" + type);
   }
 
-  public getSameBrandProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetProductsBestSell");
+  public getSameBrandProducts(brandId: string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetSameBrandProducts?brandId=" + brandId);
   }
 
   public getMoreProducts(indexSkip: number): Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.ApiUrl + "?index=" + indexSkip);
   }
 
+  public getWifiCameras(indexSkip: number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetWifiCameras?indexSkip=" + indexSkip);
+  }
+
+  public getSecureCameras(indexSkip: number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetSecureCameras?indexSkip=" + indexSkip);
+  }
+
+  public getCameraSets(indexSkip: number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetCameraSets?indexSkip=" + indexSkip);
+  }
+
+  public getRecordDevices(indexSkip: number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetRecordDevices?indexSkip=" + indexSkip);
+  }
+
+  public getMoreSingleProducts(type: string, indexSkip: number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetMoreProducts?type=" + type + "&indexSkip=" + indexSkip);
+  }
+
+  public getMoreProductSets(indexSkip: number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/GetMoreProductSets?indexSkip=" + indexSkip);
+  }
+
   public getProduct(data: string): Observable<Product> {
-    return this.httpClient.get<Product>(this.ApiUrl +"/"+ data);
+    return this.httpClient.get<Product>(this.ApiUrl + "/" + data);
   }
 
   public searchProducts(keyWord: string, brands: any, resolutions: any, categories: any): Observable<Product[]> {
@@ -62,8 +86,8 @@ export class ProductApiService {
     return this.httpClient.get<Product[]>(url);
   }
 
-  public getAll(): Observable<Product[]>{
-    return this.httpClient.get<Product[]>(this.ApiUrl+"/getall");
+  public getAll(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(this.ApiUrl + "/getall");
   }
 
   public postProduct(body: object): Observable<Product> {
@@ -75,6 +99,6 @@ export class ProductApiService {
   }
 
   public updateProduct(body: object, data: string) {
-    return this.httpClient.put(this.ApiUrl + "/" +data, body);
+    return this.httpClient.put(this.ApiUrl + "/" + data, body);
   }
 }

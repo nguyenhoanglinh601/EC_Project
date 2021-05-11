@@ -1,13 +1,20 @@
-<div class="container common my-2 py-3">
-    <h2 class="mb-4 d-flex div-title">
-        <p class="m-0 p-2 pr-3 pl-3 title">Khóa cửa thông minh</p>
+<div class="container common my-2 py-3" id="record-device">
+    <h2 class="mb-4 d-flex justify-content-between div-title">
+        <a [routerLink]="['/products/filter/606a62a54665f514bcd9b59f']">
+            <p class="m-0 p-2 pr-3 pl-3 title">Đầu ghi hình</p>
+        </a>
+        <a [routerLink]="['/products/filter/606a62a54665f514bcd9b59f']">
+            <p class="m-0 p-2 pr-3 pl-3">Xem tất cả
+                <i class="fas fa-angle-double-right"></i>
+            </p>
+        </a>
     </h2>
-    <div class="row d-flex justify-content-center" *ngIf="products.length==0; else displaySmartKeys">
+    <div class="row d-flex justify-content-center" *ngIf="products.length==0; else displayRecordDevices">
         <div class="col-lg-2 col-md-3 col-4">
             <img class="img-fluid" src="assets/Images/General/loader.gif" />
         </div>
     </div>
-    <ng-template #displaySmartKeys>
+    <ng-template #displayRecordDevices>
         <div class="row" *ngIf="products!=undefined">
             <div class="col-lg-3 col-6 px-2" *ngFor="let product of products">
                 <a [routerLink]="['/product', product._id]">

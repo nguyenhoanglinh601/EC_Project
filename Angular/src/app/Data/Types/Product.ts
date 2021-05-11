@@ -106,7 +106,7 @@ export class Product {
     quantity_sale: number;
     create_time: number;
     edit_time: number;
-    modifiers: Admin[];
+    modifiers: string[];
 
     constructor(object: any) {
         this._id = object._id;

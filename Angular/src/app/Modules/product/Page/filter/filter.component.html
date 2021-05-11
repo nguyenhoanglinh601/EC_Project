@@ -2,28 +2,40 @@
     <app-header></app-header>
     <div class="container " *ngIf="products!=undefined">
         <!-- FOR SEARCH PRODUCTS -->
-        <div class="mt-2 d-flex justify-content-between" *ngIf="keyWord!=null; else for_filter">
-            <div class="message mb-0" *ngIf="products.length>0; else other_content">
-                <div class="" *ngIf="keyWord!=''; else filterMessage">
-                    Có {{products.length}} kết quả tìm kiếm cho "{{keyWord}}"
+        <div class="mt-2 row" *ngIf="keyWord!=null; else for_filter">
+            <div class="col-7">
+                <div class="message mb-0" *ngIf="products.length>0">
+                    <div class="" *ngIf="keyWord!=''; else filterMessage">
+                        Có {{products.length}} kết quả tìm kiếm cho "{{keyWord}}"
+                    </div>
+                    <ng-template class="" #filterMessage>
+                        Có {{products.length}} sản phẩm phù hợp
+                    </ng-template>
                 </div>
-                <ng-template class="" #filterMessage>
-                    Có {{products.length}} sản phẩm phù hợp
-                </ng-template>
+                <!-- <ng-template #other_content>
+                    <p class="message mt-2 mb-5">Không có sản phẩm phù hợp.</p>
+                </ng-template> -->
             </div>
-            <ng-template #other_content>
-                <p class="message mt-2 mb-5">Không có sản phẩm phù hợp</p>
-            </ng-template>
-            <div class="filter" data-toggle="modal" data-target="#filterModal">
-                <i class="fas fa-filter float-right px-1"></i>
-                <p class="d-md-inline-block d-none float-right">bộ lọc nâng cao</p>
+            <div class="col-5 text-right">
+                <button class="filter border rounded border-danger bg-danger p-2" data-toggle="modal"
+                    data-target="#filterModal" *ngIf="products.length>0">
+                    <i class="fas fa-filter float-right px-1 text-white"></i>
+                    <p class="d-md-inline-block d-none float-right text-white m-0">bộ lọc nâng cao</p>
+                    <p class="d-md-none d-inline-block float-right text-white m-0">bộ lọc</p>
+                </button>
             </div>
+            <!-- <div class="filter border rounded border-danger bg-danger p-2" data-toggle="modal"
+                data-target="#filterModal">
+                <i class="fas fa-filter float-right px-1 text-white"></i>
+                <p class="d-md-inline-block d-none float-right text-white m-0">bộ lọc nâng cao</p>
+            </div> -->
         </div>
+
         <!-- FOR FILTER PRODUCTS -->
         <ng-template #for_filter>
-            <div class="message mb-0" *ngIf="products.length>0; else other_content_1">
+            <div class="message mb-0" *ngIf="products.length>0">
                 <div class="row">
-                    <div class="col-md-8 col-10 d-flex ">
+                    <div class="col-12 d-flex ">
                         <div class="breadcrumb my-2 ">
                             <div class="m-0 d-flex" *ngIf="products[0]!=undefined">
                                 <div *ngIf="products[0].category!=null">
@@ -43,19 +55,29 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-2 ">
+                    <div class="col-7">
+                        <div class="message mb-0" *ngIf="products.length>0">
+                                Có {{products.length}} sản phẩm phù hợp
+                        </div>
+                        <!-- <ng-template #other_content>
+                            <p class="message mt-2 mb-5">Không có sản phẩm phù hợp.</p>
+                        </ng-template> -->
+                    </div>
+                    <div class="col-5">
                         <a [routerLink]="['/products/search','']">
-                            <div class="float-right filter" data-toggle="modal" data-target="#filterModal">
-                                <i class="fas fa-filter float-right px-1 pt-4"></i>
-                                <p class="d-md-inline-block d-none m-0 pt-4">bộ lọc nâng cao</p>
+                            <div class="float-right filter border rounded border-danger p-2 bg-danger"
+                                data-toggle="modal" data-target="#filterModal">
+                                <i class="fas fa-filter float-right px-1 text-white"></i>
+                                <p class="d-md-inline-block d-none m-0 text-white">bộ lọc nâng cao</p>
+                                <p class="d-md-none d-inline-block text-white m-0">bộ lọc</p>
                             </div>
                         </a>
                     </div>
                 </div>
             </div>
-            <ng-template #other_content_1>
+            <!-- <ng-template #other_content_1>
                 <p class="message mt-2 mb-5">Không có sản phẩm phù hợp</p>
-            </ng-template>
+            </ng-template> -->
         </ng-template>
 
         <div class="row ">
@@ -79,11 +101,27 @@
                     </div>
                 </div>
             </div>
-
         </div>
-        <div class="row " *ngIf="products.length>0">
+        <div class="row" style="min-height: 500px;" *ngIf="!isEmptyProducts; else noResult">
             <app-results [products]="products"></app-results>
         </div>
     </div>
+    <ng-template #noResult>
+        <div class="container my-3" style="min-height: 500px;" >
+            <div class="row border rounded bg-white py-2">
+                <h1 class="text-center font-weight-bold text-warning">
+                    Rất tiết! Không tìm thấy sản phẩm phù hợp với lựa chọn của bạn.
+                </h1>
+                <h2 class="text-center">Bạn có thể đặt hàng trực tiếp tại hotline <i>0961776806</i></h2>
+                <h2 class="text-center">Hoặc</h2>
+                <a [routerLink]="['']" data-toggle="tooltip" data-placement="top" title="Đi đến trang chủ">
+                    <h1 class="text-center text-primary">
+                        <i>Khám phá thêm các sản phẩm khác tại Hoàng Phúc Digital...</i>
+                    </h1>
+                </a>
+            </div>
+        </div>
+    </ng-template>
+    <div class="d-md-none d-block" style="height: 60px;"></div>
     <app-footer></app-footer>
 </div>

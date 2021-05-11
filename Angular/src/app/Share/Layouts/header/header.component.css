@@ -2,7 +2,19 @@ a{
     color: rgb(255, 255, 255);
 }
 .icon-navigation{
-    font-size: 20px;
+    width: 30%;
+}
+.icon-navigation-contact{
+    width: 30%;
+}
+.icon-navigation-discount{
+    width: 35%;
+}
+.icon-navigation-cart{
+    width: 23%;
+}
+.icon-navigation-bill{
+    width: 23%;
 }
 .title-navigation{
     font-size: 12px;

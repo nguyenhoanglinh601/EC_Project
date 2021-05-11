@@ -5,6 +5,11 @@
             <h2 class="mb-0 mt-3 d-flex div-title">
                 <p class="m-0 p-2 pr-3 pl-3 title">Sản phẩm tương tự</p>
             </h2>
+            <div class="row mt-2 mx-0 d-flex justify-content-center" *ngIf="products.length==0">
+                <div class="col-lg-2 col-md-3 col-4">
+                    <img class="img-fluid" src="assets/Images/General/loader.gif" />
+                </div>
+            </div>
         </ng-template>
         <ng-template let-product pTemplate="item">
             <div class="product-item mx-2">

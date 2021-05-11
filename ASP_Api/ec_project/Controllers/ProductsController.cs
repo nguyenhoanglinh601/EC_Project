@@ -27,7 +27,7 @@ namespace ec_project.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Product>> Get(int index=0)
+        public ActionResult<List<Product>> Get(int index = 0)
         {
             return _productService.Get(index);
         }
@@ -64,6 +64,62 @@ namespace ec_project.Controllers
             }
 
             return product;
+        }
+
+        [HttpGet]
+        [Route("GetWifiCameras")]
+        public ActionResult<List<Product>> GetWifiCameras(int indexSkip)
+        {
+            return _productService.GetWifiCameras(indexSkip);
+        }
+
+        [HttpGet]
+        [Route("GetSecureCameras")]
+        public ActionResult<List<Product>> GetSecureCameras(int indexSkip)
+        {
+            return _productService.GetSecureCameras(indexSkip);
+        }
+
+        [HttpGet]
+        [Route("GetCameraSets")]
+        public ActionResult<List<Product>> GetCameraSets(int indexSkip)
+        {
+            return _productService.GetCameraSets(indexSkip);
+        }
+
+        [HttpGet]
+        [Route("GetRecordDevices")]
+        public ActionResult<List<Product>> GetRecordDevices(int indexSkip)
+        {
+            return _productService.GetRecordDevices(indexSkip);
+        }
+
+        [HttpGet]
+        [Route("GetMoreProducts")]
+        public ActionResult<List<Product>> GetMoreProducts(string type, int indexSkip)
+        {
+            return _productService.GetMoreProducts(type, indexSkip);
+        }
+
+        [HttpGet]
+        [Route("GetSimilarProducts")]
+        public ActionResult<List<Product>> GetSimilarProducts(bool isSingleProduct, string type)
+        {
+            return _productService.GetSimilarProducts(isSingleProduct, type);
+        }
+
+        [HttpGet]
+        [Route("GetSameBrandProducts")]
+        public ActionResult<List<Product>> GetSameBrandProduct(string brandId)
+        {
+            return _productService.GetSameBrandProducts(brandId);
+        }
+
+        [HttpGet]
+        [Route("GetMoreProductSets")]
+        public ActionResult<List<Product>> GetMoreProductSets(int indexSkip)
+        {
+            return _productService.GetMoreProductSets(indexSkip);
         }
 
         [HttpGet]

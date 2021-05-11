@@ -79,4 +79,8 @@ export class ListSmartKeyComponent implements OnInit {
     });
     sessionStorage.setItem("indexSkipSmartKeyList",this.indexSkipSmartKeyList.toString());
   }
+
+  public isNew(create_time: number){
+    return (Date.now()-create_time) < (86400000*30);
+  }
 }

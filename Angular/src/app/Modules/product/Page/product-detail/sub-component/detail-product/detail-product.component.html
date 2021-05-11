@@ -5,7 +5,9 @@
                 <b>Mô tả sản phẩm</b>
             </h2>
             <div class="py-2 ">
-                <p class="text-description m-0">{{product.description}}</p>
+                <p class="text-description m-0" *ngFor="let line of lineBreak(product.description)">
+                    {{clearLine(line)}}
+                </p>
             </div>
             <div class="d-flex justify-content-center " *ngFor="let img of product.images">
                 <img class="img-fluid" src="{{img}}">

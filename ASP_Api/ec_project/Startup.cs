@@ -30,6 +30,16 @@ namespace ec_project
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // services.AddCors(
+            //     options => options.AddPolicy("MyAllowHeadersPolicy",
+            //     builder =>
+            //     {
+            //         // requires using Microsoft.Net.Http.Headers;
+            //         builder.WithOrigins("https://hoangphucdigital.xyz")
+            //                .WithHeaders(HeaderNames.ContentType, "x-custom-header");
+            //     })
+            // );
+
             services.AddCors(
                 options => options.AddPolicy("MyAllowHeadersPolicy",
                 builder =>
@@ -73,6 +83,13 @@ namespace ec_project
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ec_project v1"));
             }
+
+            // app.UseCors(
+            //     options => options.WithOrigins("https://hoangphucdigital.xyz")
+            //     .AllowAnyMethod()
+            //     .AllowAnyHeader()
+            //     .AllowCredentials()
+            // );
 
             app.UseCors(
                 options => options.WithOrigins("http://localhost:4200")

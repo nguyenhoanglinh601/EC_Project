@@ -100,7 +100,7 @@ export class AddProductComponent implements OnInit {
     let is_single_product, is_product_set;
     let now_time = Date.now();
     let modifier = Array<string>();
-    modifier.push("developer");
+    modifier.push(sessionStorage.getItem("admin_id") + "");
 
     this.errorMesage = "";
 

@@ -45,40 +45,42 @@ import { GeneralCarouselComponent } from './Page/home/sub-component/general-caro
 import { ListCameraWifiComponent } from './Page/home/sub-component/list-camera-wifi/list-camera-wifi.component';
 import { ListCameraSetComponent } from './Page/home/sub-component/list-camera-set/list-camera-set.component';
 import { ListSmartKeyComponent } from './Page/home/sub-component/list-smart-key/list-smart-key.component';
+import { ListRecordDeviceComponent } from './Page/home/sub-component/list-record-device/list-record-device.component';
 
 @NgModule({
   declarations: [
-    HomeComponent,
+    // HomeComponent,
     HeaderComponent,
     FooterComponent,
     ListBrandComponent,
     ListBestSaleComponent,
     ListProductComponent,
-    AdvertisementComponent,
+    // AdvertisementComponent,
     ProductDetailComponent,
-    GeneralInformationComponent,
+    // GeneralInformationComponent,
     PolicyServiceComponent,
     SimilarProductComponent,
     DetailProductComponent,
     SameBrandComponent,
     SpecificationTableComponent,
     SpecificationTableModalComponent,
-    FilterComponent,
+    // FilterComponent,
     FilterContentComponent,
-    ResultsComponent,
-    ManagementComponent,
+    // ResultsComponent,
+    // ManagementComponent,
     HeaderAdminComponent,
     SearchBarComponent,
-    AddProductComponent,
-    EditProductComponent,
-    BrandManagementComponent,
+    // AddProductComponent,
+    // EditProductComponent,
+    // BrandManagementComponent,
     MenuCategoriesComponent,
     IntroduceComponent,
     FeedbackComponent,
     GeneralCarouselComponent,
     ListCameraWifiComponent,
     ListCameraSetComponent,
-    ListSmartKeyComponent
+    ListSmartKeyComponent,
+    ListRecordDeviceComponent
   ],
   imports: [
     CommonModule,

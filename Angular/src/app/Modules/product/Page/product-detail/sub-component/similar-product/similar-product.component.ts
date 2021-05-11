@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Brand } from 'src/app/Data/Types/Brand';
 import { Category } from 'src/app/Data/Types/Category';
 import { Resolution } from 'src/app/Data/Types/Resolution';
@@ -12,7 +12,7 @@ import { Product } from '../../../../../../Data/Types/Product';
 })
 export class SimilarProductComponent implements OnInit {
   products = new Array<Product>();
-  product: Product | undefined;
+  @Input() product!: Product;
   id: any;
 
   responsiveOptions: any;
@@ -39,19 +39,37 @@ export class SimilarProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getSimilarProducts();
+  }
+
+  ngOnChanges(changes: SimpleChanges){
+    if(changes.product.previousValue!=changes.product.currentValue){
+      this.getSimilarProducts();
+    }
   }
 
   public getSimilarProducts() {
-    this.ProductApiService.getSimilarProducts().subscribe(data => {
-      this.products = data.map(item => {
-        // let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
-        // let resolution = new Resolution(item.resolution._id, item.resolution.name);
-        // let category = new Category(item.category._id, item.category.name);
-        // return new Product(item._id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status, item.quantity_sale);
-        return new Product(item);
+    if(this.product.product_single==true){
+      this.ProductApiService.getSimilarProducts(this.product.product_single, this.product.category._id).subscribe(data => {
+        this.products = data.map(item => {
+          // let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
+          // let resolution = new Resolution(item.resolution._id, item.resolution.name);
+          // let category = new Category(item.category._id, item.category.name);
+          // return new Product(item._id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status, item.quantity_sale);
+          return new Product(item);
+        });
       });
-    });
+    }
+    else{
+      this.ProductApiService.getSimilarProducts(this.product.product_single, "").subscribe(data => {
+        this.products = data.map(item => {
+          // let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
+          // let resolution = new Resolution(item.resolution._id, item.resolution.name);
+          // let category = new Category(item.category._id, item.category.name);
+          // return new Product(item._id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status, item.quantity_sale);
+          return new Product(item);
+        });
+      });
+    }
   }
 
   scrollToTop() {

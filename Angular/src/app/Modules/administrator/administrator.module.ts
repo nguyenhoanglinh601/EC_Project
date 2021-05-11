@@ -12,7 +12,7 @@ import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
-    LoginComponent,
+    // LoginComponent,
     HeaderAdminComponent,
     FooterAdminComponent],
   imports: [

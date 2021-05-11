@@ -37,7 +37,7 @@ export class ListCameraSetComponent implements OnInit {
   }
 
   public getProducts() {
-    this.ProductApiService.getProducts().subscribe(data => {
+    this.ProductApiService.getCameraSets(0).subscribe(data => {
       this.products = data.map(item => {
         // let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
         // let resolution = new Resolution(item.resolution._id, item.resolution.name);
@@ -64,7 +64,7 @@ export class ListCameraSetComponent implements OnInit {
   public loadMoreProduct() {
     this.indexSkipCameraSet++;
     let productsLoaded = new Array<Product>();
-    this.ProductApiService.getMoreProducts(this.indexSkipCameraSet).subscribe(data => {
+    this.ProductApiService.getMoreProductSets(this.indexSkipCameraSet).subscribe(data => {
       productsLoaded = data.map(item => {
         // let brand = new Brand(item.brand._id, item.brand.name, item.brand.thumbnail, item.brand.slogan);
         // let resolution = new Resolution(item.resolution._id, item.resolution.name);
@@ -72,11 +72,15 @@ export class ListCameraSetComponent implements OnInit {
         // return new Product(item._id, item.name, brand, item.warranty, item.color, resolution, item.sensor, item.lens, item.feature, item.power_source, item.connect_type, item.dimension, item.quantity, item.price, item.quality, item.images, item.description, item.deliver, item.thumbnail, category, item.status, item.quantity_sale);
         return new Product(item);
       });
-      if (productsLoaded.length < 4) {
+      if (productsLoaded.length < 8) {
         this.isLoadMore = false;
       }
       this.products = this.products.concat(productsLoaded);
     });
     sessionStorage.setItem("indexSkipCameraSet", this.indexSkipCameraSet.toString());
+  }
+
+  public isNew(create_time: number){
+    return (Date.now()-create_time) < (86400000*30);
   }
 }

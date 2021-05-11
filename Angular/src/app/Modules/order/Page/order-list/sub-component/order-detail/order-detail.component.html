@@ -25,9 +25,11 @@
                                 </b>giao hàng tại nhà</p>
                             <p class="m-0" *ngIf="order.location_showroom==true"><b>Phương thức giao hàng:
                                 </b>nhận hàng tại showroom</p>
-                            <p class="m-0"><b>Địa chỉ: </b>{{order.home_number}} {{order.street}}, phường
+                            <p class="m-0" *ngIf="order.location_home==true"><b>Địa chỉ: </b>{{order.home_number}}
+                                {{order.street}}, phường
                                 {{order.ward}},
                                 quận {{order.district}}, thành phố {{order.city}}</p>
+                            <p class="m-0" *ngIf="order.location_showroom==true"><b>Địa chỉ showroom: </b>{{order.showroom_info}}</p>
                             <p class="m-0"><b>Điện thoại: </b>{{order.phone_number}}</p>
                         </div>
                     </div>
